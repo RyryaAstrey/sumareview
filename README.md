@@ -16,9 +16,11 @@
 ## 設計書
 * 実装機能リスト<br>
   https://docs.google.com/spreadsheets/d/15WbkcGvwhhU2Fh03mdQ6PwW3nk2DYUD9TOWsd9iJV0s/edit#gid=1091086188
+* WBS<br>
+  https://docs.google.com/spreadsheets/d/1TpRvruSRggMXMtYjxdriY11ZlMo-tatZdqI2HYJXIjw/edit#gid=1773513600
 
 ## 開発環境
-- OS：Windows11
+- OS：Windows10
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
