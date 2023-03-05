@@ -1,0 +1,2 @@
+class CentralProcessingUnit < ApplicationRecord
+end
