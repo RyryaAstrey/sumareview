@@ -25,6 +25,11 @@ Rails.application.routes.draw do
     resources :capacities, only: [:show]
   end
   
+  devise_for :users,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+  
   
   # 管理者で使用するルーティング
   namespace :admin do
@@ -45,7 +50,8 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
   end
   
-  devise_for :admins
-  devise_for :users
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+    sessions: "admin/sessions"
+  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
