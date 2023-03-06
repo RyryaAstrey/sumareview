@@ -1,2 +1,0 @@
-class Cpu < ApplicationRecord
-end
