@@ -2,6 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :customer_state, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -27,16 +28,14 @@ class Public::SessionsController < Devise::SessionsController
   
   protected
   
-  def after_sign_in_path_for(resource)
-    root_path
-  end
-  
-  def after_sign_out_path_for(resouce)
-    root_path
-  end
-  
-  def after_sign_up_path_for(resouce)
-    root_path
+  # 退会しているかを判断するメソッド
+  def customer_state
+    @user = User.find_by(email: params[:user][:email])
+    return if !@user
+    if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
+      flash[:danger] = "退会済みのアカウントです。<br>再度ご利用になりたい場合は管理人までご連絡ください。"
+        redirect_to request.referer
+    end
   end
   
 end

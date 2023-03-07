@@ -1,0 +1,6 @@
+<!--フラッシュメッセージの部分テンプレート-->
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>">
+    <button type="botton" class="close" data-dismiss="alert">&times;</button><%= sanitize value, tags: %w(br) %>
+  </div>
+<% end %>

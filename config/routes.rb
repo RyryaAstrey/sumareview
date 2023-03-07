@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     # ユーザー関連
     resource :users, only: [:show, :edit, :update] do
       get :check, on: :collection
-      patch :withdrawl, on: :collection
+      patch :withdrawal, on: :collection
     end
     
     # 検索関連
