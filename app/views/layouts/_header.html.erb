@@ -4,8 +4,26 @@
       <a class="navbar-brand py-0" href="/"><%= image_tag 'titlelogo.jpg', size: '192x90' %></a>
       <ul class="navbar-nav ml-auto">
         
+        <!--URLにadminが含まれている場合かつ管理者がログインしている場合、以下を表示-->
+        <% if request.path.match(/\/admin(\/)?/) && admin_signed_in? %>
+          <li>
+            <%= link_to admin_root_path do %>
+              <div class="nav-link text-dark rounded-pill">記事一覧</div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_users_path do %>
+              <div class="nav-link text-dark rounded-pill mr-5"><i class="fas fa-user"></i> 会員一覧</div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete, class:"a-header" do %>
+              <div class="nav-link text-light btn btn-primary btn-sm rounded-0 border-bottom">ログアウト</div>
+            <%end%>
+          </li>
+            
         <!--URLにadminが含まれている場合かつ管理者がログインしていない場合、以下を表示-->
-        <% if request.path.match(/\/admin(\/)?/) %>
+        <% elsif request.path.match(/\/admin(\/)?/) %>
           <li>
             <%= link_to admin_root_path do %>
               <div class="nav-link text-dark rounded-pill"><i class="fas fa-mobile"></i> 記事一覧</div>
@@ -21,50 +39,33 @@
               <div class="nav-link text-light btn btn-primary btn-sm rounded-0 border-bottom">管理者ログイン</div>
             <%end%>
           </li>
-        
-        <!--URLにadminが含まれている場合かつ管理者がログインしている場合、以下を表示-->
-        <% elsif request.path.match(/\/admin(\/)?/) && admin_sighed_in? %>
+          
+        <!--ユーザーがサインインしている場合-->
+        <% elsif user_signed_in? %>
           <li>
-            <%= link_to admin_root_path do %>
-              <div class="nav-link text-dark rounded-pill">記事一覧</div>
+            <%= link_to users_path do %>
+              <div class="nav-link text-light rounded-pill mr-5 btn btn-success btn-sm rounded-0 border-bottom"><%= current_user.name %></div> <!--後程ユーザー名になるよう変更-->
             <% end %>
           </li>
           <li>
-            <%= link_to admin_users_path do %>
-              <div class="nav-link text-dark rounded-pill mr-5"><i class="fas fa-user"></i> 会員一覧</div>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_admin_session_path, class:"a-header" do %>
+            <%= link_to destroy_user_session_path, method: :delete, class:"a-header" do %>
               <div class="nav-link text-light btn btn-primary btn-sm rounded-0 border-bottom">ログアウト</div>
             <%end%>
           </li>
-            
-          <!--ユーザーがサインインしていない場合-->
-        <% elsif %>
+        
+        <!--ユーザーがサインインしていない場合-->
+        <% else %>
           <li>
-            <%= link_to admin_users_path do %>
+            <%= link_to new_user_registration_path do %>
               <div class="nav-link text-light rounded-pill mr-5 btn btn-success btn-sm rounded-0 border-bottom">新規登録</div>
             <% end %>
           </li>
           <li>
-            <%= link_to new_admin_session_path, class:"a-header" do %>
+            <%= link_to new_user_session_path, class:"a-header" do %>
               <div class="nav-link text-light btn btn-primary btn-sm rounded-0 border-bottom">ログイン</div>
             <%end%>
           </li>
           
-        <!--ユーザーがサインインしている場合-->
-        <% else %>
-          <li>
-            <%= link_to admin_users_path do %>
-              <div class="nav-link text-light rounded-pill mr-5 btn btn-success btn-sm rounded-0 border-bottom">マイページ</div> <!--後程ユーザー名になるよう変更-->
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_admin_session_path, class:"a-header" do %>
-              <div class="nav-link text-light btn btn-primary btn-sm rounded-0 border-bottom">ログアウト</div>
-            <%end%>
-          </li>
         <% end %>
       </ul>
     </div>

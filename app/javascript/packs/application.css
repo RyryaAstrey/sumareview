@@ -1,6 +1,26 @@
+/*フッターを画面下に固定する*/
 html, body { height: 100%;}
 
 body > footer {
   position: sticky;
   top: 100vh;
+}
+
+/*装飾*/
+
+header {
+  background-color: #ffffff !important
+}
+
+footer {
+  background-color: #ffffff  !important
+}
+
+body{
+  height: 100%;
+  background-color: #fcfcfc !important
+}
+
+.login-card {
+  width:20%;
 }
