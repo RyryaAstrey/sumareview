@@ -1,2 +1,93 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<div class="container">
+  
+  <div class="row border-bottom border-dark pb-3">
+    <h3><strong>記事の新規登録</strong></h3>
+  </div>
+  
+  <div class="row mt-3">
+    <p><strong>></strong>下記の情報を入力してください。</p>
+  </div>
+  
+  <%= render "layouts/flash" %>
+  <div class="container">
+    <%= form_with model: @user, url: admin_items_path, method: :post do |f| %>
+      
+      <!--基本情報-->
+      <div class="row mt-4">
+        <h5><strong>基本情報</strong></h5>
+        <div class="container mt-3">
+          <div class="card bg-white p-3">
+            <dl class="row">
+              <dt class="col-2 pt-1">機種名</dt>
+              <dd class="col-6"><%= f.text_field :name, class: "form-control", placeholder: "機種名を入力" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">OS</dt>
+              <dd class="col-6"><%= f.collection_select :operation_system_id, OperationSystem.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">メーカー</dt>
+              <dd class="col-6"><%= f.collection_select :maker_id, Maker.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">容量</dt>
+              <dd class="col-6"><%= f.collection_select :capacity_id, Capacity.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">価格</dt>
+              <dd class="col-4"><%= f.text_field :price, class: "form-control", placeholder: "価格を入力" %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!--スペック-->
+      <div class="row mt-4">
+        <h5><strong>スペック</strong></h5>
+        <div class="container mt-3">
+          <div class="card bg-white p-3">
+            <dl class="row">
+              <dt class="col-2 pt-1">バッテリー</dt>
+              <dd class="col-6 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "バッテリー容量を入力" %>mh</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">画面サイズ</dt>
+              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "画面サイズを入力" %>インチ</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">高さ</dt>
+              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "高さを入力" %>mm</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">横幅</dt>
+              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "横幅を入力" %>mm</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">厚さ</dt>
+              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "厚さを入力" %>mm</dd>
+            </dl>
+            
+            <!--ここから再開-->
+            <dl class="row">
+              <dt class="col-2 pt-1">OS</dt>
+              <dd class="col-6"><%= f.collection_select :operation_system_id, OperationSystem.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">メーカー</dt>
+              <dd class="col-6"><%= f.collection_select :maker_id, Maker.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">容量</dt>
+              <dd class="col-6"><%= f.collection_select :capacity_id, Capacity.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">価格</dt>
+              <dd class="col-4"><%= f.text_field :price, class: "form-control", placeholder: "価格を入力" %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
