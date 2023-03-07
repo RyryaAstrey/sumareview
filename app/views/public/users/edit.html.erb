@@ -1,2 +1,33 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<div class="container">
+  
+  <div class="row border-bottom border-dark">
+    <h2>会員情報変更</h2>
+  </div>
+  
+  <p class="mt-4"><strong>></strong>下記の情報を入力してください</p>
+  
+  <%= form_with model: @user, url: users_path(current_user.id), method: :patch do |f| %>
+    <table class="table border border-dark mt-3 shadow-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-white">基本登録情報</th>
+          <th colspan=""></th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr>
+          <td class="col-3 bg-light text-right"><strong>名前</strong></td>
+          <td class="col-9"><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <td class="col-3 bg-light text-right"><strong>メールアドレス</strong></td>
+          <td class="col-9"><%= f.email_field :email %></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="text-center mt-4">
+      <%= f.submit "登録する", class: "font-weight-bold btn btn-lg btn-warning rounded-0" %>
+    </div>
+  <% end %>
+</div>
