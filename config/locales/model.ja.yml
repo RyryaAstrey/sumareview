@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    models:
+      item: 記事
+      user: ユーザー
+    attributes:
+      item:
+        name: 機種名
+        explanation: 総論
+        strength: 強み
+        weakness: 弱み
+        core: コア数
+        mein_camera: メインカメラ
+        in_camera: 前面カメラ
+        mobile_wallet: おサイフケータイ
+        release_date: 発売日
+        price: 価格
+        battery: バッテリー容量
+        display: 画面サイズ
+        weight: 重さ
+        height: 高さ
+        width: 横幅
+        thickness: 厚さ
+        memory: メモリ数

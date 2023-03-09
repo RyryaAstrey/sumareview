@@ -10,13 +10,17 @@
   
   <%= render "layouts/flash" %>
   <div class="container">
-    <%= form_with model: @user, url: admin_items_path, method: :post do |f| %>
+    <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
       
       <!--基本情報-->
       <div class="row mt-4">
         <h5><strong>基本情報</strong></h5>
         <div class="container mt-3">
           <div class="card bg-white p-3">
+            <dl class="row">
+              <dt class="col-2 pt-1">機種画像</dt>
+              <dd class="col-6"><%= f.file_field :image, class: "form-control-file", accept: "image/*" %></dd>
+            </dl>
             <dl class="row">
               <dt class="col-2 pt-1">機種名</dt>
               <dd class="col-6"><%= f.text_field :name, class: "form-control", placeholder: "機種名を入力" %></dd>
@@ -39,7 +43,7 @@
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">価格</dt>
-              <dd class="col-4"><%= f.text_field :price, class: "form-control", placeholder: "価格を入力" %></dd>
+              <dd class="col-4 input-group d-flex align-items-end"><%= f.text_field :price, class: "form-control", placeholder: "価格を入力" %>円</dd>
             </dl>
           </div>
         </div>
@@ -52,7 +56,7 @@
         <div class="container mt-3">
           <div class="card bg-white p-3">
             <dl class="row">
-              <dt class="col-2 pt-1">バッテリー</dt>
+              <dt class="col-2 pt-1">バッテリー容量</dt>
               <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :battery, class: "form-control", placeholder: "4000" %>mh</dd>
             </dl>
             <dl class="row">
@@ -61,7 +65,7 @@
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">画面サイズ</dt>
-              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :display, class: "form-control", placeholder: "6.0" %>インチ</dd>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :display, class: "form-control", placeholder: "6.0" %>インチ</dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">高さ</dt>
@@ -93,7 +97,7 @@
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">メインカメラ</dt>
-              <dd class="col-6"><%= f.text_field :main_camera, class: "form-control", placeholder: "2眼,1200万画素" %></dd>
+              <dd class="col-6"><%= f.text_field :mein_camera, class: "form-control", placeholder: "2眼,1200万画素" %></dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">前面カメラ</dt>
@@ -140,11 +144,8 @@
               <%= f.text_area :weakness, class: "form-control w-75", rows: 5 %>
             </div>
             <div class="form-group">
-              <strong>総論</strong>
-              <div class="input-group d-flex align-items-end">
+              <strong>総論</strong><small class="text-danger text-small">*出典がある場合、こちらに記述</small>
                 <%= f.text_area :explanation, class: "form-control w-75", rows: 10 %>
-                <small class="text-danger text-small">*出典がある場合、こちらに記述</small>
-              </div>
             </div>
           </div>
         </div>

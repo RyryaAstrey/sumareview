@@ -10,7 +10,7 @@ class Admin::ItemsController < ApplicationController
       if item.save(context: :publicize)
         redirect_to request.referer
       else
-        flash[:danger] = "入力内容に不備があります。<br>・#{@product.errors.full_messages.join('<br>・')}"
+        flash[:danger] = "入力内容に不備があります。<br>・#{item.errors.full_messages.join('<br>・')}"
         redirect_to new_admin_item_path
       end
     # 下書きボタンを押下した場合
@@ -18,7 +18,7 @@ class Admin::ItemsController < ApplicationController
       if item.update(is_draft: true)
         redirect_to admin_items_path
       else
-        flash[:danger] = "入力内容に不備があります。<br>・#{@product.errors.full_messages.join('<br>・')}"
+        flash[:danger] = "入力内容に不備があります。<br>・#{item.errors.full_messages.join('<br>・')}"
         redirect_to new_admin_item_path
       end
     end
@@ -48,7 +48,7 @@ class Admin::ItemsController < ApplicationController
       :strength,
       :weakness,
       :core,
-      :main_camera,
+      :mein_camera,
       :in_camera,
       :mobile_wallet,
       :release_date,
@@ -57,6 +57,7 @@ class Admin::ItemsController < ApplicationController
       :display,
       :weight,
       :height,
+      :width,
       :thickness,
       :memory,
       :waterploof,
