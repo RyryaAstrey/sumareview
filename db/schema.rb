@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_09_032504) do
+ActiveRecord::Schema.define(version: 2023_03_09_072210) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2023_03_09_032504) do
     t.text "strength", null: false
     t.text "weakness", null: false
     t.string "core", null: false
-    t.string "mein_camera", null: false
+    t.string "main_camera", null: false
     t.string "in_camera", null: false
     t.string "mobile_wallet", null: false
     t.string "release_date", null: false

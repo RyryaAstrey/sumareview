@@ -3,6 +3,12 @@ ja:
     models:
       item: 記事
       user: ユーザー
+      operation_system: OS
+      central_processing_unit: CPU
+      maker: メーカー
+      spec: スペック
+      authentication: 認証
+      capacity: 容量
     attributes:
       item:
         name: 機種名
@@ -22,3 +28,16 @@ ja:
         width: 横幅
         thickness: 厚さ
         memory: メモリ数
+      
+      operation_system:
+        name: OS名
+      central_processing_unit:
+        name: CPU名
+      maker:
+        name: メーカー名
+      spec:
+        name: スペック名
+      authentication:
+        name: 認証名
+      capacity:
+        name: 容量名

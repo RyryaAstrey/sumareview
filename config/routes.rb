@@ -40,12 +40,12 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     
     # カテゴリー操作
-    resources :operation_systems, only: [:create, :edit, :update]
-    resources :central_processing_units, only: [:create, :edit, :update]
-    resources :certifications, only: [:create, :edit, :update]
-    resources :specs, only: [:create, :edit, :update]
-    resources :makars, only: [:create, :edit, :update]
-    resources :capacities, only: [:create, :edit, :update]
+    resources :operation_systems, only: [:create, :edit, :update, :destroy]
+    resources :central_processing_units, only: [:create, :edit, :update, :destroy]
+    resources :authentications, only: [:create, :edit, :update, :destroy]
+    resources :specs, only: [:create, :edit, :update, :destroy]
+    resources :makers, only: [:create, :edit, :update, :destroy]
+    resources :capacities, only: [:create, :edit, :update, :destroy]
     
     get "search" => "searches#search"
   end

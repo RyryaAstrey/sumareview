@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   validates :strength, presence: true
   validates :weakness, presence: true
   validates :core, presence: true
-  validates :mein_camera, presence: true
+  validates :main_camera, presence: true
   validates :in_camera, presence: true
   validates :mobile_wallet, presence: true
   validates :release_date, presence: true
