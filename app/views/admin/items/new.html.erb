@@ -49,7 +49,7 @@
           <div class="card bg-white p-3">
             <dl class="row">
               <dt class="col-2 pt-1">バッテリー</dt>
-              <dd class="col-6 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "バッテリー容量を入力" %>mh</dd>
+              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "バッテリー容量を入力" %>mh</dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">画面サイズ</dt>
@@ -57,34 +57,62 @@
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">高さ</dt>
-              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "高さを入力" %>mm</dd>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "高さを入力" %>mm</dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">横幅</dt>
-              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "横幅を入力" %>mm</dd>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "横幅を入力" %>mm</dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">厚さ</dt>
-              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "厚さを入力" %>mm</dd>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "厚さを入力" %>mm</dd>
             </dl>
-            
-            <!--ここから再開-->
             <dl class="row">
-              <dt class="col-2 pt-1">OS</dt>
+              <dt class="col-2 pt-1">防水・防塵</dt>
+              <dd class="col-1"><%= f.select :waterploof, Item.waterploofs.keys.map { |k| [t("enum.item.waterploof.#{k}"), k] }, class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">CPU</dt>
               <dd class="col-6"><%= f.collection_select :operation_system_id, OperationSystem.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
             </dl>
             <dl class="row">
-              <dt class="col-2 pt-1">メーカー</dt>
-              <dd class="col-6"><%= f.collection_select :maker_id, Maker.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+              <dt class="col-2 pt-1">コア数</dt>
+              <dd class="col-4"><%= f.text_field :core, class: "form-control", placeholder: "コア数を入力" %></dd>
             </dl>
             <dl class="row">
-              <dt class="col-2 pt-1">容量</dt>
-              <dd class="col-6"><%= f.collection_select :capacity_id, Capacity.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+              <dt class="col-2 pt-1">メインカメラ</dt>
+              <dd class="col-6"><%= f.text_field :main_camera, class: "form-control", placeholder: "メインカメラ性能を入力" %></dd>
             </dl>
             <dl class="row">
-              <dt class="col-2 pt-1">価格</dt>
-              <dd class="col-4"><%= f.text_field :price, class: "form-control", placeholder: "価格を入力" %></dd>
+              <dt class="col-2 pt-1">前面カメラ</dt>
+              <dd class="col-6"><%= f.text_field :in_camera, class: "form-control", placeholder: "前面カメラ性能を入力" %></dd>
             </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">おサイフケータイ</dt>
+              <dd class="col-8 d-flex flex-row align-items-end">
+                <%= f.text_field :mobile_wallet, class: "form-control col-7", placeholder: "おサイフケータイを入力" %>
+                <small class="text-danger text-small col-5">*非対応の場合は「非対応」と入力</small>
+              </dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">NFC</dt>
+              <dd class="col-2"><%= f.select :near_field_communicationf, Item.near_field_communications.keys.map { |k| [t("enum.item.near_field_communication.#{k}"), k] }, class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">発売日</dt>
+              <dd class="col-4"><%= f.text_field :release_date, class: "form-control", placeholder: "○○○○年△△月××日" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">認証</dt>
+              <dd class="col-6"><%= f.collection_select :authentications_id, Authentication.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">メモリ数</dt>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :memory, class: "form-control", placeholder: "6" %>GB</dd>
+            </dl>
+            
+           <!--解説-->
+           
           </div>
         </div>
       </div>

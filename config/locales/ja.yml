@@ -1,5 +1,15 @@
 ---
 ja:
+  enum:
+    item:
+      waterploof:
+        water_true: "○"
+        water_false: "×"
+      near_field_communication:
+        near_true: "対応"
+        near_false: "非対応"
+  
+  # deviseの日本語化
   activerecord:
     errors:
       messages:
