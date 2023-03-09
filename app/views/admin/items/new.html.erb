@@ -34,6 +34,10 @@
               <dd class="col-6"><%= f.collection_select :capacity_id, Capacity.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
             </dl>
             <dl class="row">
+              <dt class="col-2 pt-1">スペック</dt>
+              <dd class="col-6"><%= f.collection_select :spec_id, Spec.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
               <dt class="col-2 pt-1">価格</dt>
               <dd class="col-4"><%= f.text_field :price, class: "form-control", placeholder: "価格を入力" %></dd>
             </dl>
@@ -49,23 +53,31 @@
           <div class="card bg-white p-3">
             <dl class="row">
               <dt class="col-2 pt-1">バッテリー</dt>
-              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "バッテリー容量を入力" %>mh</dd>
+              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :battery, class: "form-control", placeholder: "4000" %>mh</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">ワイヤレス充電</dt>
+              <dd class="col-1"><%= f.select :wireless_chage, Item.wireless_chages.keys.map { |k| [t("enum.item.wireless_chage.#{k}"), k] }, class: "form-control" %></dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">画面サイズ</dt>
-              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "画面サイズを入力" %>インチ</dd>
+              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :display, class: "form-control", placeholder: "6.0" %>インチ</dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">高さ</dt>
-              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "高さを入力" %>mm</dd>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :height, class: "form-control", placeholder: "70.0" %>mm</dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">横幅</dt>
-              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "横幅を入力" %>mm</dd>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :width, class: "form-control", placeholder: "150.0" %>mm</dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">厚さ</dt>
-              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :name, class: "form-control", placeholder: "厚さを入力" %>mm</dd>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :thickness, class: "form-control", placeholder: "9.0" %>mm</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">重さ</dt>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :weight, class: "form-control", placeholder: "175.0" %>g</dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">防水・防塵</dt>
@@ -77,20 +89,20 @@
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">コア数</dt>
-              <dd class="col-4"><%= f.text_field :core, class: "form-control", placeholder: "コア数を入力" %></dd>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :core, class: "form-control", placeholder: "6" %>コア</dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">メインカメラ</dt>
-              <dd class="col-6"><%= f.text_field :main_camera, class: "form-control", placeholder: "メインカメラ性能を入力" %></dd>
+              <dd class="col-6"><%= f.text_field :main_camera, class: "form-control", placeholder: "2眼,1200万画素" %></dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">前面カメラ</dt>
-              <dd class="col-6"><%= f.text_field :in_camera, class: "form-control", placeholder: "前面カメラ性能を入力" %></dd>
+              <dd class="col-6"><%= f.text_field :in_camera, class: "form-control", placeholder: "1200万画素" %></dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">おサイフケータイ</dt>
               <dd class="col-8 d-flex flex-row align-items-end">
-                <%= f.text_field :mobile_wallet, class: "form-control col-7", placeholder: "おサイフケータイを入力" %>
+                <%= f.text_field :mobile_wallet, class: "form-control col-7", placeholder: "Apple Pay" %>
                 <small class="text-danger text-small col-5">*非対応の場合は「非対応」と入力</small>
               </dd>
             </dl>
@@ -110,11 +122,38 @@
               <dt class="col-2 pt-1">メモリ数</dt>
               <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :memory, class: "form-control", placeholder: "6" %>GB</dd>
             </dl>
-            
-           <!--解説-->
-           
           </div>
         </div>
+      </div>
+      
+      <!--解説-->
+      <div class="row mt-4">
+        <h5><strong>解説</strong></h5>
+        <div class="container mt-3">
+          <div class="card bg-white p-3">
+            <div class="form-group">
+              <strong>強み</strong>
+              <%= f.text_area :strength, class: "form-control w-75", rows: 5 %>
+            </div>
+            <div class="form-group">
+              <strong>弱み</strong>
+              <%= f.text_area :weakness, class: "form-control w-75", rows: 5 %>
+            </div>
+            <div class="form-group">
+              <strong>総論</strong>
+              <div class="input-group d-flex align-items-end">
+                <%= f.text_area :explanation, class: "form-control w-75", rows: 10 %>
+                <small class="text-danger text-small">*出典がある場合、こちらに記述</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!--保存ボタン-->
+      <div class="mt-4 text-center">
+        <%= f.submit "記事を公開", :name => 'post', class: "font-weight-bold btn btn-warning btn-lg rounded-0 mr-5" %>
+        <%= f.submit "下書きを保存", :name => 'draft', class: "font-weight-bold btn btn-secondary btn-lg rounded-0" %>
       </div>
     <% end %>
   </div>

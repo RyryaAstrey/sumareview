@@ -8,6 +8,9 @@ ja:
       near_field_communication:
         near_true: "対応"
         near_false: "非対応"
+      wireless_chage:
+        wireless_true: "○"
+        wireless_false: "×"
   
   # deviseの日本語化
   activerecord:
