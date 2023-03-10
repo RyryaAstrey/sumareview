@@ -1,6 +1,6 @@
 ---
 ja:
-  enum:
+  enums:
     item:
       waterploof:
         water_true: "○"

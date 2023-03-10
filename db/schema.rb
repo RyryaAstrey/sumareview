@@ -87,29 +87,29 @@ ActiveRecord::Schema.define(version: 2023_03_10_010347) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "operation_system_id", null: false
-    t.integer "central_processing_unit_id", null: false
-    t.integer "authentication_id", null: false
-    t.integer "spec_id", null: false
-    t.integer "maker_id", null: false
-    t.integer "capacity_id", null: false
-    t.string "name", null: false
-    t.text "explanation", null: false
-    t.text "strength", null: false
-    t.text "weakness", null: false
-    t.string "core", null: false
-    t.string "main_camera", null: false
-    t.string "in_camera", null: false
-    t.string "mobile_wallet", null: false
-    t.string "release_date", null: false
-    t.integer "price", null: false
-    t.integer "battery", null: false
-    t.float "display", null: false
-    t.float "weight", null: false
-    t.float "height", null: false
-    t.float "width", null: false
-    t.float "thickness", null: false
-    t.integer "memory", null: false
+    t.integer "operation_system_id"
+    t.integer "central_processing_unit_id"
+    t.integer "authentication_id"
+    t.integer "spec_id"
+    t.integer "maker_id"
+    t.integer "capacity_id"
+    t.string "name"
+    t.text "explanation"
+    t.text "strength"
+    t.text "weakness"
+    t.string "core"
+    t.string "main_camera"
+    t.string "in_camera"
+    t.string "mobile_wallet"
+    t.string "release_date"
+    t.integer "price"
+    t.integer "battery"
+    t.float "display"
+    t.float "weight"
+    t.float "height"
+    t.float "width"
+    t.float "thickness"
+    t.integer "memory"
     t.integer "waterploof", default: 0, null: false
     t.integer "wireless_chage", default: 0, null: false
     t.integer "near_field_communication", default: 0, null: false

@@ -73,82 +73,90 @@
   </div>
   
   <div class="row mt-5">
+    
     <div class="col-2">
       <h6 class="pb-2 border-bottom border-dark"><strong>OS</strong></h6>
-      <% @operation_systems.each do |operation_system| %>
-        <div class="card bg-white mt-3 p-2">
-          <%= operation_system.name %>
-          <div class="mt-2 text-center">
-            <%= link_to "編集", edit_admin_operation_system_path(operation_system.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_operation_system_path(operation_system.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
+      <div class="card bg-white mt-3 p-2">
+        <% @operation_systems.each do |operation_system| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to operation_system.name, edit_admin_operation_system_path(operation_system.id), class: "mr-auto" %>
+            <%= link_to admin_operation_system_path(operation_system.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
     
     <div class="col-2">
       <h6 class="pb-2 border-bottom border-dark"><strong>スペック</strong></h6>
-      <% @specs.each do |spec| %>
-        <div class="card bg-white mt-3 p-2">
-          <%= spec.name %>
-          <div class="mt-2 text-center">
-            <%= link_to "編集", edit_admin_spec_path(spec.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_spec_path(spec.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
+      <div class="card bg-white mt-3 p-2">
+        <% @specs.each do |spec| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to spec.name, edit_admin_spec_path(spec.id), class: "mr-auto" %>
+            <%= link_to admin_spec_path(spec.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
     
     <div class="col-2">
       <h6 class="pb-2 border-bottom border-dark"><strong>メーカー</strong></h6>
-      <% @makers.each do |maker| %>
-        <div class="card bg-white mt-3 p-2">
-          <%= maker.name %>
-          <div class="mt-2 text-center">
-            <%= link_to "編集", edit_admin_maker_path(maker.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_maker_path(maker.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
+      <div class="card bg-white mt-3 p-2">
+        <% @makers.each do |maker| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to maker.name, edit_admin_maker_path(maker.id), class: "mr-auto" %>
+            <%= link_to admin_maker_path(maker.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
     
     <div class="col-2">
       <h6 class="pb-2 border-bottom border-dark"><strong>容量</strong></h6>
-      <% @capacities.each do |capacity| %>
-        <div class="card bg-white mt-3 p-2">
-          <%= capacity.name %>
-          <div class="mt-2 text-center">
-            <%= link_to "編集", edit_admin_capacity_path(capacity.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_capacity_path(capacity.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
+      <div class="card bg-white mt-3 p-2">
+        <% @capacities.each do |capacity| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to capacity.name, edit_admin_capacity_path(capacity.id), class: "mr-auto" %>
+            <%= link_to admin_capacity_path(capacity.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
     
     <div class="col-2">
       <h6 class="pb-2 border-bottom border-dark"><strong>CPU</strong></h6>
-      <% @central_processing_units.each do |central_processing_unit| %>
-        <div class="card bg-white mt-3 p-2">
-          <%= central_processing_unit.name %>
-          <div class="mt-2 text-center">
-            <%= link_to "編集", edit_admin_central_processing_unit_path(central_processing_unit.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_central_processing_unit_path(central_processing_unit.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
+      <div class="card bg-white mt-3 p-2">
+        <% @central_processing_units.each do |central_processing_unit| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to central_processing_unit.name, edit_admin_central_processing_unit_path(central_processing_unit.id), class: "mr-auto" %>
+            <%= link_to admin_central_processing_unit_path(central_processing_unit.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
     
     <div class="col-2">
       <h6 class="pb-2 border-bottom border-dark"><strong>認証</strong></h6>
-      <% @authentications.each do |authentication| %>
-        <div class="card bg-white mt-3 p-2">
-          <%= authentication.name %>
-          <div class="mt-2 text-center">
-            <%= link_to "編集", edit_admin_authentication_path(authentication.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_authentication_path(authentication.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
+      <div class="card bg-white mt-3 p-2">
+        <% @authentications.each do |authentication| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to authentication.name, edit_admin_authentication_path(authentication.id), class: "mr-auto" %>
+            <%= link_to admin_authentication_path(authentication.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+    
   </div>
 </div>

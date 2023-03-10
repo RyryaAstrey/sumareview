@@ -10,9 +10,17 @@ class Admin::CentralProcessingUnitsController < ApplicationController
   end
 
   def edit
+    @central_processing_unit = CentralProcessingUnit.find(params[:id])
   end
 
   def update
+    @central_processing_unit = CentralProcessingUnit.find(params[:id])
+    if @central_processing_unit.update(central_processing_unit_params)
+      redirect_to admin_categories_path
+    else
+      flash[:danger] = "入力内容に不備があります。<br>・#{@central_processing_unit.errors.full_messages.join('<br>・')}"
+      redirect_to edit_admin_central_processing_unit_path(@central_processing_unit.id)
+    end
   end
   
   def destroy

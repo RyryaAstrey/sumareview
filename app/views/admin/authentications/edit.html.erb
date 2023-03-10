@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row border-bottom border-dark pb-3">
-    <h3><strong>「<%= @maker.name %>」の名前変更</strong></h3>
+    <h3><strong>「<%= @authentication.name %>」の名前変更</strong></h3>
   </div>
   
   <p class="mt-4"><strong>></strong>下記の情報を入力してください</p>
   <%= render "layouts/flash" %>
   
-  <%= form_with model: @maker, url: admin_maker_path(@maker.id), method: :patch do |f| %>
+  <%= form_with model: @authentication, url: admin_authentication_path(@authentication.id), method: :patch do |f| %>
     <table class="table border border-dark mt-3 shadow-sm">
       <thead class="thead-dark">
         <tr>

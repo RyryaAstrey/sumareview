@@ -10,9 +10,17 @@ class Admin::AuthenticationsController < ApplicationController
   end
 
   def edit
+    @authentication = Authentication.find(params[:id])
   end
 
   def update
+    @authentication = Authentication.find(params[:id])
+    if @authentication.update(authentication_params)
+      redirect_to admin_categories_path
+    else
+      flash[:danger] = "入力内容に不備があります。<br>・#{@authentication.errors.full_messages.join('<br>・')}"
+      redirect_to edit_admin_authentication_path(@authentication.id)
+    end
   end
   
   def destroy

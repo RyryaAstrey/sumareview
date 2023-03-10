@@ -10,9 +10,17 @@ class Admin::MakersController < ApplicationController
   end
 
   def edit
+    @maker = Maker.find(params[:id])
   end
 
   def update
+    @maker = Maker.find(params[:id])
+    if @maker.update(maker_params)
+      redirect_to admin_categories_path
+    else
+      flash[:danger] = "入力内容に不備があります。<br>・#{@maker.errors.full_messages.join('<br>・')}"
+      redirect_to edit_admin_maker_path(@maker.id)
+    end
   end
   
   def destroy

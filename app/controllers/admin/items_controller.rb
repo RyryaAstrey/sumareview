@@ -4,22 +4,22 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(item_params)
+    @item = Item.new(item_params)
     # 投稿ボタンを押下した場合
     if params[:post]
-      if item.save(context: :publicize)
+      if @item.save(context: :publicize)
         redirect_to request.referer
       else
-        flash[:danger] = "入力内容に不備があります。<br>・#{item.errors.full_messages.join('<br>・')}"
+        flash[:danger] = "入力内容に不備があります。<br>・#{@item.errors.full_messages.join('<br>・')}"
         redirect_to new_admin_item_path
       end
     # 下書きボタンを押下した場合
     else
-      if item.update(is_draft: true)
-        redirect_to admin_items_path
+      if @item.update(is_draft: true)
+        redirect_to admin_root_path
       else
-        flash[:danger] = "入力内容に不備があります。<br>・#{item.errors.full_messages.join('<br>・')}"
-        redirect_to new_admin_item_path
+        flash[:danger] = "入力内容に不備があります。<br>・#{@item.errors.full_messages.join('<br>・')}"
+        redirect_to new_admin_root_path
       end
     end
   end

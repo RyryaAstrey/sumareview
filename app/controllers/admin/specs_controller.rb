@@ -10,9 +10,17 @@ class Admin::SpecsController < ApplicationController
   end
 
   def edit
+    @spec = Spec.find(params[:id])
   end
 
   def update
+    @spec = Spec.find(params[:id])
+    if @spec.update(spec_params)
+      redirect_to admin_categories_path
+    else
+      flash[:danger] = "入力内容に不備があります。<br>・#{@spec.errors.full_messages.join('<br>・')}"
+      redirect_to edit_admin_spec_path(@spec.id)
+    end
   end
   
   def destroy

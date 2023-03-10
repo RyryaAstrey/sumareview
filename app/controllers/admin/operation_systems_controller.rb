@@ -10,9 +10,17 @@ class Admin::OperationSystemsController < ApplicationController
   end
 
   def edit
+    @operation_system = OperationSystem.find(params[:id])
   end
 
   def update
+    @operation_system = OperationSystem.find(params[:id])
+    if @operation_system.update(operation_system_params)
+      redirect_to admin_categories_path
+    else
+      flash[:danger] = "入力内容に不備があります。<br>・#{@operation_system.errors.full_messages.join('<br>・')}"
+      redirect_to edit_admin_operation_system_path(@operation_system.id)
+    end
   end
   
   def destroy
