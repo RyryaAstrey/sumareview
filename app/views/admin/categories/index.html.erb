@@ -80,7 +80,7 @@
           <%= operation_system.name %>
           <div class="mt-2 text-center">
             <%= link_to "編集", edit_admin_operation_system_path(operation_system.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_operation_system_path(operation_system.id), method: :delete, class: "font-weight-bold btn btn-danger rounded-0" %>
+            <%= link_to "削除", admin_operation_system_path(operation_system.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
           </div>
         </div>
       <% end %>
@@ -93,7 +93,7 @@
           <%= spec.name %>
           <div class="mt-2 text-center">
             <%= link_to "編集", edit_admin_spec_path(spec.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_spec_path(spec.id), method: :delete, class: "font-weight-bold btn btn-danger rounded-0" %>
+            <%= link_to "削除", admin_spec_path(spec.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
           </div>
         </div>
       <% end %>
@@ -106,7 +106,7 @@
           <%= maker.name %>
           <div class="mt-2 text-center">
             <%= link_to "編集", edit_admin_maker_path(maker.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_maker_path(maker.id), method: :delete, class: "font-weight-bold btn btn-danger rounded-0" %>
+            <%= link_to "削除", admin_maker_path(maker.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
           </div>
         </div>
       <% end %>
@@ -119,7 +119,7 @@
           <%= capacity.name %>
           <div class="mt-2 text-center">
             <%= link_to "編集", edit_admin_capacity_path(capacity.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_capacity_path(capacity.id), method: :delete, class: "font-weight-bold btn btn-danger rounded-0" %>
+            <%= link_to "削除", admin_capacity_path(capacity.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
           </div>
         </div>
       <% end %>
@@ -132,7 +132,7 @@
           <%= central_processing_unit.name %>
           <div class="mt-2 text-center">
             <%= link_to "編集", edit_admin_central_processing_unit_path(central_processing_unit.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_central_processing_unit_path(central_processing_unit.id), method: :delete, class: "font-weight-bold btn btn-danger rounded-0" %>
+            <%= link_to "削除", admin_central_processing_unit_path(central_processing_unit.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
           </div>
         </div>
       <% end %>
@@ -145,7 +145,7 @@
           <%= authentication.name %>
           <div class="mt-2 text-center">
             <%= link_to "編集", edit_admin_authentication_path(authentication.id), class: "font-weight-bold btn btn-success rounded-0 mr-3" %>
-            <%= link_to "削除", admin_authentication_path(authentication.id), method: :delete, class: "font-weight-bold btn btn-danger rounded-0" %>
+            <%= link_to "削除", admin_authentication_path(authentication.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "font-weight-bold btn btn-danger rounded-0" %>
           </div>
         </div>
       <% end %>

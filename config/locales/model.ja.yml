@@ -11,12 +11,18 @@ ja:
       capacity: 容量
     attributes:
       item:
+        operation_system: OS名
+        spec: スペック
+        authentication: 認証方法
+        capacity: 容量
+        central_processing_unit: CPU名
+        maker: メーカー名
         name: 機種名
         explanation: 総論
         strength: 強み
         weakness: 弱み
         core: コア数
-        mein_camera: メインカメラ
+        main_camera: メインカメラ
         in_camera: 前面カメラ
         mobile_wallet: おサイフケータイ
         release_date: 発売日

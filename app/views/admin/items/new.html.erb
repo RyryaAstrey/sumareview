@@ -89,7 +89,7 @@
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">CPU</dt>
-              <dd class="col-6"><%= f.collection_select :operation_system_id, OperationSystem.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+              <dd class="col-6"><%= f.collection_select :central_processing_unit_id, CentralProcessingUnit.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">コア数</dt>
@@ -112,7 +112,7 @@
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">NFC</dt>
-              <dd class="col-2"><%= f.select :near_field_communicationf, Item.near_field_communications.keys.map { |k| [t("enum.item.near_field_communication.#{k}"), k] }, class: "form-control" %></dd>
+              <dd class="col-2"><%= f.select :near_field_communication, Item.near_field_communications.keys.map { |k| [t("enum.item.near_field_communication.#{k}"), k] }, class: "form-control" %></dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">発売日</dt>
@@ -120,7 +120,7 @@
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">認証</dt>
-              <dd class="col-6"><%= f.collection_select :authentications_id, Authentication.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+              <dd class="col-6"><%= f.collection_select :authentication_id, Authentication.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">メモリ数</dt>

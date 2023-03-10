@@ -15,6 +15,12 @@ class Admin::SpecsController < ApplicationController
   def update
   end
   
+  def destroy
+    spec = Spec.find(params[:id])
+    spec.destroy
+    redirect_to request.referer
+  end
+  
   def spec_params
     params.require(:spec).permit(:name)
   end

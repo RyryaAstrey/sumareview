@@ -39,7 +39,7 @@ class Admin::ItemsController < ApplicationController
     params.require(:item).permit(
       :operation_system_id,
       :central_processing_unit_id,
-      :certification_id,
+      :authentication_id,
       :spec_id,
       :maker_id,
       :capacity_id,
@@ -48,7 +48,7 @@ class Admin::ItemsController < ApplicationController
       :strength,
       :weakness,
       :core,
-      :mein_camera,
+      :main_camera,
       :in_camera,
       :mobile_wallet,
       :release_date,

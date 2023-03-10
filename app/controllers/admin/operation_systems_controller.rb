@@ -15,6 +15,12 @@ class Admin::OperationSystemsController < ApplicationController
   def update
   end
   
+  def destroy
+    operation_system = OperationSystem.find(params[:id])
+    operation_system.destroy
+    redirect_to request.referer
+  end
+  
   private
   
   def operation_system_params

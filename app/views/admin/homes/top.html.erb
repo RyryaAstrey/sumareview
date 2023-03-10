@@ -8,16 +8,18 @@
     <div class="col-6">
       <div class="container">
         <h4><strong>記事一覧</strong></h4>
-        <%= @items.each do |item| %>
+        <% @items.each do |item| %>
           <div class="card  bg-white border border-dark p-2">
-            <div class="col-3">
-              <%= link_to admin_item_path(item.id) do %>
-                <%= image_tag item.get_image, class: "w-100 h-100" %>
-              <% end %>
+            <div class="row">
+              <div class="col-3">
+                <%= link_to admin_item_path(item.id) do %>
+                  <%= image_tag item.get_image, class: "w-100 h-100" %>
+                <% end %>
+              </div>
+              <div class="col-9 py-1">
+                <h6 class="font-weight-bold"><%= item.name %></h6>
+              </div> 
             </div>
-            <div class="col-9 py-1">
-              <h6 class="font-weight-bold"><%= item.name %></h6>
-            </div> 
           </div>
         <% end %>
       </div>

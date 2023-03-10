@@ -1,25 +1,40 @@
 class Item < ApplicationRecord
   
   has_one_attached :image
+  has_many :comments, dependent: :destroy
+  belongs_to :operation_system, optional: true
+  belongs_to :spec, optional: true
+  belongs_to :authentication, optional: true
+  belongs_to :maker, optional: true
+  belongs_to :central_processing_unit, optional: true
+  belongs_to :capacity, optional: true
   
   # バリデーション
-  validates :name, presence: true
-  validates :explanation, presence: true
-  validates :strength, presence: true
-  validates :weakness, presence: true
-  validates :core, presence: true
-  validates :main_camera, presence: true
-  validates :in_camera, presence: true
-  validates :mobile_wallet, presence: true
-  validates :release_date, presence: true
-  validates :price, presence: true
-  validates :battery, presence: true
-  validates :display, presence: true
-  validates :weight, presence: true
-  validates :height, presence: true
-  validates :width, presence: true
-  validates :thickness, presence: true
-  validates :memory, presence: true
+  with_options presence: true, on: :publicize do
+    validates :operation_system
+    validates :spec
+    validates :authentication
+    validates :maker
+    validates :central_processing_unit
+    validates :capacity
+    validates :name
+    validates :explanation
+    validates :strength
+    validates :weakness
+    validates :core
+    validates :main_camera
+    validates :in_camera
+    validates :mobile_wallet
+    validates :release_date
+    validates :price
+    validates :battery
+    validates :display
+    validates :weight
+    validates :height
+    validates :width
+    validates :thickness
+    validates :memory
+  end
   
   # enum
   enum waterploof: { "water_true": 0, "water_false": 1 }
@@ -30,7 +45,7 @@ class Item < ApplicationRecord
   
   ## 画像がなかった場合にno_imageを表示する
   def get_image
-    (image.attached?) ? image : 'no_image_jpg'
+    (image.attached?) ? image : 'no_image.jpg'
   end
   
   ## 機種名を検索する

@@ -15,6 +15,12 @@ class Admin::CapacitiesController < ApplicationController
   def update
   end
   
+  def destroy
+    capacity = Capacity.find(params[:id])
+    capacity.destroy
+    redirect_to request.referer
+  end
+  
   private
   
   def capacity_params

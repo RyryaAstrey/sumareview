@@ -1,6 +1,8 @@
 class Maker < ApplicationRecord
   
-  validates :name, presence: true
+  has_many :items
+  
+  # validates :name, presence: true, on: :publicize
   
   # メーカー名を検索する
   def self.search(search)

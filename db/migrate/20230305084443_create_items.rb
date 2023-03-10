@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       # FK
       t.integer :operation_system_id, null: false
       t.integer :central_processing_unit_id, null: false
-      t.integer :certification_id, null: false
+      t.integer :authentication_id, null: false
       t.integer :spec_id, null: false
       t.integer :maker_id, null: false
       t.integer :capacity_id, null: false
@@ -16,7 +16,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.text :strength, null: false
       t.text :weakness, null: false
       t.string :core, null: false
-      t.string :mein_camera, null: false
+      t.string :main_camera, null: false
       t.string :in_camera, null: false
       t.string :mobile_wallet, null: false
       t.string :release_date, null: false

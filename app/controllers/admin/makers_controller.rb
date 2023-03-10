@@ -15,6 +15,12 @@ class Admin::MakersController < ApplicationController
   def update
   end
   
+  def destroy
+    maker = Maker.find(params[:id])
+    maker.destroy
+    redirect_to request.referer
+  end
+  
   def maker_params
     params.require(:maker).permit(:name)
   end

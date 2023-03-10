@@ -15,6 +15,12 @@ class Admin::CentralProcessingUnitsController < ApplicationController
   def update
   end
   
+  def destroy
+    central_processing_unit = CentralProcessingUnit.find(params[:id])
+    central_processing_unit.destroy
+    redirect_to request.referer
+  end
+  
   private
   
   def central_processing_unit_params

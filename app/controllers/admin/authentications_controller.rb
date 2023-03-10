@@ -15,6 +15,12 @@ class Admin::AuthenticationsController < ApplicationController
   def update
   end
   
+  def destroy
+    authentication = Authentication.find(params[:id])
+    authentication.destroy
+    redirect_to request.referer
+  end
+  
   private
   
   def authentication_params
