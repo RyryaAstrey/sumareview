@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   belongs_to :capacity, optional: true
   
   # バリデーション
+  validates :name, presence: true
   with_options presence: true, on: :publicize do
     validates :operation_system
     validates :spec
@@ -17,7 +18,6 @@ class Item < ApplicationRecord
     validates :maker
     validates :central_processing_unit
     validates :capacity
-    validates :name
     validates :explanation
     validates :strength
     validates :weakness

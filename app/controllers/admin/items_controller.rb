@@ -8,18 +8,18 @@ class Admin::ItemsController < ApplicationController
     # 投稿ボタンを押下した場合
     if params[:post]
       if @item.save(context: :publicize)
-        redirect_to request.referer
+        redirect_to admin_root_path
       else
         flash[:danger] = "入力内容に不備があります。<br>・#{@item.errors.full_messages.join('<br>・')}"
-        redirect_to new_admin_item_path
+        redirect_to request.referer
       end
     # 下書きボタンを押下した場合
     else
       if @item.update(is_draft: true)
-        redirect_to admin_root_path
+        redirect_to admin_item_path
       else
         flash[:danger] = "入力内容に不備があります。<br>・#{@item.errors.full_messages.join('<br>・')}"
-        redirect_to new_admin_root_path
+        redirect_to request.referer
       end
     end
   end
@@ -28,9 +28,43 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    # 下書き記事を公開する場合
+    if params[:publicize_draft]
+      # 記事公開時にはバリデーションを実施
+      # updateメソッドにはcontextが使用できないため、公開処理時にはattributesとsaveメソッドを使用する。
+      @item.attributes = item_params.merge(is_draft: false)
+      if @item.save(context: :publicize)
+        redirect_to admin_item_path(@item.id)
+      else
+        @item.is_draft = true
+        flash[:danger] = "入力内容に不備があります。<br>・#{@item.errors.full_messages.join('<br>・')}"
+        redirect_to request.referer
+      end
+      
+    # 公開済み記事の更新をする場合
+    elsif params[:update_item]
+      @item.attributes = item_params
+      if @item.save(context: :publicize)
+        redirect_to admin_item_path(@item.id)
+      else
+        flash[:danger] = "入力内容に不備があります。<br>・#{@item.errors.full_messages.join('<br>・')}"
+        redirect_to request.referer
+      end
+      
+    # 下書き記事の更新（非公開のまま更新）の場合
+    else
+      if @item.update(item_params)
+        redirect_to admin_item_path(@item.id)
+      else
+        flash[:danger] = "入力内容に不備があります。<br>・#{@item.errors.full_messages.join('<br>・')}"
+        redirect_to request.referer
+      end
+    end
   end
   
   private

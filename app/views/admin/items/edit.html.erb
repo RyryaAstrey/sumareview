@@ -1,2 +1,165 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<div class="container">
+  
+  <div class="row border-bottom border-dark pb-3">
+    <h3><strong>「<%= @item.name %>」の内容変更</strong></h3>
+  </div>
+  
+  <div class="row mt-3">
+    <p><strong>></strong>下記の情報を入力してください。</p>
+  </div>
+  
+  <%= render "layouts/flash" %>
+  <div class="container">
+    <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+      
+      <!--基本情報-->
+      <div class="row mt-4">
+        <h5><strong>基本情報</strong></h5>
+        <div class="container mt-3">
+          <div class="card bg-white p-3">
+            <dl class="row">
+              <dt class="col-2 pt-1">機種画像</dt>
+              <dd class="col-6"><%= f.file_field :image, class: "form-control-file", accept: "image/*" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">機種名</dt>
+              <dd class="col-6"><%= f.text_field :name, class: "form-control", placeholder: "機種名を入力" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">OS</dt>
+              <dd class="col-6"><%= f.collection_select :operation_system_id, OperationSystem.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">メーカー</dt>
+              <dd class="col-6"><%= f.collection_select :maker_id, Maker.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">容量</dt>
+              <dd class="col-6"><%= f.collection_select :capacity_id, Capacity.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">スペック</dt>
+              <dd class="col-6"><%= f.collection_select :spec_id, Spec.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">価格</dt>
+              <dd class="col-4 input-group d-flex align-items-end"><%= f.text_field :price, class: "form-control", placeholder: "価格を入力" %>円</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!--スペック-->
+      <div class="row mt-4">
+        <h5><strong>スペック</strong></h5>
+        <div class="container mt-3">
+          <div class="card bg-white p-3">
+            <dl class="row">
+              <dt class="col-2 pt-1">バッテリー容量</dt>
+              <dd class="col-3 input-group d-flex align-items-end"><%= f.text_field :battery, class: "form-control", placeholder: "4000" %>mh</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">ワイヤレス充電</dt>
+              <dd class="col-1"><%= f.select :wireless_chage, Item.wireless_chages_i18n.invert, class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">画面サイズ</dt>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :display, class: "form-control", placeholder: "6.0" %>インチ</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">高さ</dt>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :height, class: "form-control", placeholder: "70.0" %>mm</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">横幅</dt>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :width, class: "form-control", placeholder: "150.0" %>mm</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">厚さ</dt>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :thickness, class: "form-control", placeholder: "9.0" %>mm</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">重さ</dt>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :weight, class: "form-control", placeholder: "175.0" %>g</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">防水・防塵</dt>
+              <dd class="col-2"><%= f.select :waterploof, Item.waterploofs_i18n.invert, class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">CPU</dt>
+              <dd class="col-6"><%= f.collection_select :central_processing_unit_id, CentralProcessingUnit.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">コア数</dt>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :core, class: "form-control", placeholder: "6" %>コア</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">メインカメラ</dt>
+              <dd class="col-6"><%= f.text_field :main_camera, class: "form-control", placeholder: "2眼,1200万画素" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">前面カメラ</dt>
+              <dd class="col-6"><%= f.text_field :in_camera, class: "form-control", placeholder: "1200万画素" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">おサイフケータイ</dt>
+              <dd class="col-8 d-flex flex-row align-items-end">
+                <%= f.text_field :mobile_wallet, class: "form-control col-7", placeholder: "Apple Pay" %>
+                <small class="text-danger text-small col-5">*非対応の場合は「非対応」と入力</small>
+              </dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">NFC</dt>
+              <dd class="col-2"><%= f.select :near_field_communication, Item.near_field_communications_i18n.invert, class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">発売日</dt>
+              <dd class="col-4"><%= f.text_field :release_date, class: "form-control", placeholder: "○○○○年△△月××日" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">認証</dt>
+              <dd class="col-6"><%= f.collection_select :authentication_id, Authentication.all, :id, :name, include_blank: "--選択してください--", class: "form-control" %></dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-2 pt-1">メモリ数</dt>
+              <dd class="col-2 input-group d-flex align-items-end"><%= f.text_field :memory, class: "form-control", placeholder: "6" %>GB</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      
+      <!--解説-->
+      <div class="row mt-4">
+        <h5><strong>解説</strong></h5>
+        <div class="container mt-3">
+          <div class="card bg-white p-3">
+            <div class="form-group">
+              <strong>強み</strong>
+              <%= f.text_area :strength, class: "form-control w-75", rows: 5 %>
+            </div>
+            <div class="form-group">
+              <strong>弱み</strong>
+              <%= f.text_area :weakness, class: "form-control w-75", rows: 5 %>
+            </div>
+            <div class="form-group">
+              <strong>総論</strong><small class="text-danger text-small">*出典がある場合、こちらに記述</small>
+                <%= f.text_area :explanation, class: "form-control w-75", rows: 10 %>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!--保存ボタン-->
+      <div class="mt-4 text-center">
+        <% if @item.is_draft == true %>
+          <%= f.submit "記事を公開", :name => 'publicize_draft', class: "font-weight-bold btn btn-warning btn-lg rounded-0 mr-5" %>
+          <%= f.submit "下書きを更新", :name => 'update_draft', class: "font-weight-bold btn btn-secondary btn-lg rounded-0" %>
+        <% else %>
+          <%= f.submit "記事を更新", :name => 'update_item', class: "font-weight-bold btn btn-warning btn-lg rounded-0" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
