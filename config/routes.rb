@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     
     # 投稿記事関連
     resources :items, only: [:index, :show] do
-      resources :comments, only: [:new, :index, :create]
+      resources :comments, only: [:new, :index, :edit, :create]
     end
     
     # ユーザー関連

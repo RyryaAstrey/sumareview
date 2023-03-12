@@ -39,3 +39,7 @@ body{
 .login-card {
   width:20%;
 }
+
+.bg-gainsboro {
+  background-color: #dcdcdc;
+}
