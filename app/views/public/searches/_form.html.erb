@@ -1,0 +1,12 @@
+<div class="border border-dark">
+  <div class="bg-info border-bottom border-dark">
+    <h5 class="ml-2"><strong>検索</strong></h5>
+  </div>
+  <div class="bg-white p-2">
+    <%= form_with url: search_path, local: true, method: :get, class: "search-form" do |f| %>
+      <%= f.select :range, options_for_select([["機種名",'name'],["メーカー",'maker']]) %>
+      <%= f.text_field :word %>
+      <%= f.submit "検索" %>
+    <% end %>
+  </div>
+</div>

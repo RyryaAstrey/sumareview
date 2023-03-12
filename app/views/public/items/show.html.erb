@@ -1,2 +1,112 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    
+    <div class="col-3">
+      <%= render "public/searches/form" %>
+    </div>
+    
+    <div class="col-6">
+      <div class="container">
+        <h4><strong><%= @item.name %></strong></h4>
+        
+        <div class="row mt-3">
+          <div class="col-4">
+            <%= image_tag @item.get_image, size: '170x170' %>
+          </div>
+          <div class="col-8">
+            <!--table border-darkはcssで設定したクラス-->
+            <table class="table table-bordered table-border-dark bg-white">
+              <tbody>
+                <tr>
+                  <th  class="bg-secondary" scope="row">機種名</th>
+                  <td><%= @item.name %></td>
+                </tr>
+                <tr>
+                  <th class="bg-secondary" scope="row">OS</th>
+                  <td><%= @item.operation_system.name %></td>
+                </tr>
+                <tr>
+                  <th class="bg-secondary" scope="row">メーカー</th>
+                  <td><%= @item.maker.name %></td>
+                </tr>
+                <tr>
+                  <th class="bg-secondary" scope="row">容量</th>
+                  <td><%= @item.capacity.name %></td>
+                </tr>
+                <tr>
+                  <th class="bg-secondary" scope="row">価格</th>
+                  <td>
+                    <%= @item.price.to_s(:delimited) %>円<br>
+                    <small class="text-danger">※<%= @item.updated_at.strftime("%Y年%m月") %>時点</small>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="mt-3">
+          <h5><strong>●<%= @item.name %>のスペック</strong></h5>
+          <table class="table table-bordered table-border-dark bg-white">
+            <tbody>
+              <tr>
+                <th class="bg-secondary" scope="row">バッテリー</th>
+                <td><%= @item.battery.to_s(:delimited) %>mh</td>
+                <th class="bg-secondary" scope="row">CPU</th>
+                <td><%= @item.central_processing_unit.name %></td>
+              </tr>
+              <tr>
+                <th class="bg-secondary" scope="row">画面サイズ</th>
+                <td><%= @item.display %>インチ</td>
+                <th class="bg-secondary" scope="row">コア数</th>
+                <td><%= @item.core %>GB</td>
+              </tr>
+              <tr>
+                <th class="bg-secondary" scope="row">重さ</th>
+                <td><%= @item.weight %>g</td>
+                <th class="bg-secondary" scope="row">メインカメラ</th>
+                <td><%= @item.main_camera %></td>
+              </tr>
+              <tr>
+                <th class="bg-secondary" scope="row" rowspan="3">サイズ</th>
+                <td rowspan="3">
+                  <p>高さ：<%= @item.height %>mm</p>
+                  <p>横幅：<%= @item.width %>mm</p>
+                  <p>厚さ：<%= @item.thickness %>mm</p>
+                </td>
+                <th class="bg-secondary" scope="row">前面カメラ</th>
+                <td><%= @item.in_camera %></td>
+                <tr>
+                  <th class="bg-secondary" scope="row">おサイフケータイ</th>
+                  <td><%= @item.mobile_wallet %></td>
+                </tr>
+                <tr>
+                  <th class="bg-secondary" scope="row">NFC</th>
+                  <td><%= @item.near_field_communication_i18n %></td>
+                </tr>
+              </tr>
+              <tr>
+                <th class="bg-secondary" scope="row">防水</th>
+                <td><%= @item.waterploof_i18n %></td>
+                <th class="bg-secondary" scope="row">発売日</th>
+                <td><%= @item.release_date %></td>
+              </tr>
+              <tr>
+                <th class="bg-secondary" scope="row">ワイヤレス充電</th>
+                <td><%= @item.wireless_chage_i18n %></td>
+                <th class="bg-secondary" scope="row">認証</th>
+                <td><%= @item.authentication.name %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="col-3">
+      
+    </div>
+    
+  </div>
+</div>

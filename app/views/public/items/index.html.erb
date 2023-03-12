@@ -1,2 +1,45 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    
+    <div class="col-3">
+      <%= render "public/searches/form" %>
+    </div>
+    
+    <div class="col-6">
+      <div class="container">
+        <h4><strong>記事一覧</strong></h4>
+        
+        <% @items.each do |item| %>
+          <div class="card  bg-white border border-dark p-2 mt-3">
+            <div class="row">
+              <div class="col-3">
+                <%= link_to item_path(item.id) do %>
+                  <%= image_tag item.get_image, class: "w-100 h-100" %>
+                <% end %>
+              </div>
+              <div class="col-9 py-1">
+                <div class="d-flex">
+                  <h6 class="font-weight-bold"><%= link_to item.name, item_path(item.id) %></h6>
+                </div>
+                <div class="d-flex mt-2">
+                  <%= item.price %>円
+                  <%= item.operation_system %>
+                  防水<%= item.waterploof_i18n %>
+                </div>
+                <div class="d-flex">
+                  <span class="my-auto">総評価：<%#= item.comment.score %></span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-3">
+      
+    </div>
+    
+  </div>
+</div>

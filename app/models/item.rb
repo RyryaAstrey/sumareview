@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to :capacity, optional: true
   
   # バリデーション
-  validates :name, presence: true
+  validates :name, presence: true #機種名のみ入力しないと下書き保存ができないように設定
   with_options presence: true, on: :publicize do
     validates :operation_system
     validates :spec
