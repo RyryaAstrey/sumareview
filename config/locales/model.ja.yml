@@ -9,6 +9,7 @@ ja:
       spec: スペック
       authentication: 認証
       capacity: 容量
+      comment: レビュー
     attributes:
       item:
         operation_system: OS名
@@ -47,3 +48,7 @@ ja:
         name: 認証名
       capacity:
         name: 容量名
+      
+      comment:
+        score: 得点
+        comment: コメント

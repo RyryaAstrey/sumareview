@@ -5,5 +5,6 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @comments = Comment.all
   end
 end

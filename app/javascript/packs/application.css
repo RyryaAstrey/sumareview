@@ -12,6 +12,15 @@ body > footer {
   color: #dfdfdf !important
 }
 
+/*table-border-darkクラスでtableの枠線の色を黒にする*/
+.table-border-dark td {
+  border: 1px solid #000000 !important;
+}
+
+.table-border-dark th {
+  border: 1px solid #000000 !important;
+}
+
 /*装飾*/
 
 header {
@@ -29,13 +38,4 @@ body{
 
 .login-card {
   width:20%;
-}
-
-/*table-border-darkクラスでtableの枠線の色を黒にする*/
-.table-border-dark td {
-  border: 1px solid #000000 !important;
-}
-
-.table-border-dark th {
-  border: 1px solid #000000 !important;
 }

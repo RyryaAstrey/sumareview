@@ -16,7 +16,7 @@ class Admin::ItemsController < ApplicationController
     # 下書きボタンを押下した場合
     else
       if @item.update(is_draft: true)
-        redirect_to admin_item_path
+        redirect_to admin_item_path(@item.id)
       else
         flash[:danger] = "入力内容に不備があります。<br>・#{@item.errors.full_messages.join('<br>・')}"
         redirect_to request.referer
