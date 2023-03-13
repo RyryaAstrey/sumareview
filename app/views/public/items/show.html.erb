@@ -5,8 +5,8 @@
       <%= render "public/searches/form" %>
     </div>
     
-    <div class="col-9">
-      <div class="container">
+    <div class="col-6">
+
         <h4><strong><%= @item.name %></strong></h4>
         
         <div class="row mt-3">
@@ -105,11 +105,11 @@
           <h5><strong>●<%= @item.name %>の解説</strong></h5>
           <table class="table table-bordered table-border-dark bg-white mt-2">
             <tr>
-              <th class="align-middle bg-danger">強み</th>
+              <th class="col-2 align-middle bg-danger">強み</th>
               <td><%= safe_join(@item.strength.split("\n"),tag(:br)) %></td>
             </tr>
             <tr>
-              <th class="align-middle bg-primary">弱み</th>
+              <th class="col-2 align-middle bg-primary">弱み</th>
               <td><%= safe_join(@item.weakness.split("\n"),tag(:br)) %></td>
             </tr>
             <tr>
@@ -151,9 +151,12 @@
         <div class="text-center">
           <%= link_to "コメントする", new_item_comment_path(@item.id), class: "btn btn-warning font-weight-bold rounded-0 mt-5" %>
         </div>
-      </div>
+
     </div>
     
+    <div class="col-3">
+      <%= render "layouts/new_list", items: @items %>
+    </div>
     
   </div>
 </div>

@@ -1,8 +1,8 @@
-<%= render "layouts/flash" %> 
 <div class="container">
+  <%= render "layouts/flash" %> 
   <div class="row">
     
-    <div class="col-3">
+    <div class="d-flex flex-column col-3">
       <%= render "admin/searches/form" %>
     </div>
     
@@ -26,16 +26,8 @@
                   <% end %>
                 </div>
                 <div class="d-flex mt-2">
-                  <!--値段の中が空（下書き時など）だとエラーが出るため、条件分岐-->
-                  <% if item.price.nil? %>
-                    <%= item.price %>円
-                  <% else %>
-                    <%= item.price.to_s(:delimited) %>円
-                  <% end %>
-                  <% if item.operation_system.nil? %>
-                  <% else %>
-                    <%= item.operation_system.name %>
-                  <% end %>
+                  <%= item.price&.to_s(:delimited) %>円
+                  <%= item.operation_system&.name %>
                   防水<%= item.waterploof_i18n %>
                 </div>
                 <div class="d-flex">

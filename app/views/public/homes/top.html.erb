@@ -1,1 +1,52 @@
-<%= render "layouts/flash" %> 
+<div class="container">
+  <%= render "layouts/flash" %> 
+  <div class="row">
+    
+    <div class="d-flex flex-column col-3">
+      <%= render "public/searches/form" %>
+      <%= render "public/categories/maker", makers: @makers %>
+      <%= render "public/categories/operation_system", operation_systems: @operation_systems %>
+    </div>
+    
+    <div class="col-6">
+      <table class="table table-borderless bg-white">
+        <thead class="bg-deepskyblue">
+          <th class="h4 font-weight-bold">スマレビュトップページ</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="card mt-4">
+                <%= image_tag 'top_image.jpg', size: '514x304' %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="border border-dark">
+                <div class="bg-gainsboro border-bottom border-dark p-2">
+                  <strong>サイト概要</strong>
+                </div>
+                <div class="p-2">
+                  <p>
+                    スマホレビューサイトの「スマレビュ」へようこそ！<br>
+                    このサイトはスマホなどの携帯端末のスペックを調べたり、<br>
+                    実際に携帯端末を使ってみたレビューなどを書き込むことのできるサイトです。<br>
+                    スマートフォンについて詳しく知りたい、情報を共有したいという時にお使いください。
+                  </p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+          
+      </table>
+      
+    </div>
+    
+    <div class="col-3">
+      <%= render "layouts/new_list", items: @items %>
+    </div>
+    
+  </div>
+</div>

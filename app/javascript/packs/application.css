@@ -40,6 +40,12 @@ body{
   width:20%;
 }
 
+/*背景色*/
 .bg-gainsboro {
   background-color: #dcdcdc;
+}
+
+.bg-deepskyblue {
+  background-color: #00bfff;
+  color: #ffffff;
 }
