@@ -38,8 +38,12 @@
         <!--ユーザーがサインインしている場合-->
         <% elsif user_signed_in? %>
           <li>
-            <%= link_to users_path do %>
-              <div class="nav-link text-light rounded-pill mr-5 btn btn-success btn-sm rounded-0 border-bottom"><%= current_user.name %></div> <!--後程ユーザー名になるよう変更-->
+            <% if current_user.name == "ゲストユーザー" %>
+              <span class="align-middle mr-3"><%= current_user.name %>でログイン中</span>
+            <% else %>
+              <%= link_to users_path do %>
+                <div class="nav-link text-light rounded-pill mr-5 btn btn-success btn-sm rounded-0 border-bottom"><%= current_user.name %></div>
+              <% end %>
             <% end %>
           </li>
           <li>
