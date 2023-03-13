@@ -25,6 +25,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @comments = Comment.all
   end
 
   def edit
