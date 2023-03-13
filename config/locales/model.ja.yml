@@ -52,3 +52,6 @@ ja:
       comment:
         score: 得点
         comment: コメント
+        
+      user:
+        name: ユーザー名

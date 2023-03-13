@@ -5,6 +5,7 @@
   </div>
   
   <p class="mt-4"><strong>></strong>下記の情報を入力してください</p>
+  <%= render "layouts/flash" %>
   
   <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
     <table class="table border border-dark mt-3 shadow-sm">

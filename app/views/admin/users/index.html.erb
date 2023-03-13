@@ -9,11 +9,12 @@
   </div>
   
   <div class="row mt-5">
-    <table class="table">
+    <table class="table bg-white">
       <thead class="bg-secondary">
         <th>ID</th>
         <th>名前</th>
         <th>登録日</th>
+        <th colspan=""></th>
       </thead>
       <tbody>
         <% @users.each do |user| %>
@@ -21,6 +22,11 @@
             <td><%= user.id %></td>
             <td><%= link_to user.name, admin_user_path(user.id) %></td>
             <td><%= user.created_at.strftime("%Y年%m月%d日") %></td>
+            <td>
+              <% if user.is_deleted == true %>
+                <strong class="text-danger">退会済み</strong>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

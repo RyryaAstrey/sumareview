@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:show, :edit]
+  
   def show
   end
 
@@ -33,7 +34,7 @@ class Public::UsersController < ApplicationController
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.name == "ゲストユーザー"
-      flas[:notice] = "ゲストユーザーのため、会員情報編集機能はご利用できません。"
+      flash[:notice] = "ゲストユーザーのため、会員情報編集機能はご利用できません。"
       redirect_to request.referer
     end
   end

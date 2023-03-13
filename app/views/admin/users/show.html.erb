@@ -30,8 +30,13 @@
     </table>
   </div>
   
-  <div class="text-center mt-5">
-    <%= link_to "アカウント情報を編集する", edit_admin_user_path(@user.id), class: "font-weight-bold btn btn-warning rounded-0" %>
+  <div class="d-flex flex-column justify-content-center mt-5">
+    <div class="mx-auto">
+      <%= link_to "アカウント情報を編集する", edit_admin_user_path(@user.id), class: "font-weight-bold btn btn-warning rounded-0" %>
+    </div>
+    <div class="mx-auto mt-3">
+      <%= render "layouts/flash" %>
+    </div>
   </div>
   
   
