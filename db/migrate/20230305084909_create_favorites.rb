@@ -4,7 +4,7 @@ class CreateFavorites < ActiveRecord::Migration[6.1]
       
       # FK
       t.string :user_id, null: false
-      t.string :review_comment, null: false
+      t.string :comment_id, null: false
 
       t.timestamps
     end

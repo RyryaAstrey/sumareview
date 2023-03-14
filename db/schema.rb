@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2023_03_09_032504) do
 
   create_table "favorites", force: :cascade do |t|
     t.string "user_id", null: false
-    t.string "review_comment", null: false
+    t.string "comment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

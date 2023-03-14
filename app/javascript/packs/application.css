@@ -40,6 +40,20 @@ body{
   width:20%;
 }
 
+/*参考になった装飾*/
+.favorite-btn {
+  background-color: #fff;
+  padding: 0 8px 0 8px;
+  font-size: 14px;
+  line-height: 2;
+  border: solid 1px #09e;
+}
+
+.favorite-count {
+  border-left: solid 1px #09e;
+  padding-left: 8px;
+}
+
 /*背景色*/
 .bg-gainsboro {
   background-color: #dcdcdc;
