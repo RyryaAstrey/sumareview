@@ -3,7 +3,7 @@
   <div class="row">
     
     <div class="d-flex flex-column col-3">
-      <%= render "public/searches/form" %>
+      <%= render "public/searches/form", q: @q, url: search_items_path %>
       <%= render "public/categories/maker", makers: @makers %>
       <%= render "public/categories/operation_system", operation_systems: @operation_systems %>
     </div>

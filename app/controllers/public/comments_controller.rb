@@ -1,4 +1,5 @@
 class Public::CommentsController < ApplicationController
+  before_action :done_comment, only: [:new]
   
   def new
     @comment = Comment.new
@@ -25,5 +26,13 @@ class Public::CommentsController < ApplicationController
   
   def comment_params
     params.require(:comment).permit(:score, :comment)
+  end
+  
+  def done_comment
+    item = Item.find(params[:item_id])
+    if Comment.where(user_id: current_user.id, item_id: item.id).exists?
+      flash[:danger] = "一度コメントした記事にはコメントできません。"
+      redirect_to request.referer 
+    end
   end
 end

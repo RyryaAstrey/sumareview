@@ -1,0 +1,48 @@
+<div class="container">
+  <%= render "layouts/flash" %> 
+  <div class="row">
+    
+    <div class="d-flex flex-column col-3">
+      <%= render "public/searches/form", q: @q, url: search_items_path %>
+      <%= render "public/categories/maker", makers: @makers %>
+      <%= render "public/categories/operation_system", operation_systems: @operation_systems %>
+    </div>
+    
+    <div class="col-6">
+      <table class="table table-borderless bg-white">
+        <thead class="bg-deepskyblue">
+          <th class="h4 font-weight-bold">【<%= params[:q][:name_cont] %>】の検索結果</th>
+        </thead>
+        <tbody>
+          <!--検索結果が見つかった場合-->
+          <%#if @items.count == 0 %>
+            <% @items.each do |item| %>
+              <!--非公開ステータスの記事は表示しない-->
+              <% if item.is_draft == false %> 
+                <tr>
+                  <td>
+                    <%= render "public/items/card", item: item %>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+          <!--検索結果が見つからなかった場合-->
+          <%# else %>
+            <!--<tr>-->
+            <!--  <td>-->
+            <!--    <strong>検索結果はありませんでした。</strong>-->
+            <!--  </td>-->
+            <!--</tr>-->
+          <%# end %>
+        </tbody>
+          
+      </table>
+      
+    </div>
+    
+    <div class="col-3">
+      <%= render "layouts/new_list", items: @new_list_items %>
+    </div>
+    
+  </div>
+</div>

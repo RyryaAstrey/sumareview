@@ -1,12 +1,19 @@
-<div class="border border-dark">
-  <div class="bg-info border-bottom border-dark">
-    <h5 class="ml-2"><strong>検索</strong></h5>
-  </div>
-  <div class="bg-white p-2">
-    <%= form_with url: search_path, local: true, method: :get, class: "search-form" do |f| %>
-      <%= f.select :range, options_for_select([["機種名",'name'],["メーカー",'maker']]) %>
-      <%= f.text_field :word %>
-      <%= f.submit "検索" %>
+<table class="table table-borderless bg-white mb-0">
+  <thead class="bg-deepskyblue">
+    <tr>
+      <th>機種検索</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= search_form_for q, url: url, local: true, method: :get do |f| %>
+      <tr>
+        <td class="input-group">
+          <%= f.search_field :name_cont, class: 'form-control', placeholder: "機種名で検索" %>
+          <%= button_tag type: 'submit', class: "bg-deepskyblue border-0" do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
-  </div>
-</div>
+  </tbody>
+</table>

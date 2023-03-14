@@ -15,7 +15,14 @@ class Comment < ApplicationRecord
     }
   end
   
-  # 参考になったがされているかどうか確認するメソッド
+  #メソッド
+  
+  ## コメント済みのユーザーかどうか確認するメソッド
+  def finished_by?(user)
+    Comment.exists?(user_id: user.id)
+  end
+  
+  ## 参考になったがされているかどうか確認するメソッド
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end

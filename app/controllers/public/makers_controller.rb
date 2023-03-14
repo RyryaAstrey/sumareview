@@ -9,5 +9,8 @@ class Public::MakersController < ApplicationController
     ## whereメソッドで下書きステータスがfalse（公開済み）の記事のみ取得
     @publicize_items = Item.where(is_draft: false)
     @items = @publicize_items.order('id DESC').limit(5)
+    
+    # 検索フォーム用
+    @q = Item.ransack(params[:q])
   end
 end

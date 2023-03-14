@@ -1,7 +1,12 @@
 <h2>Results index</h2>
 
-<table class="table table-hover table-inverse">
+<table class="table bg-white mb-0">
   <% if @range == "name" %>
+    <thead class="bg-deepskyblue">
+      <tr>
+        <th><%= params[:q] %>の検索結果</th>
+      </tr>
+    </thead>
     <tbody>
       <% @item_names.each do |user| %>
         <tr>

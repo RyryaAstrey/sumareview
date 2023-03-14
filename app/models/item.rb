@@ -56,4 +56,10 @@ class Item < ApplicationRecord
       Item.all
     end
   end
+  
+  # ransackのホワイトリスト（検索対象のカラムを入力）
+  def self.ransackable_attributes(auth_object = nil)
+    ["name"]
+  end
+  
 end
