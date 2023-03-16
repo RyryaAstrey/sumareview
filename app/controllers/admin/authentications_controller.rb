@@ -1,6 +1,6 @@
 class Admin::AuthenticationsController < ApplicationController
   # ログイン制限
-  before_action :authenticate_admin!, if: :admin_url, only: [:edit]
+  before_action :autheniticate_admin, only: [:edit]
   
   def create
     authentication = Authentication.new(authentication_params)

@@ -1,6 +1,6 @@
 class Admin::CentralProcessingUnitsController < ApplicationController
   # ログイン制限
-  before_action :authenticate_admin!, if: :admin_url, only: [:edit]
+  before_action :autheniticate_admin, only: [:edit]
   
   def create
     central_processing_unit = CentralProcessingUnit.new(central_processing_unit_params)

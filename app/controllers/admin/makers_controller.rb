@@ -1,6 +1,6 @@
 class Admin::MakersController < ApplicationController
   # ログイン制限
-  before_action :authenticate_admin!, if: :admin_url, only: [:edit]
+  before_action :autheniticate_admin, only: [:edit]
   
   def create
     maker = Maker.new(maker_params)

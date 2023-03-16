@@ -1,6 +1,6 @@
 class Admin::SpecsController < ApplicationController
   # ログイン制限
-  before_action :authenticate_admin!, if: :admin_url, only: [:edit]
+  before_action :autheniticate_admin, only: [:edit]
   
   def create
     spec = Spec.new(spec_params)

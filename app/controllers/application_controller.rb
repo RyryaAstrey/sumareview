@@ -3,12 +3,15 @@ class ApplicationController < ActionController::Base
   
   protected
   
-  def admin_url
-    request.fullpath.include?("/admin")
+  def autheniticate_admin
+    unless admin_signed_in?
+      flash[:warning] = "管理者ログインが必要です。"
+      redirect_to new_admin_session_path
+    end
   end
   
   def autheniticate_user
-    if @current_user == nil
+    unless user_signed_in?
       flash[:warning] = "ログインが必要です。"
       redirect_to new_user_session_path
     end

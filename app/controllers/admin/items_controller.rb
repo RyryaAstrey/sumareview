@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   # ログイン制限
-  before_action :authenticate_admin!, if: :admin_url, only: [:new, :show, :edit]
+  before_action :autheniticate_admin, only: [:new, :show, :edit]
   
   before_action :search_template, only: [:show]
   

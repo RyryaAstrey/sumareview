@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   # ログイン制限
-  before_action :authenticate_admin!, if: :admin_url, only: [:index]
+  before_action :autheniticate_admin, only: [:index]
   
   def index
     # 入力フォーム生成
