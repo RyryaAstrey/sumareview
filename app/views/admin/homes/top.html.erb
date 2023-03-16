@@ -18,7 +18,11 @@
     </div>
     
     <div class="col-3">
-      <%= render "admin/items/new_btn" %>
+      <%= render "layouts/new_list", items: @new_list_items %>
+      <div class="my-3">
+        <%= render "admin/items/new_btn" %>
+      </div>
+      
     </div>
     
   </div>

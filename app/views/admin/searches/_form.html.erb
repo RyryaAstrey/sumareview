@@ -4,7 +4,7 @@
     <%= f.select :range, options_for_select([["機種名",'Item'],["ユーザー名",'User']]) %>
     <div class="input-group">
       <%= f.search_field :word, class: 'form-control', placeholder: "検索ワードを入力" %>
-      <%= button_tag type: 'submit', class: "bg-deepskyblue border-0" do %>
+      <%= button_tag type: 'submit', class: "search-botton" do %>
         <i class="fas fa-search"></i>
       <% end %>
     </div>

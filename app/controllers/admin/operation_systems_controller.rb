@@ -1,4 +1,7 @@
 class Admin::OperationSystemsController < ApplicationController
+  # ログイン制限
+  before_action :authenticate_admin!, if: :admin_url, only: [:edit]
+  
   def create
     operation_system = OperationSystem.new(operation_system_params)
     if operation_system.save

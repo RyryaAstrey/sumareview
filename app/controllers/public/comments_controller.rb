@@ -1,4 +1,8 @@
 class Public::CommentsController < ApplicationController
+  
+  # ログイン制限
+  before_action :autheniticate_user, only: [:new]
+  # 一度コメントしたユーザーが再度コメントしないようにする制限
   before_action :done_comment, only: [:new]
   
   def new

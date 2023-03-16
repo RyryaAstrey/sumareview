@@ -6,36 +6,45 @@
       <%= render "admin/searches/form" %>
     </div>
     
-    <div class="col-9">
-      <div class="container">
-        <h4><strong><%= @item.name %></strong></h4>
+    <div class="col-6 px-0">
+      <h4 class="contents-head d-flex">
+        <strong><%= @item.name %></strong>
+        <div class="ml-auto">
+          <% if @item.is_draft == true %>
+            <strong class="text-danger">下書き</strong>
+          <% end %>
+          <%= link_to "編集", edit_admin_item_path(@item.id), class: "btn btn-success rounded-0" %>
+        </div>
+      </h4>
+      
+      <div class="bg-white p-3"> 
         
-        <div class="row mt-3">
-          <div class="col-4">
+        <div class="d-flex mt-3">
+          <div class="mr-3">
             <%= image_tag @item.get_image, size: '170x170' %>
           </div>
-          <div class="col-8">
+          <div class="w-100">
             <!--table border-darkはcssで設定したクラス-->
-            <table class="table table-bordered table-border-dark bg-white">
+            <table class="table table-bordered table-border-dark show-table bg-white">
               <tbody>
                 <tr>
-                  <th  class="bg-secondary" scope="row">機種名</th>
+                  <th scope="row">機種名</th>
                   <td><%= @item.name %></td>
                 </tr>
                 <tr>
-                  <th class="bg-secondary" scope="row">OS</th>
+                  <th scope="row">OS</th>
                   <td><%= @item.operation_system.name %></td>
                 </tr>
                 <tr>
-                  <th class="bg-secondary" scope="row">メーカー</th>
+                  <th scope="row">メーカー</th>
                   <td><%= @item.maker.name %></td>
                 </tr>
                 <tr>
-                  <th class="bg-secondary" scope="row">容量</th>
+                  <th scope="row">容量</th>
                   <td><%= @item.capacity&.name %></td>
                 </tr>
                 <tr>
-                  <th class="bg-secondary" scope="row">価格</th>
+                  <th scope="row">価格</th>
                   <td>
                     <%= @item.price&.to_s(:delimited) %>円<br>
                     <small class="text-danger">※<%= @item.updated_at.strftime("%Y年%m月") %>時点</small>
@@ -48,54 +57,54 @@
         
         <div class="mt-3">
           <h5><strong>●<%= @item.name %>のスペック</strong></h5>
-          <table class="table table-bordered table-border-dark bg-white mt-2">
+          <table class="table table-bordered table-border-dark show-table bg-white mt-2">
             <tbody>
               <tr>
-                <th class="bg-secondary" scope="row">バッテリー</th>
+                <th scope="row">バッテリー</th>
                 <td><%= @item.battery&.to_s(:delimited) %>mh</td>
-                <th class="bg-secondary" scope="row">CPU</th>
+                <th scope="row">CPU</th>
                 <td><%= @item.central_processing_unit&.name %></td>
               </tr>
               <tr>
-                <th class="bg-secondary" scope="row">画面サイズ</th>
+                <th scope="row">画面サイズ</th>
                 <td><%= @item.display %>インチ</td>
-                <th class="bg-secondary" scope="row">コア数</th>
+                <th scope="row">コア数</th>
                 <td><%= @item.core %>GB</td>
               </tr>
               <tr>
-                <th class="bg-secondary" scope="row">重さ</th>
+                <th scope="row">重さ</th>
                 <td><%= @item.weight %>g</td>
-                <th class="bg-secondary" scope="row">メインカメラ</th>
+                <th scope="row">メインカメラ</th>
                 <td><%= @item.main_camera %></td>
               </tr>
               <tr>
-                <th class="bg-secondary" scope="row" rowspan="3">サイズ</th>
+                <th scope="row" rowspan="3">サイズ</th>
                 <td rowspan="3">
                   <p>高さ：<%= @item.height %>mm</p>
                   <p>横幅：<%= @item.width %>mm</p>
                   <p>厚さ：<%= @item.thickness %>mm</p>
                 </td>
-                <th class="bg-secondary" scope="row">前面カメラ</th>
+                <th scope="row">前面カメラ</th>
                 <td><%= @item.in_camera %></td>
                 <tr>
-                  <th class="bg-secondary small font-weight-bold" scope="row">おサイフケータイ</th>
+                  <th class="small font-weight-bold" scope="row">おサイフケータイ</th>
                   <td><%= @item.mobile_wallet %></td>
                 </tr>
                 <tr>
-                  <th class="bg-secondary" scope="row">NFC</th>
+                  <th scope="row">NFC</th>
                   <td><%= @item.near_field_communication_i18n %></td>
                 </tr>
               </tr>
               <tr>
-                <th class="bg-secondary" scope="row">防水</th>
+                <th scope="row">防水</th>
                 <td><%= @item.waterploof_i18n %></td>
-                <th class="bg-secondary" scope="row">発売日</th>
+                <th scope="row">発売日</th>
                 <td><%= @item.release_date %></td>
               </tr>
               <tr>
-                <th class="bg-secondary small font-weight-bold" scope="row">ワイヤレス充電</th>
+                <th class="small font-weight-bold" scope="row">ワイヤレス充電</th>
                 <td><%= @item.wireless_chage_i18n %></td>
-                <th class="bg-secondary" scope="row">認証</th>
+                <th scope="row">認証</th>
                 <td><%= @item.authentication&.name %></td>
               </tr>
             </tbody>
@@ -104,7 +113,7 @@
         
         <div class="mt-4">
           <h5><strong>●<%= @item.name %>の解説</strong></h5>
-          <table class="table table-bordered table-border-dark bg-white mt-2">
+          <table class="table table-bordered table-border-dark show-table bg-white mt-2">
             <tr>
               <th class="col-2 align-middle bg-danger">強み</th>
               <td><%= safe_join(@item.strength.split("\n"),tag(:br)) %></td>
@@ -114,7 +123,7 @@
               <td><%= safe_join(@item.weakness.split("\n"),tag(:br)) %></td>
             </tr>
             <tr>
-              <th class="text-center bg-secondary" colspan="2">解説</th>
+              <th class="text-center" colspan="2">解説</th>
               <tr>
                 <td colspan="2"><%= safe_join(@item.explanation.split("\n"),tag(:br)) %></td>
               </tr>
@@ -140,7 +149,9 @@
                   <span class="ml-auto"><%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
                 </div>
                 <p class="mt-2"><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
-                <span class="ml-auto"><i class="fas fa-thumbs-up"></i></span>
+                <div class="text-right">
+                  <i class="fas fa-thumbs-up"></i><span class="ml-2"><%= comment.favorites.count %></span>
+                </div>
               </div>
               
             </div>
@@ -150,6 +161,8 @@
       </div>
     </div>
     
-    
+    <div class="col-3">
+      <%= render "layouts/new_list", items: @new_list_items %>
+    </div>
   </div>
 </div>

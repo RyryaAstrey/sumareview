@@ -1,4 +1,7 @@
 class Admin::SearchesController < ApplicationController
+  # ログイン制限
+  before_action :authenticate_admin!, if: :admin_url, only: [:search]
+  
   before_action :search_template, only: [:search]
   
   def search

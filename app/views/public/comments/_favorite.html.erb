@@ -1,15 +1,21 @@
-<% if comment.favorited_by?(current_user) %>
-  <div class="favorite-btn">
-    <%= link_to item_comment_favorites_path(item, comment), method: :delete, remote: true, class: "text-decoration-none" do %>
-      参考になった！　
-      <span class="favorite-count"><%= comment.favorites.count %></span>
-    <% end %>
-  </div>
+<% if user_signed_in? %>
+  <% if comment.favorited_by?(current_user) %>
+    <div class="favorite-btn">
+      <%= link_to item_comment_favorites_path(item, comment), method: :delete, remote: true, class: "text-decoration-none" do %>
+        参考になった！　
+        <span class="favorite-count"><%= comment.favorites.count %></span>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="favorite-btn">
+      <%= link_to item_comment_favorites_path(item, comment), method: :post, remote: true, class: "text-decoration-none" do %>
+        参考になった！　
+        <span class="favorite-count"><%= comment.favorites.count %></span>
+      <% end %>
+    </div>
+  <% end %>
 <% else %>
-  <div class="favorite-btn">
-    <%= link_to item_comment_favorites_path(item, comment), method: :post, remote: true, class: "text-decoration-none" do %>
-      参考になった！　
-      <span class="favorite-count"><%= comment.favorites.count %></span>
-    <% end %>
+  <div class="text-right">
+    <i class="fas fa-thumbs-up"></i><span class="ml-2"><%= comment.favorites.count %></span>
   </div>
 <% end %>

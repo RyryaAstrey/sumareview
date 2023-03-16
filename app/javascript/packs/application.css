@@ -12,10 +12,17 @@ body > footer {
   color: #dfdfdf !important
 }
 
-/*table-border-darkクラスでtableの枠線の色を黒にする*/
-.table-border-dark th, .table-border-dark td {
-  border: 1px solid #808080 !important;
-}
+/*tableクラス系の装飾*/
+
+  /*table-border-darkクラスでtableの枠線の色を黒にする*/
+  .table-border-dark th, .table-border-dark td {
+    border: 1px solid #808080 !important;
+  }
+  
+  /*thを灰色にする（主にshowビューで使用）*/
+  .show-table th {
+    background-color: #dcdcdc;
+  }
 
 /*装飾*/
 
@@ -32,6 +39,7 @@ body{
   background-color: #fcfcfc !important
 }
 
+/*ログイン画面の装飾*/
 .login-card {
   width:20%;
 }
@@ -55,10 +63,23 @@ body{
   background-color: #dcdcdc;
 }
 
+/*コンテンツの装飾*/
 .contents-head {
   background-color: #00bfff;
   color: #ffffff;
   padding: 8px 10px 5px;
   margin-bottom: 0px;
   line-height: 1.5;
+}
+
+/*検索ボタンの装飾*/
+.search-botton {
+  background-color: #00bfff;
+  color: #fff;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #0086d0;
 }

@@ -1,4 +1,8 @@
 class Admin::CapacitiesController < ApplicationController
+  
+  # ログイン制限
+  before_action :authenticate_admin!, if: :admin_url, only: [:edit]
+  
   def create
     capacity = Capacity.new(capacity_params)
     if capacity.save
