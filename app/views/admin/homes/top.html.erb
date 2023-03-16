@@ -3,42 +3,17 @@
   <div class="row">
     
     <div class="d-flex flex-column col-3">
-      <%#= render "admin/searches/form", q: @q %>
+      <%= render "admin/searches/form" %>
     </div>
     
-    <div class="col-6">
-      <div class="container">
-        <h4><strong>記事一覧</strong></h4>
+    <div class="col-6 px-0">
+      <div class="bg-white">
+        <h4 class="contents-head"><strong>記事一覧</strong></h4>
         
-        <% @items.each do |item| %>
-          <div class="card  bg-white border border-dark p-2 mt-3">
-            <div class="row">
-              <div class="col-3">
-                <%= link_to admin_item_path(item.id) do %>
-                  <%= image_tag item.get_image, class: "w-100 h-100" %>
-                <% end %>
-              </div>
-              <div class="col-9 py-1">
-                <div class="d-flex">
-                  <h6 class="font-weight-bold"><%= link_to item.name, admin_item_path(item.id) %></h6>
-                  <% if item.is_draft == true %>
-                    <h6 class="text-success font-weight-bold ml-auto">末投稿</h6>
-                  <% end %>
-                </div>
-                <div class="d-flex mt-2">
-                  <%= item.price&.to_s(:delimited) %>円
-                  <%= item.operation_system&.name %>
-                  防水<%= item.waterploof_i18n %>
-                </div>
-                <div class="d-flex">
-                  <span class="my-auto">総評価：<strong class="text-danger"><%= item.comments.average(:score).to_i.round %></strong>点</span>
-                  <%= link_to "編集", edit_admin_item_path(item.id), class: "btn btn-success rounded-0 ml-auto" %>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        <% end %>
+        <div class="p-3">
+          <%= render "admin/items/index", items: @items %>
+        </div>
+ 
       </div>
     </div>
     

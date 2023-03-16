@@ -48,9 +48,4 @@ class Item < ApplicationRecord
     (image.attached?) ? image : 'no_image.jpg'
   end
   
-  ## 機種名を検索する
-  def self.looks(word)
-    Item.where('name LIKE(?)', "%#{word}%")
-  end
-  
 end

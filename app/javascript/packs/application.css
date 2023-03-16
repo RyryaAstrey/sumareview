@@ -13,12 +13,8 @@ body > footer {
 }
 
 /*table-border-darkクラスでtableの枠線の色を黒にする*/
-.table-border-dark td {
-  border: 1px solid #000000 !important;
-}
-
-.table-border-dark th {
-  border: 1px solid #000000 !important;
+.table-border-dark th, .table-border-dark td {
+  border: 1px solid #808080 !important;
 }
 
 /*装飾*/
@@ -59,7 +55,10 @@ body{
   background-color: #dcdcdc;
 }
 
-.bg-deepskyblue {
+.contents-head {
   background-color: #00bfff;
   color: #ffffff;
+  padding: 8px 10px 5px;
+  margin-bottom: 0px;
+  line-height: 1.5;
 }
