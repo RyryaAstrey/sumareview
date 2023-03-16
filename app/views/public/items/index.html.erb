@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row">
     
-    <div class="col-3">
-      <%= render "public/searches/form" %>
+    <div class="d-flex flex-column col-3">
+      <%= render "public/searches/form", url: search_path %>
+      <%= render "public/categories/maker", makers: @makers %>
+      <%= render "public/categories/operation_system", operation_systems: @operation_systems %>
     </div>
     
     <div class="col-6">
@@ -19,7 +21,7 @@
     </div>
     
     <div class="col-3">
-      <%= render "layouts/new_list", items: @items %>
+      <%= render "layouts/new_list", items: @new_list_items %>
     </div>
     
   </div>

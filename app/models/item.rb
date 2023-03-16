@@ -49,17 +49,8 @@ class Item < ApplicationRecord
   end
   
   ## 機種名を検索する
-  def self.search(search)
-    if search != ""
-      Item.where('name LIKE(?)', "%#{search}%")
-    else
-      Item.all
-    end
-  end
-  
-  # ransackのホワイトリスト（検索対象のカラムを入力）
-  def self.ransackable_attributes(auth_object = nil)
-    ["name"]
+  def self.looks(word)
+    Item.where('name LIKE(?)', "%#{word}%")
   end
   
 end

@@ -6,9 +6,6 @@ Rails.application.routes.draw do
     
     # 投稿記事関連
     resources :items, only: [:index, :show] do
-      collection do
-          get 'search'
-        end
       resources :comments, only: [:new, :index, :edit, :create] do
         resource :favorites, only: [:create, :destroy]
       end
@@ -21,6 +18,7 @@ Rails.application.routes.draw do
     end
     
     ## ユーザー側検索関連
+    get "search" => "searches#search"
     resources :operation_systems, only: [:show]
     resources :central_processing_units, only: [:show]
     resources :certifications, only: [:show]

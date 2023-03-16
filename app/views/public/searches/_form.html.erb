@@ -5,10 +5,10 @@
     </tr>
   </thead>
   <tbody>
-    <%= search_form_for q, url: url, local: true, method: :get do |f| %>
+    <%= form_with url: url, local: true, method: :get do |f| %>
       <tr>
         <td class="input-group">
-          <%= f.search_field :name_cont, class: 'form-control', placeholder: "機種名で検索" %>
+          <%= f.search_field :word, class: 'form-control', placeholder: "機種を検索" %>
           <%= button_tag type: 'submit', class: "bg-deepskyblue border-0" do %>
             <i class="fas fa-search"></i>
           <% end %>
