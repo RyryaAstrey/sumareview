@@ -8,14 +8,14 @@ class Admin::SearchesController < ApplicationController
     @range = params[:range]
     if @range == "Item"
       if params[:word].present?
-        @items = Item.where("name LIKE?", "%#{params[:word]}%")
+        @items = Item.where("name LIKE?", "%#{params[:word]}%").page(params[:page]).per(10)
       ## 検索ワードが空の時、@itemsの配列を空にする 
       else
         @items = Item.none
       end
     else
       if params[:word].present?
-        @users = User.where("name LIKE?", "%#{params[:word]}%")
+        @users = User.where("name LIKE?", "%#{params[:word]}%").page(params[:page]).per(10)
       ## 検索ワードが空の時、@usersの配列を空にする 
       else
         @users = User.none

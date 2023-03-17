@@ -5,6 +5,6 @@ class Admin::HomesController < ApplicationController
   
   before_action :search_template, only: [:top]
   def top
-   @items = Item.all.page(params[:page]).per(5)
+   @items = Item.all.page(params[:page]).per(10)
   end
 end

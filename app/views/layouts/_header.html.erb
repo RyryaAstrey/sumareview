@@ -7,31 +7,8 @@
         <!--URLにadminが含まれている場合かつ管理者がログインしている場合、以下を表示-->
         <% if request.path.match(/\/admin(\/)?/) && admin_signed_in? %>
           <li>
-            <%= link_to admin_root_path do %>
-              <div class="nav-link text-dark rounded-pill">記事一覧</div>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to admin_categories_path do %>
-              <div class="nav-link text-dark rounded-pill">カテゴリ一覧</div>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to admin_users_path do %>
-              <div class="nav-link text-dark rounded-pill mr-5"><i class="fas fa-user"></i> 会員一覧</div>
-            <% end %>
-          </li>
-          <li>
             <%= link_to destroy_admin_session_path, method: :delete, class:"a-header" do %>
               <div class="nav-link text-light btn btn-primary btn-sm rounded-0 border-bottom"><i class="fas fa-sign-out-alt"></i> ログアウト</div>
-            <%end%>
-          </li>
-            
-        <!--URLにadminが含まれている場合かつ管理者がログインしていない場合、以下を表示-->
-        <% elsif request.path.match(/\/admin(\/)?/) %>
-          <li>
-            <%= link_to new_admin_session_path, class:"a-header" do %>
-              <div class="nav-link text-light btn btn-primary btn-sm rounded-0 border-bottom">管理者ログイン</div>
             <%end%>
           </li>
           

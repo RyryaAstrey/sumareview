@@ -12,6 +12,15 @@ ja:
         wireless_true: "○"
         wireless_false: "×"
   
+  # ページネーションの日本語化
+  views:
+    pagination:
+      first: "&laquo; 最初へ"
+      last: "最後へ &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
+  
   # deviseの日本語化
   activerecord:
     errors:
