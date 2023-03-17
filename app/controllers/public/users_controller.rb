@@ -35,10 +35,10 @@ class Public::UsersController < ApplicationController
   
   # ゲストユーザーが会員情報を閲覧・編集できないようにする
   def ensure_guest_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     if @user.name == "ゲストユーザー"
-      flash[:notice] = "ゲストユーザーのため、会員情報編集機能はご利用できません。"
-      redirect_to request.referer
+      flash[:warning] = "ゲストユーザーのため、会員情報編集機能はご利用できません。"
+      redirect_to root_path
     end
   end
 end

@@ -32,6 +32,8 @@ class Admin::MakersController < ApplicationController
     redirect_to request.referer
   end
   
+  private
+  
   def maker_params
     params.require(:maker).permit(:name)
   end

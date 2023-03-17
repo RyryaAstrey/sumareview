@@ -1,40 +1,33 @@
 <div class="container">
   <div class="row">
     
-    <div class="col-3">
+    <div class="col-9 mx-auto">
+      <h4 class="contents-head p-2"><strong><%= link_to @item.name, item_path(@item.id), class: "text-white" %></strong></h4>
+      <p class="border-bottom border-info mt-4"><strong>></strong>下記の情報を入力してください</p>
+      <%= render "layouts/flash" %>
       
-    </div>
-    
-    <div class="col-9">
-      <div class="container">
-        <h4 class="bg-info p-2"><strong><%= link_to @item.name, item_path(@item.id), class: "text-dark" %></strong></h4>
-        <p class="border-bottom border-info mt-4"><strong>></strong>下記の情報を入力してください</p>
-        <%= render "layouts/flash" %>
-        
-        <%= form_with model: [@item, @comment], method: :post do |f| %>
-          <table class="table table-bordered table-border-dark bg-white">
-            <tr>
-              <th class="align-middle bg-secondary">得点<br>（0点～100点）</th>
-              <td>
-                <p>この機種がどれぐらい良いと思ったのか、率直な点数を入力願います。</p>
-                <%= f.text_field :score, class: "form-control col-2" %>
-              </td>
-            </tr>
-            <tr>
-              <th class="align-middle bg-secondary">コメント</th>
-              <td>
-                <p>この機種を使ってみた感想、他の機種と比較してみて思ったことなどを入力願います。</p>
-                <%= f.text_area :comment, class: "form-control", rows: 10 %>
-              </td>
-            </tr>
-          </table>
-          <div class="mt-4 text-center">
-            <%= f.submit "投稿する", class: "font-weight-bold btn btn-warning btn-lg rounded-0" %>
-          </div>
-        <% end %>
-        
-        
-      </div>
+      <%= form_with model: [@item, @comment], method: :post do |f| %>
+        <table class="table table-bordered table-border-dark show-table bg-white">
+          <tr>
+            <th class="align-middle">得点<br>（0点～100点）</th>
+            <td>
+              <p>この機種がどれぐらい良いと思ったのか、率直な点数を入力願います。</p>
+              <%= f.text_field :score, class: "form-control col-2" %>
+            </td>
+          </tr>
+          <tr>
+            <th class="align-middle">コメント</th>
+            <td>
+              <p>この機種を使ってみた感想、他の機種と比較してみて思ったことなどを入力願います。</p>
+              <%= f.text_area :comment, class: "form-control", rows: 10 %>
+            </td>
+          </tr>
+        </table>
+        <div class="mt-4 text-center">
+          <%= f.submit "投稿する", class: "font-weight-bold btn btn-warning btn-lg rounded-0" %>
+        </div>
+      <% end %>
+
     </div>
     
     

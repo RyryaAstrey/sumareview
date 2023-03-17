@@ -2,7 +2,7 @@ class Public::ItemsController < ApplicationController
   before_action :search_template, only: [:index, :show]
   
   def index
-    @items = Item.all
+    @items = Item.where(is_draft: false).page(params[:page]).per(10)
   end
 
   def show

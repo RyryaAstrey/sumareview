@@ -10,7 +10,7 @@ class Comment < ApplicationRecord
     validates :comment
     validates :score, numericality: {
       only_integer: true,
-      greater_than_or_equal_to: 1,
+      greater_than_or_equal_to: 0,
       less_than: 101
     }
   end

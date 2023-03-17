@@ -1,0 +1,29 @@
+<table class="table table-border-dark">
+  <thead class="bg-gainsboro text-center">
+    <tr>
+      <th>機種</th>
+      <th>価格</th>
+      <th>点数</th>
+      <th>発売日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.each do |item| %>
+      <tr>
+        <td>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_image, size: "70x70" %>
+          <% end %>
+          <%= link_to item.name, item_path(item.id) %>
+        </td>
+        <td class="align-middle"><%= item.price&.to_s(:delimited) %>円</td>
+        <td class="align-middle"><span class="my-auto"><strong class="text-danger"><%= item.comments.average(:score).to_i.round %></strong>点</span></td>
+        <td class="align-middle"><%= item.release_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <%= paginate items %>
+</div>
