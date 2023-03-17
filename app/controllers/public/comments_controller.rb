@@ -1,4 +1,5 @@
 class Public::CommentsController < ApplicationController
+  before_action :search_template, only: [:index]
   
   # ログイン制限
   before_action :autheniticate_user, only: [:new]
@@ -12,6 +13,8 @@ class Public::CommentsController < ApplicationController
   
   
   def index
+    @item = Item.find(params[:item_id])
+    @items = @item.comments.page(params[:page]).per(10)
   end
   
   def create
