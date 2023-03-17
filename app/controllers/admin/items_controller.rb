@@ -31,7 +31,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @comments = Comment.all
+    @comments = @item.comments.order('id DESC')
   end
 
   def edit

@@ -12,7 +12,7 @@
     <div class="col-6 px-0">
       <h5 class="contents-head p-2">コメント（<%= @item.name %>の評価）</h5>
       <div class="bg-white py-4">
-        <% @items.each do |comment| %>
+        <% @comments.each do |comment| %>
           <div class="border border-dark bg-white mt-2">
             <div class="d-flex bg-gainsboro border-bottom border-dark p-2">
               <small><%= comment.id %></small>
@@ -39,7 +39,7 @@
           </div>
         <% end %>
         <div class="d-flex justify-content-center mt-3">
-          <%= paginate @items %>
+          <%= paginate @comments %>
         </div>
         
         <div class="text-center">

@@ -3,6 +3,6 @@ class Public::MakersController < ApplicationController
   
   def show
     @maker = Maker.find(params[:id])
-    @maker_items = @maker.items.where(is_draft: false).page(params[:page]).per(10)
+    @maker_items = @maker.items.where(is_draft: false).page(params[:page]).per(10).order('id DESC')
   end
 end

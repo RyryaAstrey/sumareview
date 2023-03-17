@@ -14,7 +14,7 @@ class Public::CommentsController < ApplicationController
   
   def index
     @item = Item.find(params[:item_id])
-    @items = @item.comments.page(params[:page]).per(10)
+    @comments = @item.comments.page(params[:page]).per(10).order('id DESC')
   end
   
   def create

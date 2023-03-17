@@ -130,33 +130,37 @@
       
       <h5 class="contents-head p-2">コメント（<%= @item.name %>の評価）</h5>
       <div class="bg-white py-4">
-        <% @items.each do |comment| %>
-          <div class="border border-dark bg-white mt-2">
-            <div class="d-flex bg-gainsboro border-bottom border-dark p-2">
-              <small><%= comment.id %></small>
-              <span class="ml-3"><i class="fas fa-user-circle"></i><%= comment.user.name %></span>
-              <div class="ml-auto">
-                <% if comment.user == current_user %>
-                  <%= link_to "編集", edit_item_comment_path(comment.id), class: "btn btn-success btn-sm rounded-0" %>
-                <% end %>
+        <% if @comments.count == 0 %>
+          <strong class="pl-2">コメントはまだありません。</strong>
+        <% else %>
+          <% @comments.each do |comment| %>
+            <div class="border border-dark bg-white mt-2">
+              <div class="d-flex bg-gainsboro border-bottom border-dark p-2">
+                <small><%= comment.id %></small>
+                <span class="ml-3"><i class="fas fa-user-circle"></i><%= comment.user.name %></span>
+                <div class="ml-auto">
+                  <% if comment.user == current_user %>
+                    <%= link_to "編集", edit_item_comment_path(comment.id), class: "btn btn-success btn-sm rounded-0" %>
+                  <% end %>
+                </div>
               </div>
-            </div>
-            
-            <div class="p-2">
-              <div class="d-flex">
-                <span class="text-danger font-weight-bold"><%= comment.score %></span>点
-                <span class="ml-auto"><%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
-              </div>
-              <p class="mt-2"><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
-              <div class="d-flex flex-row-reverse" id="favorite_buttons_<%= comment.id %>">
-                <%= render "public/comments/favorite", item: @item, comment: comment %>
+              
+              <div class="p-2">
+                <div class="d-flex">
+                  <span class="text-danger font-weight-bold"><%= comment.score %></span>点
+                  <span class="ml-auto"><%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
+                </div>
+                <p class="mt-2"><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
+                <div class="d-flex flex-row-reverse" id="favorite_buttons_<%= comment.id %>">
+                  <%= render "public/comments/favorite", item: @item, comment: comment %>
+                </div>
+                
               </div>
               
             </div>
-            
-          </div>
+          <% end %>
+          <div class="text-right mt-3"><%= link_to "もっと見る", item_comments_path(@item.id) %></div>
         <% end %>
-        <div class="text-right mt-3"><%= link_to "もっと見る", item_comments_path(@item.id) %></div>
         <div class="text-center">
           <%= link_to "コメントする", new_item_comment_path(@item.id), class: "btn btn-warning font-weight-bold rounded-0 mt-5" %>
         </div>
