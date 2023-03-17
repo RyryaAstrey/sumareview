@@ -1,10 +1,10 @@
 <table class="table table-border-dark">
   <thead class="bg-gainsboro text-center">
     <tr>
-      <th>機種</th>
-      <th>価格</th>
-      <th>点数</th>
-      <th>発売日</th>
+      <th class="cell-link"><%= link_to items_path do %><span>機種</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to items_path(high_cost: "true") do %><span>価格</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to items_path(score_count: "true") do %><span>点数</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to items_path(old: "true") do %><span>発売日</span><small>▼</small><% end %></th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +18,7 @@
         </td>
         <td class="align-middle"><%= item.price&.to_s(:delimited) %>円</td>
         <td class="align-middle"><span class="my-auto"><strong class="text-danger"><%= item.comments.average(:score).to_i.round %></strong>点</span></td>
-        <td class="align-middle"><%= item.release_date %></td>
+        <td class="align-middle"><%= item.release_date.strftime("%Y年%m月%d日") %></td>
       </tr>
     <% end %>
   </tbody>

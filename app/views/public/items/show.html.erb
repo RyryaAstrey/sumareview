@@ -94,7 +94,7 @@
                 <th scope="row">防水</th>
                 <td><%= @item.waterploof_i18n %></td>
                 <th scope="row">発売日</th>
-                <td><%= @item.release_date %></td>
+                <td><%= @item.release_date.strftime("%Y年%m月%d日")  %></td>
               </tr>
               <tr>
                 <th class="small font-weight-bold" scope="row">ワイヤレス充電</th>

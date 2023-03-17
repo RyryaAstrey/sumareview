@@ -48,4 +48,11 @@ class Item < ApplicationRecord
     (image.attached?) ? image : 'no_image.jpg'
   end
   
+  # ソート用メソッド
+    scope :latest, -> {order(release_date: :desc)}
+    scope :old, -> {order(release_date: :asc)}
+    scope :score_count, -> {order(score: :desc)}
+    scope :high_cost, -> {order(price: :desc)}
+    scope :row_cost, -> {order(price: :asc)}
+  
 end

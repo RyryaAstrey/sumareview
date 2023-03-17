@@ -1,3 +1,8 @@
+/*プリコンパイル用*/
+/*body {*/
+/*  background-image: url("../images/hoge.jpg");*/
+/*}*/
+
 /*フッターを画面下に固定する*/
 html, body { height: 100%;}
 
@@ -82,4 +87,27 @@ body{
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #0086d0;
+}
+
+/*セル全体をリンクにする*/
+.cell-link {
+  padding: 0 !important;
+  height: 0 !important;
+}
+
+.cell-link a{
+  height: 100%;
+  padding: 10px 10px 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none !important;
+  flex-flow: column;
+  line-height: 15px;
+}
+
+.cell-link small{
+  font-size: 60%;
+  color: #808080;
 }
