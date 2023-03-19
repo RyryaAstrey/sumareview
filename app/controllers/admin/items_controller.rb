@@ -105,7 +105,7 @@ class Admin::ItemsController < ApplicationController
       :wireless_chage,
       :near_field_communication,
       :is_draft,
-      :image
+      images: []
       )
   end
 end

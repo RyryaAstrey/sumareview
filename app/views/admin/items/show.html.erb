@@ -19,11 +19,28 @@
       </h4>
       
       <div class="bg-white p-3"> 
-        
         <div class="d-flex mt-3">
-          <div class="mr-3">
-            <%= image_tag @item.get_image, size: '200x200' %>
+          
+          <!-- Slider main container -->
+          <div class="swiper w-75 h-75 mx-2">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <% @item.get_image.each do |item| %>
+                <div class="swiper-slide">
+                  <%= image_tag item, class: 'img-fluid' %>
+                </div>
+              <% end %>
+              ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
           </div>
+          
           <div class="w-100">
             <!--table border-darkはcssで設定したクラス-->
             <table class="table table-bordered table-border-dark show-table bg-white">
@@ -175,3 +192,22 @@
     </div>
   </div>
 </div>
+
+
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true, // ループさせるか
+    
+    autoplay: { // 自動再生
+      delay: 5000, // 時間
+    },
+    pagination: {
+      el: '.swiper-pagination', // ページのドット
+    },
+    navigation: {
+      nextEl: '.swiper-button-next', // 次へ
+      prevEl: '.swiper-button-prev', // 前へ
+    },
+  });
+</script>

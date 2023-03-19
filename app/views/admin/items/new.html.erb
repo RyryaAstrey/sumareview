@@ -19,7 +19,7 @@
           <div class="card bg-white p-3">
             <dl class="row">
               <dt class="col-2 pt-1">機種画像</dt>
-              <dd class="col-6"><%= f.file_field :image, class: "form-control-file", accept: "image/*" %></dd>
+              <dd class="col-6"><%= f.file_field :images, multiple: true, class: "form-control-file", accept: "image/*" %></dd>
             </dl>
             <dl class="row">
               <dt class="col-2 pt-1">機種名</dt>

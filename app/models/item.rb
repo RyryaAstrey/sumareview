@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   
-  has_one_attached :image
+  has_many_attached :images
   has_many :comments, dependent: :destroy
   belongs_to :operation_system, optional: true
   belongs_to :spec, optional: true
@@ -45,7 +45,7 @@ class Item < ApplicationRecord
   
   ## 画像がなかった場合にno_imageを表示する
   def get_image
-    (image.attached?) ? image : 'no_image.jpg'
+    (images.attached?) ? images : 'no_image.jpg'
   end
   
   # ソート用メソッド
