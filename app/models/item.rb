@@ -50,9 +50,9 @@ class Item < ApplicationRecord
   
   # ソート用メソッド
     scope :latest, -> {order(release_date: :desc)}
-    scope :old, -> {order(release_date: :asc)}
+    scope :old, -> {order(release_date: :asc)} #未使用　発売日の古い順
     scope :score_count, -> {order(score: :desc)}
-    scope :high_cost, -> {order(price: :desc)}
+    scope :high_cost, -> {order(price: :desc)} #未使用　価格の高い順
     scope :row_cost, -> {order(price: :asc)}
   
 end

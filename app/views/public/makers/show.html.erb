@@ -15,7 +15,7 @@
         <h4 class="contents-head"><strong><%= @maker.name %>の端末一覧</strong></h4>
         
         <div class="p-3">
-          <%= render "public/items/index", items: @maker_items %>
+          <%= render "public/items/index", items: @maker_items, path: maker_path(params[:id]), cost_path: maker_path(params[:id], row_cost: "true"), score_path: maker_path(params[:id], score_count: "true"), old_path: maker_path(params[:id], latest: "true") %>
         </div>
       </div>
 

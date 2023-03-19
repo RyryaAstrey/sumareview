@@ -4,12 +4,8 @@ class Public::ItemsController < ApplicationController
   def index
     if params[:latest]
       @items = Item.latest.where(is_draft: false).page(params[:page]).per(10)
-    elsif params[:old]
-      @items = Item.old.where(is_draft: false).page(params[:page]).per(10)
     elsif params[:score_count]
       @items = Item.score_count.where(is_draft: false).page(params[:page]).per(10)
-    elsif params[:high_cost]
-      @items = Item.high_cost.where(is_draft: false).page(params[:page]).per(10)
     elsif params[:row_cost]
       @items = Item.row_cost.where(is_draft: false).page(params[:page]).per(10)
     else

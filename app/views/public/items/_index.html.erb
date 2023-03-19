@@ -1,10 +1,17 @@
+<div class="flex flex-wrap justify-end px-5">
+  <ul>
+    <li class="<%= items == params[:row_cost] ? "bg-secondary" : "bg-danger" %>"><%= link_to "価格の安い順", cost_path %></li>
+    <li></li>
+  </ul>
+</div>
+
 <table class="table table-border-dark">
   <thead class="bg-gainsboro text-center">
     <tr>
-      <th class="cell-link"><%= link_to items_path do %><span>機種</span><small>▼</small><% end %></th>
-      <th class="cell-link"><%= link_to items_path(high_cost: "true") do %><span>価格</span><small>▼</small><% end %></th>
-      <th class="cell-link"><%= link_to items_path(score_count: "true") do %><span>点数</span><small>▼</small><% end %></th>
-      <th class="cell-link"><%= link_to items_path(old: "true") do %><span>発売日</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to path do %><span>機種</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to cost_path do %><span>価格</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to score_path do %><span>点数</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to old_path do %><span>発売日</span><small>▼</small><% end %></th>
     </tr>
   </thead>
   <tbody>

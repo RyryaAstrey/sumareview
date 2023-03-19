@@ -13,7 +13,7 @@
         <h4 class="contents-head"><strong>記事一覧</strong></h4>
         
         <div class="p-3">
-          <%= render "public/items/index", items: @items %>
+          <%= render "public/items/index", items: @items, path: items_path, cost_path: items_path(row_cost: "true"), score_path: items_path(score_count: "true"), old_path: items_path(latest: "true") %>
         </div>
       </div>
     </div>

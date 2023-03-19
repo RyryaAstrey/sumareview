@@ -15,7 +15,7 @@
         <h4 class="contents-head"><strong><%= @operation_system.name %>の端末一覧</strong></h4>
         
         <div class="p-3">
-          <%= render "public/items/index", items: @operation_system_items %>
+          <%= render "public/items/index", items: @operation_system_items, path: operation_system_path, cost_path: operation_system_path(row_cost: "true"), score_path: operation_system_path(score_count: "true"), old_path: operation_system_path(latest: "true") %>
         </div>
       </div>
       
