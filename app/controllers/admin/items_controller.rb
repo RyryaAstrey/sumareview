@@ -104,7 +104,8 @@ class Admin::ItemsController < ApplicationController
       :waterploof,
       :wireless_chage,
       :near_field_communication,
-      :is_draft
+      :is_draft,
+      :image
       )
   end
 end

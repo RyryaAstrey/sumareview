@@ -16,7 +16,7 @@
         
         <div class="d-flex mt-3">
           <div class="mr-3">
-            <%= image_tag @item.get_image, size: '170x170' %>
+            <%= image_tag @item.get_image, size: '200x200' %>
           </div>
           <div class="w-100">
             <!--table border-darkはcssで設定したクラス-->
@@ -42,7 +42,7 @@
                   <th scope="row">価格</th>
                   <td>
                     <%= @item.price.to_s(:delimited) %>円<br>
-                    <small class="text-danger">※<%= @item.updated_at.strftime("%Y年%m月") %>時点</small>
+                    <small class="text-danger">※<%= @item.updated_at.strftime("%Y年%m月") %>時点の公式価格</small>
                   </td>
                 </tr>
               </tbody>
