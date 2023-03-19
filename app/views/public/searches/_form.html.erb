@@ -5,15 +5,17 @@
     </tr>
   </thead>
   <tbody>
-    <%= form_with url: url, local: true, method: :get do |f| %>
       <tr>
-        <td class="input-group">
-          <%= f.search_field :word, class: 'form-control', placeholder: "機種を検索" %>
-          <%= button_tag type: 'submit', class: "search-botton" do %>
-            <i class="fas fa-search"></i>
+        <td>
+          <%= form_with url: url, local: true, method: :get do |f| %>
+            <div class="input-group">
+              <%= f.search_field :word, class: 'form-control', placeholder: "機種を検索" %>
+              <%= button_tag type: 'submit', class: "search-botton" do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+            </div>
           <% end %>
         </td>
       </tr>
-    <% end %>
   </tbody>
 </table>
