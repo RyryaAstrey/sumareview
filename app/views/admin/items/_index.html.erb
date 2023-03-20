@@ -11,9 +11,14 @@
     <% items.each do |item| %>
       <tr>
         <td>
-          <%= link_to admin_item_path(item.id) do %>
-            <%= image_tag item.get_image, size: "70x70" %>
-          <% end %>
+          
+            <%= link_to admin_item_path(item.id) do %>
+              <% if item.images.attached? %>
+                <%= image_tag item.images.first, size: "70x70" %>
+              <% else %>
+                <%= image_tag 'no_image.jpg', size: "70x70" %>
+              <% end %>
+            <% end %>
           <%= link_to item.name, admin_item_path(item.id) %>
         </td>
         <td class="align-middle"><%= item.price&.to_s(:delimited) %>円</td>

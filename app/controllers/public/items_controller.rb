@@ -16,6 +16,7 @@ class Public::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @comments = @item.comments.order('id DESC')
+    @images = @item.images
   end
   
 end

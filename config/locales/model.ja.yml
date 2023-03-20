@@ -12,6 +12,7 @@ ja:
       comment: レビュー
     attributes:
       item:
+        images: 画像
         operation_system: OS名
         spec: スペック
         authentication: 認証方法

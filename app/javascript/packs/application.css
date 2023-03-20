@@ -62,6 +62,7 @@ body{
   border-left: solid 1px #09e;
   padding-left: 8px;
 }
+/*参考になった装飾終了*/
 
 /*背景色*/
 .bg-gainsboro {
@@ -76,6 +77,7 @@ body{
   margin-bottom: 0px;
   line-height: 1.5;
 }
+/*コンテンツの装飾終了*/
 
 /*検索ボタンの装飾*/
 .search-botton {
@@ -88,6 +90,7 @@ body{
   border-bottom-width: 3px;
   border-bottom-color: #0086d0;
 }
+/*検索ボタンの装飾終了*/
 
 /*セル全体をリンクにする*/
 .cell-link {
@@ -111,4 +114,36 @@ body{
   font-size: 60%;
   color: #808080;
 }
+/*セル全体をリンクにする終了*/
 
+.carousel-indicators{
+  bottom: -50px!important;
+}
+
+.carousel-indicators li {
+  width: 300px!important;
+  height: 30px!important;
+  text-indent: 0!important;
+}
+
+/*スライドの装飾*/
+.admin-swiper {
+  width: 360px;
+  height: 250px;
+}
+
+.public-swiper {
+  width: 210px;
+  height: 250px;
+}
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev{
+  right: var(--swiper-navigation-sides-offset, 0px)!important;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  color: #808080;
+  font-size: 20px!important;
+  opacity: 0.5;
+}
+/*ここまでスライドの装飾*/

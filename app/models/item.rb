@@ -12,6 +12,7 @@ class Item < ApplicationRecord
   # バリデーション
   validates :name, presence: true #機種名のみ入力しないと下書き保存ができないように設定
   with_options presence: true, on: :publicize do
+    validates :images
     validates :operation_system
     validates :spec
     validates :authentication
@@ -42,11 +43,6 @@ class Item < ApplicationRecord
   enum wireless_chage: { "wireless_true": 0, "wireless_false": 1 }
   
   # メソッド
-  
-  ## 画像がなかった場合にno_imageを表示する
-  def get_image
-    (images.attached?) ? images : 'no_image.jpg'
-  end
   
   # ソート用メソッド
     scope :latest, -> {order(release_date: :desc)}

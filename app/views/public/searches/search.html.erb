@@ -30,7 +30,11 @@
                   <tr>
                     <td>
                       <%= link_to item_path(item.id) do %>
-                        <%= image_tag item.get_image, size: "70x70" %>
+                        <% if item.images.attached? %>
+                          <%= image_tag item.images.first, size: "70x70" %>
+                        <% else %>
+                          <%= image_tag 'no_image.jpg', size: "70x70" %>
+                        <% end %>
                       <% end %>
                       <%= link_to item.name, item_path(item.id) %>
                     </td>
