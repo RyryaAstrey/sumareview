@@ -9,6 +9,9 @@ class Admin::CommentsController < ApplicationController
     @comments = @item.comments.page(params[:page]).per(10).order('id DESC')
   end
   
+  def edit
+  end
+  
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy
