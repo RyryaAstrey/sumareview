@@ -155,7 +155,7 @@
                 <span class="ml-3"><i class="fas fa-user-circle"></i><%= comment.user.name %></span>
                 <div class="ml-auto">
                   <% if comment.user == current_user %>
-                    <%= link_to "編集", edit_item_comment_path(comment.id), class: "btn btn-success btn-sm rounded-0" %>
+                    <%= link_to "編集", edit_item_comment_path(@item.id, comment.id), class: "btn btn-success btn-sm rounded-0" %>
                   <% end %>
                 </div>
               </div>

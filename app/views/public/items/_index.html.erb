@@ -1,7 +1,3 @@
-<div class="ml-auto">
-  
-</div>
-
 <table class="table table-border-dark">
   <thead class="bg-gainsboro text-center">
     <tr>
@@ -25,7 +21,7 @@
           <%= link_to item.name, item_path(item.id) %>
         </td>
         <td class="align-middle"><%= item.price&.to_s(:delimited) %>円</td>
-        <td class="align-middle"><span class="my-auto"><strong class="text-danger"><%= item.comments.average(:score).to_i.round %></strong>点</span></td>
+        <td class="align-middle"><span class="my-auto"><strong class="text-danger"><%= item.review_score_average %></strong>点</span></td>
         <td class="align-middle"><%= item.release_date.strftime("%Y年%m月%d日") %></td>
       </tr>
     <% end %>

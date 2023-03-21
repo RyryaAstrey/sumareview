@@ -42,12 +42,22 @@ class Item < ApplicationRecord
   enum near_field_communication: { "near_true": 0, "near_false": 1 }
   enum wireless_chage: { "wireless_true": 0, "wireless_false": 1 }
   
+  
   # メソッド
   
-  # ソート用メソッド
+  ## レビュースコアの平均点を計算するメソッド
+  def review_score_average
+    if comments.presence # コメントがある時
+      comments.average(:score).to_i.round # スコアの平均点を出し、to_iで整数化し、小数点をroundeで取り除く
+    else
+      0
+    end
+  end
+  ## --ここまで平均点計算メソッド--
+  
+  ## ソート用メソッド
     scope :latest, -> {order(release_date: :desc)}
     scope :old, -> {order(release_date: :asc)} #未使用　発売日の古い順
-    scope :score_count, -> {order(score: :desc)}
     scope :high_cost, -> {order(price: :desc)} #未使用　価格の高い順
     scope :row_cost, -> {order(price: :asc)}
   

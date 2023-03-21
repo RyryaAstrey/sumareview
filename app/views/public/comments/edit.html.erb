@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    
+    <div class="col-9 mx-auto">
+      <h4 class="contents-head p-2"><strong><%= link_to @item.name, item_path(@item.id), class: "text-white" %>のコメント編集</strong></h4>
+      <p class="border-bottom border-info mt-4"><strong>></strong>下記の情報を入力してください</p>
+      <%= render "layouts/flash" %>
+      
+      <%= form_with model: [@item, @comment], url: item_comment_path(@item.id, @comment.id), method: :patch do |f| %>
+        <table class="table table-bordered table-border-dark show-table bg-white">
+          <tr>
+            <th class="align-middle">得点<br>（0点～100点）</th>
+            <td>
+              <p>この機種がどれぐらい良いと思ったのか、率直な点数を入力願います。</p>
+              <%= f.text_field :score, class: "form-control col-2" %>
+            </td>
+          </tr>
+          <tr>
+            <th class="align-middle">コメント</th>
+            <td>
+              <p>この機種を使ってみた感想、他の機種と比較してみて思ったことなどを入力願います。</p>
+              <%= f.text_area :comment, class: "form-control", rows: 10 %>
+            </td>
+          </tr>
+        </table>
+        <div class="mt-4 text-center">
+          <%= f.submit "投稿する", class: "font-weight-bold btn btn-warning btn-lg rounded-0" %>
+        </div>
+      <% end %>
+
+    </div>
+    
+    
+  </div>
+</div>

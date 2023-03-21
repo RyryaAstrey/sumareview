@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     
     # 投稿記事関連
     resources :items, only: [:index, :show] do
-      resources :comments, only: [:new, :index, :edit, :create] do
+      resources :comments, only: [:new, :index, :edit, :update, :create] do
         resource :favorites, only: [:create, :destroy]
       end
     end
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     
     resources :items, only: [:new, :create, :show, :edit, :update] do
-      resources :comments, only: [:index, :edit, :destroy]
+      resources :comments, only: [:index, :destroy]
     end
     
     resources :categories, only: [:index]

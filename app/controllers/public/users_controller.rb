@@ -12,7 +12,7 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-    user= User.find(current_user.id)
+    use r= User.find(current_user.id)
     user.update(user_params)
     redirect_to users_path
   end
