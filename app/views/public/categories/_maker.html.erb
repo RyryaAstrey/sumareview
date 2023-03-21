@@ -1,0 +1,14 @@
+<table class="table table-borderless bg-white mb-0">
+  <thead class="contents-head">
+    <tr>
+      <th>メーカー</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% makers.each do |maker| %>
+      <tr>
+        <td><%= link_to maker.name, maker_path(maker.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

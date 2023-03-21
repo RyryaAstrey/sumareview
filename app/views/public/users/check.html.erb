@@ -1,0 +1,17 @@
+<div class='container mx-auto'>
+  <h1 class= "text-center">本当に退会しますか?</h1>
+  
+  <div class="row mx-auto">
+    <div class="card bg-white my-4 mx-auto p-3">
+      <h5>退会すると以下の機能が利用できなくなります</h5>
+      <!--リストタグで会員が使える機能を追加してください-->
+      <li>レビュー機能</li>
+    </div>
+  </div>
+
+  <div class="col-12 my-4 d-flex justify-content-center">
+    <%= link_to "退会しない", users_path, class:"btn btn-primary col-3 mr-3"%>
+    <%= link_to "退会する", withdrawal_users_path, method: :patch, data: {confirm: "本当に退会しますか?"}, class:"btn btn-danger col-3 ml-3" %>
+  </div>
+
+</div>

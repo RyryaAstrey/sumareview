@@ -1,0 +1,33 @@
+<table class="table table-border-dark">
+  <thead class="bg-gainsboro text-center">
+    <tr>
+      <th class="cell-link"><%= link_to path do %><span>機種</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to cost_path do %><span>価格</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to score_path do %><span>点数</span><small>▼</small><% end %></th>
+      <th class="cell-link"><%= link_to old_path do %><span>発売日</span><small>▼</small><% end %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.each do |item| %>
+      <tr>
+        <td>
+          <%= link_to item_path(item.id) do %>
+            <% if item.images.attached? %>
+              <%= image_tag item.images.first, size: "70x70" %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', size: "70x70" %>
+            <% end %>
+          <% end %>
+          <%= link_to item.name, item_path(item.id) %>
+        </td>
+        <td class="align-middle"><%= item.price&.to_s(:delimited) %>円</td>
+        <td class="align-middle"><span class="my-auto"><strong class="text-danger"><%= item.review_score_average %></strong>点</span></td>
+        <td class="align-middle"><%= item.release_date.strftime("%Y年%m月%d日") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <%= paginate items %>
+</div>

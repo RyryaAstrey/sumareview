@@ -1,0 +1,206 @@
+<div class="container">
+  <%= render "layouts/flash" %>
+  <div class="row">
+    
+    <div class="col-3">
+      <%= render "public/categories/menu" %>
+      <%= render "public/searches/form", url: search_path %>
+      <%= render "public/categories/maker", makers: @makers %>
+      <%= render "public/categories/operation_system", operation_systems: @operation_systems %>
+    </div>
+    
+    <div class="col-6 px-0">
+      <h4 class="contents-head"><strong><%= @item.name %></strong></h4>
+        
+      <div class="p-3 bg-white">
+        
+        <div class="d-flex mt-3">
+          <div class="mr-3">
+            
+          <!--スライド-->
+          <div class="swiper public-swiper mx-2">
+            <div class="swiper-wrapper">
+              <!--スライドの画像-->
+              <% @images.each do |image| %>
+                <div class="swiper-slide">
+                  <%= image_tag image, class: "img-fluid" %>
+                </div>
+              <% end %>
+            </div>
+            <!--スライドのオプション-->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+          </div>
+            
+          </div>
+          <div class="w-100">
+            <!--table border-darkはcssで設定したクラス-->
+            <table class="table table-bordered table-border-dark show-table bg-white">
+              <tbody>
+                <tr>
+                  <th  scope="row">機種名</th>
+                  <td><%= @item.name %></td>
+                </tr>
+                <tr>
+                  <th scope="row">OS</th>
+                  <td><%= @item.operation_system.name %></td>
+                </tr>
+                <tr>
+                  <th scope="row">メーカー</th>
+                  <td><%= @item.maker.name %></td>
+                </tr>
+                <tr>
+                  <th scope="row">容量</th>
+                  <td><%= @item.capacity.name %></td>
+                </tr>
+                <tr>
+                  <th scope="row">価格</th>
+                  <td>
+                    <%= @item.price.to_s(:delimited) %>円<br>
+                    <small class="text-danger">※<%= @item.updated_at.strftime("%Y年%m月") %>時点の価格</small>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="mt-4">
+          <h5><strong>●<%= @item.name %>のスペック</strong></h5>
+          <table class="table table-bordered table-border-dark show-table bg-white mt-2">
+            <tbody>
+              <tr>
+                <th scope="row">バッテリー</th>
+                <td><%= @item.battery.to_s(:delimited) %>mh</td>
+                <th scope="row">CPU</th>
+                <td><%= @item.central_processing_unit.name %></td>
+              </tr>
+              <tr>
+                <th scope="row">画面サイズ</th>
+                <td><%= @item.display %>インチ</td>
+                <th scope="row">コア数</th>
+                <td><%= @item.core %>GB</td>
+              </tr>
+              <tr>
+                <th scope="row">重さ</th>
+                <td><%= @item.weight %>g</td>
+                <th scope="row">メインカメラ</th>
+                <td><%= @item.main_camera %></td>
+              </tr>
+              <tr>
+                <th scope="row" rowspan="3">サイズ</th>
+                <td rowspan="3">
+                  <p>高さ：<%= @item.height %>mm</p>
+                  <p>横幅：<%= @item.width %>mm</p>
+                  <p>厚さ：<%= @item.thickness %>mm</p>
+                </td>
+                <th scope="row">前面カメラ</th>
+                <td><%= @item.in_camera %></td>
+                <tr>
+                  <th class="small font-weight-bold" scope="row">おサイフケータイ</th>
+                  <td><%= @item.mobile_wallet %></td>
+                </tr>
+                <tr>
+                  <th scope="row">NFC</th>
+                  <td><%= @item.near_field_communication_i18n %></td>
+                </tr>
+              </tr>
+              <tr>
+                <th scope="row">防水</th>
+                <td><%= @item.waterploof_i18n %></td>
+                <th scope="row">発売日</th>
+                <td><%= @item.release_date.strftime("%Y年%m月%d日")  %></td>
+              </tr>
+              <tr>
+                <th class="small font-weight-bold" scope="row">ワイヤレス充電</th>
+                <td><%= @item.wireless_chage_i18n %></td>
+                <th scope="row">認証</th>
+                <td><%= @item.authentication.name %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-4">
+          <h5><strong>●<%= @item.name %>の解説</strong></h5>
+          <table class="table table-bordered table-border-dark show-table bg-white mt-2">
+            <tr>
+              <th class="col-2 align-middle bg-danger">強み</th>
+              <td><%= safe_join(@item.strength.split("\n"),tag(:br)) %></td>
+            </tr>
+            <tr>
+              <th class="col-2 align-middle bg-primary">弱み</th>
+              <td><%= safe_join(@item.weakness.split("\n"),tag(:br)) %></td>
+            </tr>
+            <tr>
+              <th class="text-center" colspan="2">解説</th>
+              <tr>
+                <td colspan="2"><%= safe_join(@item.explanation.split("\n"),tag(:br)) %></td>
+              </tr>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+      
+      <h5 class="contents-head p-2">コメント（<%= @item.name %>の評価）</h5>
+      <div class="bg-white py-4">
+        <% if @comments.count == 0 %>
+          <strong class="pl-2">コメントはまだありません。</strong>
+        <% else %>
+          <% @comments.each do |comment| %>
+            <div class="border border-dark bg-white mt-2">
+              <div class="d-flex bg-gainsboro border-bottom border-dark p-2">
+                <span class="ml-3"><i class="fas fa-user-circle"></i><%= comment.user.name %></span>
+                <div class="ml-auto">
+                  <% if comment.user == current_user %>
+                    <%= link_to "編集", edit_item_comment_path(@item.id, comment.id), class: "btn btn-success btn-sm rounded-0" %>
+                  <% end %>
+                </div>
+              </div>
+              
+              <div class="p-2">
+                <div class="d-flex">
+                  <span class="text-danger font-weight-bold"><%= comment.score %></span>点
+                  <span class="ml-auto"><%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
+                </div>
+                <p class="mt-2"><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
+                <div class="d-flex flex-row-reverse" id="favorite_buttons_<%= comment.id %>">
+                  <%= render "public/comments/favorite", item: @item, comment: comment %>
+                </div>
+                
+              </div>
+              
+            </div>
+          <% end %>
+          <div class="text-right mt-3"><%= link_to "もっと見る", item_comments_path(@item.id) %></div>
+        <% end %>
+        <div class="text-center">
+          <%= link_to "コメントする", new_item_comment_path(@item.id), class: "btn btn-warning font-weight-bold rounded-0 mt-5" %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-3">
+      <%= render "layouts/new_list", items: @new_list_items %>
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+<script>
+// スライドの処理
+  const swiper = new Swiper('.swiper', {
+    loop: true, // ループさせるか
+    
+    pagination: {
+      el: '.swiper-pagination', // ページのドット
+    },
+    navigation: {
+      nextEl: '.swiper-button-next', // 次へ
+      prevEl: '.swiper-button-prev', // 前へ
+    },
+  });
+</script>

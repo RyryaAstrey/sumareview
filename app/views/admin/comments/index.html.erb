@@ -1,0 +1,54 @@
+<div class="container">
+  <%= render "layouts/flash" %> 
+  <div class="row">
+    
+    <div class="d-flex flex-column col-3">
+      <%= render "admin/menu/main" %>
+      <%= render "admin/searches/form" %>
+    </div>
+    
+    <div class="col-6 px-0">
+      <h5 class="contents-head p-2">コメント（<%= @item.name %>の評価）</h5>
+      <div class="bg-white py-4">
+        <% @comments.each do |comment| %>
+            <div class="border border-dark bg-white mt-2">
+              <div class="d-flex bg-gainsboro border-bottom border-dark p-2">
+                <small><%= comment.id %></small>
+                <span class="ml-3"><i class="fas fa-user-circle"></i><%= comment.user.name %></span>
+                <div class="ml-auto">
+                  <%= link_to "削除", admin_item_comment_path(@item.id, comment.id), method: :delete, class: "btn btn-danger btn-sm rounded-0", "data-confirm" => "削除したコメントは二度と閲覧できません。\n本当に削除しますか？"  %>
+                </div>
+              </div>
+              
+              <div class="p-2">
+                <div class="d-flex">
+                  <span class="text-danger font-weight-bold"><%= comment.score %></span>点
+                  <span class="ml-auto"><%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
+                </div>
+                <p class="mt-2"><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
+                <div class="text-right">
+                  <i class="fas fa-thumbs-up"></i><span class="ml-2"><%= comment.favorites.count %></span>
+                </div>
+              </div>
+              
+            </div>
+          <% end %>
+        <div class="d-flex justify-content-center mt-3">
+          <%= paginate @comments %>
+        </div>
+        
+      </div>
+        
+ 
+      </div>
+
+    <div class="col-3">
+      <%= render "layouts/new_list", items: @new_list_items %>
+      <div class="my-3">
+        <%= render "admin/items/new_btn" %>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>

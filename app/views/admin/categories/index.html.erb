@@ -1,0 +1,162 @@
+<div class="container">
+  
+  <div class="row border-bottom border-dark pb-3">
+    <h3><strong>カテゴリ新規登録</strong></h3>
+  </div>
+  
+  <div class="container mt-4">
+    <div class="row">
+      <p><strong>></strong>下記の情報を入力してください。</p>
+    </div>
+    <%= render "layouts/flash" %>
+    <div class="card bg-white p-3">
+    
+      <!--OSの入力フォーム-->
+      <%= form_with model: @operation_system, url: admin_operation_systems_path, method: :post do |f| %>
+        <dl class="row mt-3 pb-3 border-bottom">
+          <dt class="col-2 pt-1">OS</dt>
+          <dd class="col-6"><%= f.text_field :name, class: "form-control", placeholder: "OS名を入力" %></dd>
+          <dd class="col-2 text-center"><%= f.submit "登録", class: "font-weight-bold btn btn-warning rounded-0 border border-dark" %></dd>
+        </dl>
+      <% end %>
+      
+      <!--スペックの入力フォーム-->
+      <%= form_with model: @spec, url: admin_specs_path, method: :post do |f| %>
+        <dl class="row mt-3 pb-3 border-bottom">
+          <dt class="col-2 pt-1">スペック</dt>
+          <dd class="col-6"><%= f.text_field :name, class: "form-control", placeholder: "スペック名を入力" %></dd>
+          <dd class="col-2 text-center"><%= f.submit "登録", class: "font-weight-bold btn btn-warning rounded-0 border border-dark" %></dd>
+        </dl>
+      <% end %>
+      
+      <!--メーカーの入力フォーム-->
+      <%= form_with model: @maker, url: admin_makers_path, method: :post do |f| %>
+        <dl class="row mt-3 pb-3 border-bottom">
+          <dt class="col-2 pt-1">メーカー</dt>
+          <dd class="col-6"><%= f.text_field :name, class: "form-control", placeholder: "メーカー名を入力" %></dd>
+          <dd class="col-2 text-center"><%= f.submit "登録", class: "font-weight-bold btn btn-warning rounded-0 border border-dark" %></dd>
+        </dl>
+      <% end %>
+      
+      <!--容量の入力フォーム-->
+      <%= form_with model: @capacity, url: admin_capacities_path, method: :post do |f| %>
+        <dl class="row mt-3 pb-3 border-bottom">
+          <dt class="col-2 pt-1">容量</dt>
+          <dd class="col-6"><%= f.text_field :name, class: "form-control", placeholder: "容量名を入力" %></dd>
+          <dd class="col-2 text-center"><%= f.submit "登録", class: "font-weight-bold btn btn-warning rounded-0 border border-dark" %></dd>
+        </dl>
+      <% end %>
+      
+      <!--CPUの入力フォーム-->
+      <%= form_with model: @central_processing_unit, url: admin_central_processing_units_path, method: :post do |f| %>
+        <dl class="row mt-3 pb-3 border-bottom">
+          <dt class="col-2 pt-1">CPU</dt>
+          <dd class="col-6"><%= f.text_field :name, class: "form-control", placeholder: "CPU名を入力" %></dd>
+          <dd class="col-2 text-center"><%= f.submit "登録", class: "font-weight-bold btn btn-warning rounded-0 border border-dark" %></dd>
+        </dl>
+      <% end %>
+      
+      <!--認証の入力フォーム-->
+      <%= form_with model: @authentication, url: admin_authentications_path, method: :post do |f| %>
+        <dl class="row mt-3">
+          <dt class="col-2 pt-1">認証</dt>
+          <dd class="col-6"><%= f.text_field :name, class: "form-control", placeholder: "認証名を入力" %></dd>
+          <dd class="col-2 text-center"><%= f.submit "登録", class: "font-weight-bold btn btn-warning rounded-0 border border-dark" %></dd>
+        </dl>
+      <% end %>
+      
+    </div>
+  </div>
+  
+  <div class="row border-bottom border-dark mt-5 pb-3">
+    <h3><strong>カテゴリ一覧</strong></h3>
+  </div>
+  
+  <div class="row mt-5">
+    
+    <div class="col-2">
+      <h6 class="pb-2 border-bottom border-dark"><strong>OS</strong></h6>
+      <div class="card bg-white mt-3 p-2">
+        <% @operation_systems.each do |operation_system| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to operation_system.name, edit_admin_operation_system_path(operation_system.id), class: "mr-auto" %>
+            <%= link_to admin_operation_system_path(operation_system.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-2">
+      <h6 class="pb-2 border-bottom border-dark"><strong>スペック</strong></h6>
+      <div class="card bg-white mt-3 p-2">
+        <% @specs.each do |spec| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to spec.name, edit_admin_spec_path(spec.id), class: "mr-auto" %>
+            <%= link_to admin_spec_path(spec.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-2">
+      <h6 class="pb-2 border-bottom border-dark"><strong>メーカー</strong></h6>
+      <div class="card bg-white mt-3 p-2">
+        <% @makers.each do |maker| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to maker.name, edit_admin_maker_path(maker.id), class: "mr-auto" %>
+            <%= link_to admin_maker_path(maker.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-2">
+      <h6 class="pb-2 border-bottom border-dark"><strong>容量</strong></h6>
+      <div class="card bg-white mt-3 p-2">
+        <% @capacities.each do |capacity| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to capacity.name, edit_admin_capacity_path(capacity.id), class: "mr-auto" %>
+            <%= link_to admin_capacity_path(capacity.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-2">
+      <h6 class="pb-2 border-bottom border-dark"><strong>CPU</strong></h6>
+      <div class="card bg-white mt-3 p-2">
+        <% @central_processing_units.each do |central_processing_unit| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to central_processing_unit.name, edit_admin_central_processing_unit_path(central_processing_unit.id), class: "mr-auto" %>
+            <%= link_to admin_central_processing_unit_path(central_processing_unit.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-2">
+      <h6 class="pb-2 border-bottom border-dark"><strong>認証</strong></h6>
+      <div class="card bg-white mt-3 p-2">
+        <% @authentications.each do |authentication| %>
+          <div class="d-flex justify-content-end border-bottom mt-2 pb-2">
+            <%= link_to authentication.name, edit_admin_authentication_path(authentication.id), class: "mr-auto" %>
+            <%= link_to admin_authentication_path(authentication.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                <span class="text-secondary"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+  <%= render "layouts/flash" %> 
+  <div class="row">
+    
+    <div class="d-flex flex-column col-3">
+      <%= render "admin/menu/main" %>
+      <%= render "admin/searches/form" %>
+    </div>
+    
+    <div class="col-6 px-0">
+      <div class="bg-white">
+        <h4 class="contents-head"><strong>【<%= params[:word] %>】の検索結果</strong></h4>
+        
+        <div class="p-3">
+          
+          <!--機種名で検索した場合-->
+          <% if @range == "Item" %>
+            <!--検索結果が見つかった場合-->
+            <% if @items.count != 0 %>
+              <%= render "admin/items/index", items: @items %>
+            <% else %>
+              <strong>検索結果はありませんでした。</strong>
+            <% end %>
+            
+          <!--ユーザー名で検索した場合-->
+          <% else %>
+          <!--検索結果が見つかった場合-->
+            <% if @users.count != 0 %>
+              <%= render "admin/users/index", users: @users %>
+            <% else %>
+              <strong>検索結果はありませんでした。</strong>
+            <% end %>
+          <% end %>
+          
+        </div>
+ 
+      </div>
+      
+    </div>
+    
+    <div class="col-3">
+      <%= render "layouts/new_list", items: @new_list_items %>
+      <div class="my-3">
+        <%= render "admin/items/new_btn" %>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>

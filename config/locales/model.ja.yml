@@ -1,0 +1,58 @@
+ja:
+  activerecord:
+    models:
+      item: 記事
+      user: ユーザー
+      operation_system: OS
+      central_processing_unit: CPU
+      maker: メーカー
+      spec: スペック
+      authentication: 認証
+      capacity: 容量
+      comment: レビュー
+    attributes:
+      item:
+        images: 画像
+        operation_system: OS名
+        spec: スペック
+        authentication: 認証方法
+        capacity: 容量
+        central_processing_unit: CPU名
+        maker: メーカー名
+        name: 機種名
+        explanation: 総論
+        strength: 強み
+        weakness: 弱み
+        core: コア数
+        main_camera: メインカメラ
+        in_camera: 前面カメラ
+        mobile_wallet: おサイフケータイ
+        release_date: 発売日
+        price: 価格
+        battery: バッテリー容量
+        display: 画面サイズ
+        weight: 重さ
+        height: 高さ
+        width: 横幅
+        thickness: 厚さ
+        memory: メモリ数
+      
+      operation_system:
+        name: OS名
+      central_processing_unit:
+        name: CPU名
+      maker:
+        name: メーカー名
+      spec:
+        name: スペック名
+      authentication:
+        name: 認証名
+      capacity:
+        name: 容量名
+      
+      comment:
+        score: 得点
+        comment: コメント
+        
+      user:
+        name: ユーザー名

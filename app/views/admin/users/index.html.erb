@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <%= form_with url: admin_search_path, local: true, method: :get, class: "search-form w-50" do |f| %>
+      <div class="input-group">
+        <%= f.text_field :word, class: "form-control", placeholder: "ユーザー名を入力" %>
+        <%= f.submit "検索" %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="row mt-5">
+    <%= render "admin/users/index", users: @users %>
+  </div>
+</div>

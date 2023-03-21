@@ -1,0 +1,46 @@
+<div class="container">
+  
+  <div class="row border-bottom border-dark">
+    <h2>会員情報変更</h2>
+  </div>
+  
+  <p class="mt-4"><strong>></strong>下記の情報を入力してください</p>
+  <%= render "layouts/flash" %>
+  
+  <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+    <table class="table border border-dark mt-3 shadow-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th class="text-white">基本登録情報</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr>
+          <td class="col-3 bg-light text-right"><strong>名前</strong></td>
+          <td class="col-6"><%= f.text_field :name, class: "form-control col-6" %></td>
+          <td colspan=""></td>
+        </tr>
+        <tr>
+          <td class="col-3 bg-light text-right"><strong>メールアドレス</strong></td>
+          <td class="col-6"><%= f.email_field :email, class: "form-control" %></td>
+          <td colspan=""></td>
+        </tr>
+        <tr>
+          <td class="col-3 bg-light text-right"><strong>会員ステータス</strong></td>
+          <td class="col-6">
+            <%= f.radio_button :is_deleted, :false %>
+            <%= f.label  :is_deleted, "有効", value: false, class: "text-success mr-5" %>
+            <%= f.radio_button :is_deleted, :true %>
+            <%= f.label  :is_deleted, "退会", value: true, class: "text-danger" %>
+           </td>
+          <td colspan=""></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="text-center mt-4">
+      <%= f.submit "登録する", class: "font-weight-bold btn btn-lg btn-warning rounded-0" %>
+    </div>
+  <% end %>
+</div>
