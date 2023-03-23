@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   
   # バリデーション
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   
   # ゲストユーザー用メソッド
   def self.guest

@@ -20,11 +20,7 @@ Rails.application.routes.draw do
     ## ユーザー側検索関連
     get "search" => "searches#search"
     resources :operation_systems, only: [:show]
-    resources :central_processing_units, only: [:show]
-    resources :certifications, only: [:show]
-    resources :specs, only: [:show]
     resources :makers, only: [:show]
-    resources :capacities, only: [:show]
   end
   
   devise_for :users,skip: [:passwords], controllers: {
