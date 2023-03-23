@@ -90,8 +90,8 @@
               <tr>
                 <th scope="row">画面サイズ</th>
                 <td><%= @item.display %>インチ</td>
-                <th scope="row">コア数</th>
-                <td><%= @item.core %>GB</td>
+                <th scope="row">認証</th>
+                <td><%= @item.authentication&.name %></td>
               </tr>
               <tr>
                 <th scope="row">重さ</th>
@@ -126,8 +126,14 @@
               <tr>
                 <th class="small font-weight-bold" scope="row">ワイヤレス充電</th>
                 <td><%= @item.wireless_chage_i18n %></td>
-                <th scope="row">認証</th>
-                <td><%= @item.authentication&.name %></td>
+                <th scope="row">コア数</th>
+                <td><%= @item.core %>GB</td>
+              </tr>
+              <tr>
+                <th scope="row">区分</th>
+                <td><%= @item.spec.name %></td>
+                <th scope="row">メモリ数</th>
+                <td><%= @item.memory %>GB</td>
               </tr>
             </tbody>
           </table>
