@@ -13,8 +13,12 @@ class Public::UsersController < ApplicationController
 
   def update
     user= User.find(current_user.id)
-    user.update(user_params)
-    redirect_to users_path
+    if user.update(user_params)
+      redirect_to users_path
+    else
+      flash[:danger] = "入力内容に不備があります。<br>・#{user.errors.full_messages.join('<br>・')}"
+      redirect_to request.referer
+    end
   end
 
   def check
