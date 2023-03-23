@@ -136,7 +136,7 @@
             <tr>
               <th class="text-center" colspan="2">解説</th>
               <tr>
-                <td colspan="2"><%= safe_join(@item.explanation.split("\n"),tag(:br)) %></td>
+                <td class="text-break" colspan="2"><%= raw Rinku.auto_link(safe_join(@item.explanation.split("\n"),tag(:br)), :all, 'target="_blank"' ) %></td>
               </tr>
             </tr>
           </table>
