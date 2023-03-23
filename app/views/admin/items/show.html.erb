@@ -11,6 +11,7 @@
       <h4 class="contents-head d-flex">
         <strong><%= @item.name %></strong>
         <div class="ml-auto">
+          <!--記事が下書きの場合、「下書き」の文字を表示-->
           <% if @item.is_draft == true %>
             <strong class="text-danger">下書き</strong>
           <% end %>
@@ -20,6 +21,7 @@
       
       <div class="bg-white p-3"> 
         <div class="d-flex mt-3">
+          <!--画像が投稿されている場合-->
           <% if @images.attached? %>
             
           <!--スライド-->
@@ -37,7 +39,9 @@
             <div class="swiper-button-prev swiper-button-white"></div>
             <div class="swiper-button-next swiper-button-white"></div>
           </div>
+          <!--ここまでスライド-->
             
+          <!--画像が投稿されていない場合-->
           <% else %>
             <div class="mx-2">
               <%= image_tag 'no_image.jpg', size: "240x240" %>
@@ -45,8 +49,8 @@
           
           <% end %>
           
+          <!--基本情報-->
           <div class="w-100 ml-3">
-            <!--table border-darkはcssで設定したクラス-->
             <table class="table table-bordered table-border-dark show-table bg-white">
               <tbody>
                 <tr>
@@ -76,7 +80,10 @@
             </table>
           </div>
         </div>
+        <!--ここまで基本情報-->
         
+        
+        <!--スペック-->
         <div class="mt-5">
           <h5><strong>●<%= @item.name %>のスペック</strong></h5>
           <table class="table table-bordered table-border-dark show-table bg-white mt-2">
@@ -138,7 +145,10 @@
             </tbody>
           </table>
         </div>
+        <!--ここまでスペック-->
         
+        
+        <!--解説-->
         <div class="mt-4">
           <h5><strong>●<%= @item.name %>の解説</strong></h5>
           <table class="table table-bordered table-border-dark show-table bg-white mt-2">
@@ -158,38 +168,22 @@
             </tr>
           </table>
         </div>
+        <!--ここまで解説-->
         
+        
+        <!--コメント-->
         <div class="mt-5">
           <h5 class="text-white bg-info p-2">コメント（<%= @item.name %>の評価）</h5>
+          <!--コメントがない場合-->
           <% if @comments.count == 0 %>
             <strong class="pl-2">コメントはまだありません。</strong>
+          <!--コメントが投稿されている場合-->
           <% else %>
-            <% @comments.each do |comment| %>
-              <div class="border border-dark bg-white mt-2">
-                <div class="d-flex bg-gainsboro border-bottom border-dark p-2">
-                  <small><%= comment.id %></small>
-                  <span class="ml-3"><i class="fas fa-user-circle"></i><%= comment.user.name %></span>
-                  <div class="ml-auto">
-                    <%= link_to "削除", admin_item_comment_path(@item.id, comment.id), method: :delete, class: "btn btn-danger btn-sm rounded-0", "data-confirm" => "削除したコメントは二度と閲覧できません。\n本当に削除しますか？"  %>
-                  </div>
-                </div>
-                
-                <div class="p-2">
-                  <div class="d-flex">
-                    <span class="text-danger font-weight-bold"><%= comment.score %></span>点
-                    <span class="ml-auto"><%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
-                  </div>
-                  <p class="mt-2"><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
-                  <div class="text-right">
-                    <i class="fas fa-thumbs-up"></i><span class="ml-2"><%= comment.favorites.count %></span>
-                  </div>
-                </div>
-                
-              </div>
-            <% end %>
+            <%= render "admin/comments/card", comments: @comments, item: @item %> <!--コメント一覧の部分テンプレート-->
             <div class="text-right mt-3"><%= link_to "もっと見る", admin_item_comments_path(@item.id) %></div>
           <% end %>
         </div>
+        <!--ここまでコメント-->
         
       </div>
     </div>

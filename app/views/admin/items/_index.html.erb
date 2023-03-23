@@ -11,21 +11,24 @@
     <% items.each do |item| %>
       <tr>
         <td>
-          
-            <%= link_to admin_item_path(item.id) do %>
-              <% if item.images.attached? %>
-                <%= image_tag item.images.first, size: "70x70" %>
-              <% else %>
-                <%= image_tag 'no_image.jpg', size: "70x70" %>
-              <% end %>
+          <%= link_to admin_item_path(item.id) do %>
+            <!--画像が投稿されている場合-->
+            <% if item.images.attached? %>
+              <%= image_tag item.images.first, size: "70x70" %>
+            <!--画像が投稿されていない場合-->
+            <% else %>
+              <%= image_tag 'no_image.jpg', size: "70x70" %>
             <% end %>
+          <% end %>
           <%= link_to item.name, admin_item_path(item.id) %>
         </td>
         <td class="align-middle"><%= item.price&.to_s(:delimited) %>円</td>
         <td class="align-middle"><span class="my-auto"><strong class="text-danger"><%= item.comments.average(:score).to_i.round %></strong>点</span></td>
         <td class="align-middle">
+          <!--記事が投稿されている場合-->
           <% if item.is_draft != true %>
             <strong class="text-success">投稿済み</strong>
+          <!--記事が下書きの場合-->
           <% else %>
             <strong class="text-danger">末投稿</strong>
           <% end %>

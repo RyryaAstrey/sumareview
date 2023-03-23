@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       patch :withdrawal, on: :collection
     end
     
-    ## ユーザー側検索関連
+    # ユーザー側検索関連
     get "search" => "searches#search"
     resources :operation_systems, only: [:show]
     resources :makers, only: [:show]
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     
+    # 投稿記事関連
     resources :items, only: [:new, :create, :show, :edit, :update] do
       resources :comments, only: [:index, :destroy]
     end

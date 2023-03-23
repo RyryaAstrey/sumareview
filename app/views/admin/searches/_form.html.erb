@@ -2,6 +2,7 @@
   <h5 class="contents-head"><strong>検索</strong></h5>
   <div class="bg-white p-2">
     <%= form_with url: admin_search_path, method: :get do |f| %>
+      <!--機種検索かユーザー検索かをrangeパラメータで送る-->
       <%= f.select :range, options_for_select([["機種名",'Item'],["ユーザー名",'User']]) %>
       <div class="input-group">
         <%= f.search_field :word, class: 'form-control', placeholder: "検索ワードを入力" %>

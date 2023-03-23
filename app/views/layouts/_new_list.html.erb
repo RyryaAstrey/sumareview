@@ -7,15 +7,14 @@
     </thead>
     <tbody>
       <% items.each do |item| %>
-        <%# if item.is_draft == false %>
-          <tr>
-            <% if admin_signed_in? %>
-              <td><%= link_to item.name, admin_item_path(item.id) %></td>
-            <% else %>
-              <td><%= link_to item.name, item_path(item.id) %></td>
-            <% end %>
-          </tr>
-        <%# end %>
+        <tr>
+          <!--管理者がサインインしている場合-->
+          <% if admin_signed_in? %>
+            <td><%= link_to item.name, admin_item_path(item.id) %></td>
+          <% else %>
+            <td><%= link_to item.name, item_path(item.id) %></td>
+          <% end %>
+        </tr>
       <% end %>
     </tbody>
   </table>

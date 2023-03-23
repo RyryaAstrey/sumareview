@@ -48,6 +48,7 @@
           </div>
         </div>
       </div>
+      <!--ここまで基本情報-->
       
       
       <!--スペック-->
@@ -129,6 +130,8 @@
           </div>
         </div>
       </div>
+      <!--ここまでスペック-->
+      
       
       <!--解説-->
       <div class="row mt-4">
@@ -150,12 +153,16 @@
           </div>
         </div>
       </div>
+      <!--ここまで解説-->
+      
       
       <!--保存ボタン-->
       <div class="mt-4 text-center">
+        <!--編集記事が下書き状態の場合-->
         <% if @item.is_draft == true %>
           <%= f.submit "記事を公開", :name => 'publicize_draft', class: "font-weight-bold btn btn-warning btn-lg rounded-0 mr-5" %>
           <%= f.submit "下書きを更新", :name => 'update_draft', class: "font-weight-bold btn btn-secondary btn-lg rounded-0" %>
+        <!--編集記事が投稿済みの場合-->
         <% else %>
           <%= f.submit "記事を更新", :name => 'update_item', class: "font-weight-bold btn btn-warning btn-lg rounded-0" %>
         <% end %>

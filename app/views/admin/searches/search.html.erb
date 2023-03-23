@@ -24,7 +24,7 @@
             
           <!--ユーザー名で検索した場合-->
           <% else %>
-          <!--検索結果が見つかった場合-->
+            <!--検索結果が見つかった場合-->
             <% if @users.count != 0 %>
               <%= render "admin/users/index", users: @users %>
             <% else %>
