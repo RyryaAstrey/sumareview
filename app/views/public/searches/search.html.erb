@@ -30,8 +30,10 @@
                   <tr>
                     <td>
                       <%= link_to item_path(item.id) do %>
+                        <!--機種画像がある場合-->
                         <% if item.images.attached? %>
                           <%= image_tag item.images.first, size: "70x70" %>
+                        <!--機種画像がない場合-->
                         <% else %>
                           <%= image_tag 'no_image.jpg', size: "70x70" %>
                         <% end %>
@@ -49,6 +51,7 @@
             <div class="d-flex justify-content-center">
               <%= paginate @search_items %>
             </div>
+            
           <!--検索結果が見つからなかった場合-->
           <% else %>
             <strong>検索結果はありませんでした。</strong>

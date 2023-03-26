@@ -1,4 +1,6 @@
+<!--ユーザーがサインインしており、かつそのコメントをしたユーザーがログインユーザーではない場合-->
 <% if user_signed_in? && comment.user != current_user %>
+  <!--参考になったをしている場合-->
   <% if comment.favorited_by?(current_user) %>
     <div class="favorite-btn">
       <%= link_to item_comment_favorites_path(item, comment), method: :delete, remote: true, class: "text-decoration-none" do %>
@@ -6,6 +8,7 @@
         <span class="favorite-count"><%= comment.favorites.count %></span>
       <% end %>
     </div>
+  <!--参考になったをしていない場合-->
   <% else %>
     <div class="favorite-btn">
       <%= link_to item_comment_favorites_path(item, comment), method: :post, remote: true, class: "text-decoration-none" do %>

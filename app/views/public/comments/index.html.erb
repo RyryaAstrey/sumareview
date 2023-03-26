@@ -13,30 +13,9 @@
       <h5 class="contents-head p-2">コメント（<%= @item.name %>の評価）</h5>
       <div class="bg-white shadow-sm py-4">
         <% @comments.each do |comment| %>
-          <div class="border border-dark bg-white mt-2">
-            <div class="d-flex bg-gainsboro border-bottom border-dark p-2">
-              <span class="ml-3"><i class="fas fa-user-circle"></i><%= comment.user.name %></span>
-              <div class="ml-auto">
-                <% if comment.user == current_user %>
-                  <%= link_to "編集", edit_item_comment_path(@item.id, comment.id), class: "btn btn-success btn-sm rounded-0" %>
-                <% end %>
-              </div>
-            </div>
-            
-            <div class="p-2">
-              <div class="d-flex">
-                <span class="text-danger font-weight-bold"><%= comment.score %></span>点
-                <span class="ml-auto"><%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
-              </div>
-              <p class="mt-2"><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
-              <div class="d-flex flex-row-reverse" id="favorite_buttons_<%= comment.id %>">
-                <%= render "public/comments/favorite", item: @item, comment: comment %>
-              </div>
-              
-            </div>
-            
-          </div>
+          <%= render "card", comment: comment %>
         <% end %>
+        
         <div class="d-flex justify-content-center mt-3">
           <%= paginate @comments %>
         </div>
