@@ -39,7 +39,7 @@ class Public::CommentsController < ApplicationController
     if comment.update(comment_params)
       flash[:success] = "コメントの編集が完了しました。"
       redirect_to item_path(@item.id)
-      else
+    else
       flash[:danger] = "入力内容に不備があります。<br>・#{comment.errors.full_messages.join('<br>・')}"
       redirect_to request.referer
     end

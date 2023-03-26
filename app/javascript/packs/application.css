@@ -3,33 +3,7 @@
 /*  background-image: url("../images/hoge.jpg");*/
 /*}*/
 
-/*フッターを画面下に固定する*/
-html, body { height: 100%;}
-
-body > footer {
-  position: sticky;
-  top: 100vh;
-}
-
-/*placeholderの色を薄くする*/
-::placeholder {
-  font-size: 0.75em;
-  color: #dfdfdf !important
-}
-
-/*tableクラス系の装飾*/
-
-  /*table-border-darkクラスでtableの枠線の色を黒にする*/
-  .table-border-dark th, .table-border-dark td {
-    border: 1px solid #808080 !important;
-  }
-  
-  /*thを灰色にする（主にshowビューで使用）*/
-  .show-table th {
-    background-color: #dcdcdc;
-  }
-
-/*装飾*/
+/*基本装飾*/
 
 header {
   background-color: #ffffff !important
@@ -43,11 +17,67 @@ body{
   height: 100%;
   background-color: #fcfcfc !important
 }
+/*ここまで基本装飾*/
+
+/*フッターを画面下に固定する*/
+html, body { height: 100%;}
+
+body > footer {
+  position: sticky;
+  top: 100vh;
+}
+/*ここまでフッターの固定*/
+
+/*placeholderの装飾*/
+::placeholder {
+  font-size: 0.75em;
+  color: #dfdfdf !important
+}
+/*ここまでplaceholderの装飾*/
+
+/*tableクラス系の装飾*/
+
+  /*table-border-darkクラスでtableの枠線の色を黒にする*/
+  .table-border-dark th, .table-border-dark td {
+    border: 1px solid #808080 !important;
+  }
+  
+  /*thを灰色にする（主にshowビューで使用）*/
+  .show-table th {
+    background-color: #dcdcdc;
+  }
+  
+  /*セル全体をリンクにする*/
+  .cell-link {
+    padding: 0 !important;
+    height: 0 !important;
+  }
+  
+  .cell-link a{
+    height: 100%;
+    padding: 10px 10px 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    text-decoration: none !important;
+    flex-flow: column;
+    line-height: 15px;
+  }
+  
+  .cell-link small{
+    font-size: 60%;
+    color: #808080;
+  }
+  /*セル全体をリンクにする終了*/
+
+/*ここまでtableクラスの装飾*/
 
 /*ログイン画面の装飾*/
 .login-card {
   width:20%;
 }
+/*ここまでログイン画面の装飾*/
 
 /*参考になった装飾*/
 .favorite-btn {
@@ -64,10 +94,11 @@ body{
 }
 /*参考になった装飾終了*/
 
-/*背景色*/
+/*任意の背景色*/
 .bg-gainsboro {
   background-color: #dcdcdc;
 }
+/*ここまで任意の背景色*/
 
 /*コンテンツの装飾*/
 .contents-head {
@@ -91,40 +122,6 @@ body{
   border-bottom-color: #0086d0;
 }
 /*検索ボタンの装飾終了*/
-
-/*セル全体をリンクにする*/
-.cell-link {
-  padding: 0 !important;
-  height: 0 !important;
-}
-
-.cell-link a{
-  height: 100%;
-  padding: 10px 10px 5px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: inherit;
-  text-decoration: none !important;
-  flex-flow: column;
-  line-height: 15px;
-}
-
-.cell-link small{
-  font-size: 60%;
-  color: #808080;
-}
-/*セル全体をリンクにする終了*/
-
-.carousel-indicators{
-  bottom: -50px!important;
-}
-
-.carousel-indicators li {
-  width: 300px!important;
-  height: 30px!important;
-  text-indent: 0!important;
-}
 
 /*スライドの装飾*/
 .admin-swiper {

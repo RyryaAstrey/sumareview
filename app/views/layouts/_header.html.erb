@@ -6,7 +6,7 @@
         
         <!--URLにadminが含まれている場合かつ管理者がログインしている場合、以下を表示-->
         <% if request.path.match(/\/admin(\/)?/) && admin_signed_in? %>
-          <li class="border-right border-dark px-2"><%= link_to "記事一覧", admin_root_path %></li>
+          <li class="border-right border-dark px-2"><%= link_to "機種一覧", admin_root_path %></li>
           <li class="border-right border-dark px-2"><%= link_to "ユーザー一覧", admin_users_path %></li>
           <li class="px-2"><%= link_to "カテゴリ一覧", admin_categories_path %></li>
           <li>
@@ -17,17 +17,22 @@
           
         <!--ユーザーがサインインしている場合-->
         <% elsif user_signed_in? %>
+        
           <!--ログインユーザーがゲストの場合-->
-          <% if current_user.name == "ゲストユーザー" %>
-            <li class="pt-2"><span class="mt-3 mr-3"><%= current_user.name %>でログイン中</span></li>
-          <% else %>
+          <!--<%# if current_user.name == "ゲストユーザー" %>-->
+          <!--  <li class="pt-2"><span class="mt-3 mr-3"><%= current_user.name %>でログイン中</span></li>-->
+          <!--<%# else %>-->
+          <!--ゲストユーザー制限機能を適用する場合はコメントアウトを解除-->
+          
             <%= link_to users_path do %>
               <li>
                 <div class="nav-link text-light rounded-pill mr-2 btn btn-success btn-sm rounded-0 border-bottom">
                   <i class="fas fa-user-circle"></i> <%= current_user.name %>
                 </div>
               </li>
-            <% end %>
+              
+            <%# end %> <!--ゲストユーザー制限機能を適用する場合はコメントアウトを解除-->
+            
           <% end %>
           <li>
             <%= link_to destroy_user_session_path, method: :delete, class:"a-header" do %>

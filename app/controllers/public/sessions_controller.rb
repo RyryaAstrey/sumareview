@@ -37,11 +37,14 @@ class Public::SessionsController < Devise::SessionsController
   
   # 退会しているかを判断するメソッド
   def customer_state
+    # ログイン時に入力されたEメールに対応するユーザーが存在するかを探す
     @user = User.find_by(email: params[:user][:email])
-    return if !@user
-    if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
-      flash[:danger] = "退会済みのアカウントです。<br>再度ご利用になりたい場合は管理人までご連絡ください。"
-        redirect_to request.referer
+    if @user
+      # 入力されたパスワードが正しく、退会済みの場合
+      if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
+        flash[:danger] = "退会済みのアカウントです。<br>再度ご利用になりたい場合は管理人までご連絡ください。"
+          redirect_to request.referer
+      end
     end
   end
   

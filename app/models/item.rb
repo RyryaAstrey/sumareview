@@ -56,9 +56,7 @@ class Item < ApplicationRecord
   ## --ここまで平均点計算メソッド--
   
   ## ソート用メソッド
-    scope :latest, -> {order(release_date: :desc)}
-    scope :old, -> {order(release_date: :asc)} #未使用　発売日の古い順
-    scope :high_cost, -> {order(price: :desc)} #未使用　価格の高い順
-    scope :row_cost, -> {order(price: :asc)}
+    scope :latest, -> {order(release_date: :desc)} #発売日の新しい順
+    scope :row_cost, -> {order(price: :asc)} # 価格の低い順
   
 end

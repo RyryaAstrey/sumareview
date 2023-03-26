@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   
   protected
   
+  # ログイン制限
   def autheniticate_admin
     unless admin_signed_in?
       flash[:warning] = "管理者ログインが必要です。"
@@ -16,7 +17,9 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path
     end
   end
+  # --ここまでログイン制限--
   
+  # サイドバー関連の変数
   def search_template
     @makers = Maker.all
     @operation_systems = OperationSystem.all
@@ -32,5 +35,6 @@ class ApplicationController < ActionController::Base
       @new_list_items = @publicize_items.order('id DESC').limit(5)
     end
   end
+  # --ここまでサイドバー関連の変数--
   
 end

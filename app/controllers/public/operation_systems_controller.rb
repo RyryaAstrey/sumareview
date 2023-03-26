@@ -1,5 +1,5 @@
 class Public::OperationSystemsController < ApplicationController
-  before_action :search_template, only: [:show]
+  before_action :search_template, only: [:show] # application_controllerに記述
   
   def show
     @operation_system = OperationSystem.find(params[:id])

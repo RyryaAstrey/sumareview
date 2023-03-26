@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   # ログイン制限
   before_action :autheniticate_admin, only: [:index, :show, :edit]
   
-  before_action :ensure_guest_user, only: [:edit]
+  # before_action :ensure_guest_user, only: [:edit] # ゲストユーザーの編集をできないようにするにはコメントアウトを外してください
   
   def index
     @users = User.all

@@ -1,8 +1,9 @@
 class Public::UsersController < ApplicationController
   # ログイン制限
-  before_action :autheniticate_user, only: [:new]
-  # ゲストユーザーで会員情報編集ができないようにする制限
-  before_action :ensure_guest_user, only: [:show, :edit]
+  before_action :autheniticate_user, only: [:new] # application_controllerに記述
+  
+  # ゲストユーザーで会員情報編集ができないようにする制限 制限する場合はコメントアウトを解除してください。
+  # before_action :ensure_guest_user, only: [:show, :edit]
   
   def show
   end
