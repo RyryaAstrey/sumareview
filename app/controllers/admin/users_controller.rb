@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   # before_action :ensure_guest_user, only: [:edit] # ゲストユーザーの編集をできないようにするにはコメントアウトを外してください
   
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(10).order('id DESC')
   end
 
   def show

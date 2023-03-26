@@ -31,7 +31,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @comments = @item.comments.order('id DESC')
+    @comments = @item.comments.order('id DESC').limit(5)
     @images = @item.images
   end
 
