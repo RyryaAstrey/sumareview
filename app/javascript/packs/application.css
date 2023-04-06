@@ -92,7 +92,69 @@ body > footer {
   border-left: solid 1px #09e;
   padding-left: 8px;
 }
+
+.favorited-btn {
+  background-color: #09e;
+  color: #fff !important;
+  padding: 0 8px 0 8px;
+  font-size: 14px;
+  line-height: 2;
+  border: solid 1px #09e;
+}
+
+.favorited-btn .favorite-count {
+  border-left: solid 1px #fff;
+  padding-left: 8px;
+}
+
+.favorited-btn a {
+  color: #fff!important;
+}
 /*参考になった装飾終了*/
+
+/*気になるボタン装飾*/
+.interest-btn {
+  background-color: #7fffd4;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 60px;
+}
+
+.interest-btn a {
+  display: block;
+}
+
+.interest-btn svg {
+  background-color: #fff;
+  width: 30px!important;
+  height: 30px;
+  padding: 3px;
+  border-radius: 50%;
+  margin-left: 3px;
+}
+
+.interested-btn {
+  background-color: #7fffd4;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 60px;
+}
+
+.interested-btn a {
+  display: block;
+}
+
+.interested-btn svg {
+  background-color: #fff;
+  width: 30px!important;
+  height: 30px;
+  padding: 3px;
+  border-radius: 50%;
+  margin-left: 3px;
+  color: #ffd700;
+}
+
+/*気になるボタン装飾終了*/
 
 /*任意の背景色*/
 .bg-gainsboro {

@@ -66,6 +66,10 @@
                 </tr>
               </tbody>
             </table>
+            
+            <div id="interest_buttons_<%= @item.id %>">
+              <%= render "public/items/interest", item: @item %>
+            </div>
           </div>
           <!--ここまで基本情報-->
           

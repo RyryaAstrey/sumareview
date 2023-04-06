@@ -2,7 +2,11 @@
   
   <div class="row">
     <h2><%= current_user.name %>さんのアカウント情報</h2>
-    <%= link_to "TOPへ", root_path, class: "btn btn-sm btn-secondary rounded-0 ml-auto my-auto mr-5" %>
+    <div class="my-auto ml-auto">
+      <%= link_to "アカウント情報を編集", edit_users_path, class: "btn btn-sm btn-success rounded-0" %>
+      <%= link_to "TOPへ", root_path, class: "btn btn-sm btn-secondary rounded-0 mr-5" %>
+    </div>
+    
   </div>
   
   <div class="card mt-3 bg-white shadow-sm">
@@ -10,18 +14,10 @@
       <dd class="col-3 text-secondary">ユーザーID</dd>
       <dd class="col-9"><strong><%= current_user.id %></strong></dd>
     </dl>
-    <dl class="row border-bottom mt-3 mx-0 pb-3">
-      <dd class="col-3 text-secondary">名前</dd>
-      <dd class="col-9"><strong><%= current_user.name %></strong></dd>
-    </dl>
-    <dl class="row mt-3 mx-0 pb-4">
+    <dl class="row mt-3 mx-0 pb-3">
       <dd class="col-3 text-secondary">メールアドレス</dd>
       <dd class="col-9"><strong><%= current_user.email %></strong></dd>
     </dl>
-  </div>
-  <div class="text-center mt-4">
-    <%= link_to "アカウント情報を編集", edit_users_path, class: "btn btn-success rounded-0" %>
-    <%= link_to "退会手続きへ", check_users_path, class:'btn btn-danger rounded-0 ml-5' %>
   </div>
   
 </div>
