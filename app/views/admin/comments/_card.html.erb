@@ -10,12 +10,12 @@
     <!--ここまでコメントのヘッダー-->
     
     <!--コメント本文-->
-    <div class="p-2">
+    <div class="p-2 text-break">
       <div class="d-flex">
         <span class="text-danger font-weight-bold"><%= comment.score %></span>点
         <span class="ml-auto"><%= comment.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
       </div>
-      <p class="mt-2"><%= safe_join(comment.comment.split("\n"),tag(:br)) %></p>
+      <p class="mt-2"><%= simple_format(h(comment.comment)) %></p>
       <div class="text-right">
         <i class="fas fa-thumbs-up"></i><span class="ml-2"><%= comment.favorites.count %></span>
       </div>
