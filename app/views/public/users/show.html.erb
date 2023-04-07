@@ -27,33 +27,14 @@
           <th class="p-2"><h4>気になっている機種</h4></th>
         </tr>
       </thead>
-      <tbody class="d-flex flex-wrap p-2">
-        <% @interest_list.each do |item| %>
-          <tr>
-            <td class="col-6 link-hover">
-              <%= link_to item_path(item.id), class: "link-style-none" do %>
-                <div class="border">
-                  <div class="border-bottom font-weight-bold p-1">
-                    <h5><%= item.name %></h5>
-                  </div>
-                  <div class="p-2 d-flex">
-                    <div class="shadow-sm">
-                      <% if item.images.attached? %>
-                        <%= image_tag item.images.first, size: "150x150" %>
-                      <% else %>
-                        <% image_tag 'no_image.jpg', size: "100x100" %>
-                      <% end %>
-                    </div>
-                    <div class="ml-3">
-                      メーカー：<%= item.maker.name %><br>
-                      価格：<%= item.price&.to_s(:delimited) %>円
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+      <tbody class="p-2">
+        <tr class="d-flex flex-wrap m-2" id="list_destroy">
+          <% if @interest_list.present? %>
+            <%= render "public/items/interest_list", list: @interest_list %>
+          <% else %>
+            <td><strong>気になる機種は存在しません</strong></td>
+          <% end %>
+        </tr>
       </tbody>
     </table>
   </div>
