@@ -5,6 +5,8 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:show, :edit]
   
   def show
+    interests = Interest.where(user_id: current_user.id).pluck(:item_id)
+    @interest_list = Item.find(interests)
   end
 
   def edit

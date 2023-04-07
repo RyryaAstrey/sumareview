@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     # ユーザー関連
     resource :users, only: [:show, :edit, :update] do
       get :check, on: :collection
+      get :interests, on: :collection
       patch :withdrawal, on: :collection
     end
     

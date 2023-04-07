@@ -17,6 +17,15 @@ body{
   height: 100%;
   background-color: #fcfcfc !important
 }
+
+.link-style-none {
+  text-decoration: none!important;
+  color: inherit;
+}
+
+.link-hover >a:hover {
+  color: #000!important;
+}
 /*ここまで基本装飾*/
 
 /*フッターを画面下に固定する*/
@@ -153,7 +162,6 @@ body > footer {
   margin-left: 3px;
   color: #ffd700;
 }
-
 /*気になるボタン装飾終了*/
 
 /*任意の背景色*/
