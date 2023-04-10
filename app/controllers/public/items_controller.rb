@@ -24,4 +24,7 @@ class Public::ItemsController < ApplicationController
     @images = @item.images
   end
   
+  def compare
+  end
+  
 end

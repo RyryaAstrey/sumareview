@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:new, :index, :edit, :update, :create] do
         resource :favorites, only: [:create, :destroy]
       end
-      
+      get 'compare/:item1_id/:item2_id' => 'items#compare', as: :compare
     end
     
     # ユーザー関連

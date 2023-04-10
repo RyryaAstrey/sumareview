@@ -2,7 +2,7 @@ class Public::UsersController < ApplicationController
   # ログイン制限
   before_action :autheniticate_user, only: [:new] # application_controllerに記述
   
-  before_action :ensure_guest_user, only: [:show, :edit]
+  before_action :ensure_guest_user, only: [:show, :edit, :check]
   
   def show
     interests = Interest.where(user_id: current_user.id).pluck(:item_id)
