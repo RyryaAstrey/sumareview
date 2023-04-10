@@ -1,0 +1,101 @@
+<div class="container">
+  
+  <div class="bg-white">
+    <div class="contents-head">
+      <h3 class="font-weight-bold"><%= @item.name %>と比較する</h3>
+    </div>
+    
+    <div class="mt-3 mx-2 p-2 border">
+      <strong><i class="fas fa-question-circle"></i> How to use</strong><br>
+      <span>
+        気になる機種リストにある機種と比較できます。<br>
+        気になる機種リストがない場合は、比較したい機種ページで「気になる」ボタンを押してください。
+      </span>
+    </div>
+    
+    <%= form_with url: item_compare_result_path, method: :get do |f| %>
+      <div class="mt-4 mx-2">
+        <table class="table table-bordered table-border-dark show-table">
+          <thead class="text-break">
+            <th class="col-6"><%= @item.name %></th>
+            <th class="col-6"><%= f.collection_select :item2_id, @interest_list, :id, :name, include_blank: "--選択してください--", class: "form-control" %></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="d-flex flex-column">
+                <%= link_to item_path(@item.id), class: "mx-auto" do %>
+                  <h4><%= @item.name %></h4>
+                <% end %>
+                <%= link_to item_path(@item.id), class: "mx-auto" do %>
+                  <div><%= image_tag @item.images.first, size: "200x200" %></div>
+                <% end %>
+              </td>
+              <td class="align-middle text-center">
+                -
+              </td>
+            </tr>
+            <tr>
+              <th colspan="2">価格</th>
+            </tr>
+            <tr>
+              <td><%= @item.price&.to_s(:delimited) %>円</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th colspan="2">容量</th>
+            </tr>
+            <tr>
+              <td><%= @item.capacity.name %></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th colspan="2">バッテリー</th>
+            </tr>
+            <tr>
+              <td><%= @item.battery.to_s(:delimited) %>mh</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th colspan="2">画面サイズ・本体サイズ（幅ｘ高さｘ厚さ）・重さ</th>
+            </tr>
+            <tr>
+              <td>
+                <%= @item.display %>インチ<br>
+                <%= @item.width %>mm x <%= @item.height %>mm x <%= @item.thickness %>mm<br>
+                <%= @item.weight %>g
+              </td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th colspan="2">防水・防塵</th>
+            </tr>
+            <tr>
+              <td><%= @item.waterploof_i18n %></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th colspan="2">認証</th>
+            </tr>
+            <tr>
+              <td><%= @item.authentication.name %></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th colspan="2">CPU</th>
+            </tr>
+            <tr>
+              <td><%= @item.central_processing_unit.name %></td>
+              <td>-</td>
+            </tr>
+            
+          </tbody>
+        </table>
+        
+        <div class="text-center">
+          <%= f.submit "比較する", class: "font-weight-bold btn btn-lg btn-warning rounded-0" %>
+        </div>
+      </div>
+      
+    <% end %>
+  </div>
+</div>

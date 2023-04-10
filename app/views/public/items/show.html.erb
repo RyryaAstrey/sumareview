@@ -10,7 +10,11 @@
     </div>
     
     <div class="col-6 px-0">
-      <h4 class="contents-head"><strong><%= @item.name %></strong></h4>
+      <div class="contents-head d-flex">
+        <h4 class="font-weight-bold"><%= @item.name %></h4>
+        <%= link_to "比較する", item_compare_path(@item.id), class: "btn btn-sm btn-secondary h-50 ml-3 my-auto" %>
+      </div>
+      
         
       <div class="p-3 bg-white shadow-sm">
         

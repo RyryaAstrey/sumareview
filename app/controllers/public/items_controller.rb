@@ -25,6 +25,9 @@ class Public::ItemsController < ApplicationController
   end
   
   def compare
+    @item = Item.find(params[:item_id])
+    interests = Interest.where(user_id: current_user.id).pluck(:item_id)
+    @interest_list = Item.find(interests)
   end
   
 end
