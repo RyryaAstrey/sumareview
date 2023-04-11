@@ -26,6 +26,12 @@ body{
 .link-hover >a:hover {
   color: #000!important;
 }
+
+.text-hidden {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /*ここまで基本装飾*/
 
 /*フッターを画面下に固定する*/
@@ -45,6 +51,10 @@ body > footer {
 /*ここまでplaceholderの装飾*/
 
 /*tableクラス系の装飾*/
+
+  .table-fixed {
+    table-layout: fixed;
+  }
 
   /*table-border-darkクラスでtableの枠線の色を黒にする*/
   .table-border-dark th, .table-border-dark td {
