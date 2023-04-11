@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   
   def autheniticate_user
     unless user_signed_in?
-      flash[:warning] = "ログインが必要です。"
+      flash[:warning] = "ログインが必要な機能です。"
       redirect_to new_user_session_path
     end
   end

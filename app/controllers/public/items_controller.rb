@@ -1,6 +1,10 @@
 class Public::ItemsController < ApplicationController
   before_action :search_template, only: [:index, :show]
   
+  # 制限
+  before_action :autheniticate_user, only: [:compare, :compare_result] # application_controllerに記述
+  before_action :ensure_guest_user, only: [:compare, :compare_result]
+  
   def index
     if params[:latest]
       @items = Item.latest.where(is_draft: false).page(params[:page]).per(10)
@@ -28,6 +32,30 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:item_id])
     interests = Interest.where(user_id: current_user.id).pluck(:item_id)
     @interest_list = Item.find(interests)
+  end
+  
+  def compare_result
+    @item = Item.find(params[:item_id])
+    if params[:item2_id].blank?
+      redirect_to request.referer
+      flash[:danger] = "比較したい機種を選択してください。"
+    else
+      @item2= Item.find(params[:item2_id])
+    end
+    
+    interests = Interest.where(user_id: current_user.id).pluck(:item_id)
+    @interest_list = Item.find(interests)
+  end
+  
+  private
+  
+  # ゲストユーザーが比較機能を利用できないようにする
+  def ensure_guest_user
+    @user = User.find(current_user.id)
+    if @user.name == "ゲストユーザー"
+      flash[:warning] = "比較機能の利用には気になるリストの作成が必要です。<br>気になるリストを作成するには、会員登録をする必要があります。"
+      redirect_to root_path
+    end
   end
   
 end

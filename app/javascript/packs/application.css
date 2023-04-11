@@ -56,6 +56,13 @@ body > footer {
     background-color: #dcdcdc;
   }
   
+  /*td内の要素を中央に寄せる*/
+  .table-td-center td {
+    text-align: center;
+    vertical-align: middle!important;
+    font-weight: bold;
+  }
+  
   /*セル全体をリンクにする*/
   .cell-link {
     padding: 0 !important;
