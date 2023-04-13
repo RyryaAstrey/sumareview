@@ -1,6 +1,10 @@
-<footer class="text-center bg-secondary py-2">
+<footer class="text-center bg-secondary">
   <div class="container">
-    <div class="mx-auto">
-      <!--フッターに機能追加したい時、ここに要素を追加-->
-    </div>
+    <nav class="navbar navbar-expand-lg">
+      <ul class="navbar-nav line-list text-white">
+        <li><%= link_to "スマレビュトップ", root_path, class: "link-style-none" %></li>
+        <li><%= link_to "使い方", about_path, class: "link-style-none" %></li>
+      </ul>
+    </nav>
   </div>
+</footer>

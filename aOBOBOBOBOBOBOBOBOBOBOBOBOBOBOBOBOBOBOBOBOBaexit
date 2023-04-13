@@ -1,0 +1,494 @@
+[33mcommit 28adba040ca20c5643ef089b6e77f0559b04f12e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: EC2 Default User <wfyt3790@gmail.com>
+Date:   Tue Apr 11 06:56:25 2023 +0000
+
+    機種一覧表の幅調整
+
+[33mcommit d68f6fdb44b963268ea72cafc188f012982d30b4[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Apr 11 02:22:46 2023 +0000
+
+    [FINISH]機種比較機能
+
+[33mcommit d40f6c30aa3b63a974acd7094ab8a121050dc244[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Apr 10 07:32:40 2023 +0000
+
+    機種比較機能compareビューファイルひとまず完成
+
+[33mcommit d04ce97b90f79f8b7e64d4d3248292e52f9efe25[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Apr 10 02:00:06 2023 +0000
+
+    [START]機種比較機能実装開始
+
+[33mcommit 31083cb8214c21027a9269d9349375f5e8611546[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Apr 7 07:04:23 2023 +0000
+
+    [FINISH]気になるリスト実装完了
+
+[33mcommit 7f2fbbc4e8d6b335714345a16131dc055dbcbfce[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Apr 7 02:43:22 2023 +0000
+
+    マイページに気になるリスト実装中
+
+[33mcommit 45cd41477ec22658cb700171d99f84d1e834a960[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Apr 6 08:45:30 2023 +0000
+
+    [Add]気になるボタン実装完了
+
+[33mcommit 6deebd784294ed4e0f1af633ad1fc5a0d493740a[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Apr 6 03:27:51 2023 +0000
+
+    [START]「気になる」機能
+
+[33mcommit 3ce1fd7545fd4f89ccc558a0df4b5e8eb45db5f7[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Apr 6 02:31:47 2023 +0000
+
+    微調整
+
+[33mcommit 6822febb978940888cc154600b886d4852315604[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 27 03:46:03 2023 +0000
+
+    [FINISH]README
+
+[33mcommit d53172c68649207fc666b0c31bb9b72addcfbb47[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 26 05:33:45 2023 +0000
+
+    [hotfix]ゲストログイン制限機能を復活
+
+[33mcommit 2058031946c431b8a880b5004f07b749fd74224a[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 26 02:24:31 2023 +0000
+
+    [hotfix]ページネーション設定
+
+[33mcommit af96b350e1d33e59af02b71b471a084d36d1feae[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 26 01:38:02 2023 +0000
+
+    [FINISH]リーダブルコード
+
+[33mcommit 23d13452aaea40cba1a18fb8d690dbb1ccd9f37f[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 26 00:56:12 2023 +0000
+
+    [Feature]モデル、CSS、public側コントローラーのリーダブルコード完了
+
+[33mcommit 4c6f41835ec2b690e68be59d0c61e17817895818[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 23 08:47:25 2023 +0000
+
+    [feature]admin側のリーダブルコード
+
+[33mcommit 9673c555a2e7d138ddb94bfec6c30f065ff449b6[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 23 08:11:22 2023 +0000
+
+    [hotfix]記事詳細に区分とメモリを表示
+
+[33mcommit 33ec1fd8902a5cb71118bd0eb4ddc4bfb705cbcf[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 23 07:49:31 2023 +0000
+
+    [hotfix]一意性バリデーション追加、shadowレイアウト調整
+
+[33mcommit c8d99a29ad64d8daa70e100a14579922d8757170[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 23 02:27:09 2023 +0000
+
+    [hotfix]publicユーザー編集でバリデーションエラーが出ない不具合修正
+
+[33mcommit 7d4ad8f76ca36238d819d92c8787261e16774b00[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 23 02:16:29 2023 +0000
+
+    [hotfix]カテゴリ検索における点数ソート機能修正
+
+[33mcommit e10fa2a1aa7afbb2da62600722944ae784e9d413[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 23 01:57:25 2023 +0000
+
+    [FINISH]投稿文章リンク有効化
+
+[33mcommit 66caa739e3e644b2a7dca734bccc0cd13b3d42b4[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 21 10:18:50 2023 +0000
+
+    [feature]外部リンク表示機能（admin側は完了）
+
+[33mcommit 0d511d6560fdf7c4461687edf985c956e87d2d3e[m
+Merge: 8297951 2fec53e
+Author: Yato <119737958+RyryaAstrey@users.noreply.github.com>
+Date:   Tue Mar 21 15:11:58 2023 +0900
+
+    Merge pull request #3 from RyryaAstrey/feature
+    
+    Feature
+
+[33mcommit 2fec53e7ba9cc6f4cbaab9272d4046bb4557eb85[m[33m ([m[1;31morigin/feature[m[33m, [m[1;32mfeature[m[33m)[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 21 06:11:11 2023 +0000
+
+    [FINISH]テスト環境でのテスト
+
+[33mcommit 421785ea99ec8ede0ede21483f348d33434a5e9b[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 21 05:47:30 2023 +0000
+
+    [FINISH]コメント編集機能、平均点ソート機能
+
+[33mcommit a7adec8c41af2fa88fe434651f8bf6b0d0237e66[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 21 02:29:43 2023 +0000
+
+    [feature]コメントid表示削除、コメント編集機能実装開始
+
+[33mcommit fe1d27d31e711179405f3c585fa8e5a3d71b9846[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 20 10:27:33 2023 +0000
+
+    [hotfix]スライド機能の修正
+
+[33mcommit e9faef38b74c11e0f9b6ea1583038f0fe72fc5f1[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 19 11:39:03 2023 +0000
+
+    [feature]スライド機能実装（管理者記事詳細画面のみ）
+
+[33mcommit 9fef68c027f1b6567dd8ee2686f2c28329cf7aaa[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 19 06:28:32 2023 +0000
+
+    [hotfix]記事の画像が投稿できない不具合を修正
+
+[33mcommit b94ddbde7889a64b7f99c98985152f03cb8ebe2a[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 19 04:30:00 2023 +0000
+
+    [hotfix]検索機能修正、ソート機能修正
+
+[33mcommit b5847852ba7b46ca8414651b1e87d1a458b0cda6[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 19 02:31:34 2023 +0000
+
+    [feature]ソート機能実装中
+
+[33mcommit f25d8ef790071420494202365ccb42f786755198[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 17 09:23:22 2023 +0000
+
+    [feature]ソート機能実装中
+
+[33mcommit 5513b30067b9b7a68b0b28c031ee972b8a07d56c[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 17 06:29:07 2023 +0000
+
+    deploy setting2
+
+[33mcommit 5320604a4f10c24dd0d2508b9e68ee747c265ee4[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 17 04:49:04 2023 +0000
+
+    deploy setting
+
+[33mcommit 09b911df7b38cff12cad2dab5c59767bf5e2f197[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 17 04:19:49 2023 +0000
+
+    [FINISH]管理者コメント一覧画面
+
+[33mcommit d37e9e6b9909a52f831e30f05b22299bc50f3f86[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 17 03:54:09 2023 +0000
+
+    [FINISH]ユーザー側コメント一覧ページ作成
+
+[33mcommit e835138c5914be837dc19ee2436e96a515651c9f[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 17 02:30:00 2023 +0000
+
+    [FINISH]管理者メニュー追加
+
+[33mcommit 905ac3527088a42ab9f9a852f0bdd07c6f0813e2[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 17 01:37:31 2023 +0000
+
+    [FINISH]会員側記事一覧修正、メニュー追加
+
+[33mcommit 067f3e8bc2ffa5299e61c6ac74b9d4c5c67d18fc[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 16 11:00:57 2023 +0000
+
+    [hotfix]管理者ログイン制限機能
+
+[33mcommit 4361622e7fa5b97b2b44d534f2ed70f40fc193c9[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 16 10:30:08 2023 +0000
+
+    [FINISH]ログイン制限機能
+
+[33mcommit 443dde24020f1d72ed30a246c27ae02d473b41e3[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 16 06:45:10 2023 +0000
+
+    [FINISH]検索機能
+
+[33mcommit 328e0833301e9c0d5af093042521c9b6f349a991[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 16 01:32:33 2023 +0000
+
+    [Add]検索機能仮実装（機種名のみ検索可能）
+
+[33mcommit d5450867f2a468c26eebf6937cc81cefeab4d89f[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 14 10:17:54 2023 +0000
+
+    [FINISH]平均点表示
+
+[33mcommit a6f87ea402d446a6f07c3c63c04f447a489657eb[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 14 09:28:48 2023 +0000
+
+    検索機能中断　& [FINISH]一度コメントした記事にコメントできなくする機能
+
+[33mcommit 7fced3bd67459ce7a476ad09363a56cc82dbac27[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 14 02:32:20 2023 +0000
+
+    [START]詳細検索機能の実装
+
+[33mcommit 5f0e54684dd4668c0cee4884d9f3c7a04389704a[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 14 02:18:35 2023 +0000
+
+    [FINISH]参考になったの非同期通信
+
+[33mcommit 07fc337af332446e4854433ec4156e734675a393[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 14 01:33:39 2023 +0000
+
+    [FINISH]参考になったボタン実装
+
+[33mcommit 6c8c99d647ed4c4a7fde758c39970c672f72cfc2[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 13 10:25:17 2023 +0000
+
+    [FINISH]新着記事リスト
+
+[33mcommit 3ad11fd93e19a489b97297bc12d6b72ed9cfd0ed[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 13 05:15:03 2023 +0000
+
+    [FINIDH]管理者コメント削除機能
+
+[33mcommit 85c86c6c3e11ca49e7469ec42ada42739bcba7d2[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 13 04:42:13 2023 +0000
+
+    [FINISH]管理者会員情報管理機能・画面
+
+[33mcommit 49ef1977104752c22b5305ae66df1ea5857adfb3[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 13 02:31:39 2023 +0000
+
+    [FINISH]ユーザー一覧、詳細、編集画面
+
+[33mcommit 727bb269a1ac9ba771c4a9f3210b7c52a18d79b2[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 12 09:31:32 2023 +0000
+
+    [FINISH]コメント表示機能
+
+[33mcommit c59bab3b37d1883664efe7fe5978ed2a04fb02a0[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 12 08:10:30 2023 +0000
+
+    [FINISH]コメント投稿機能
+
+[33mcommit 96e1da68372d8488ed20881626b156906dec8fe9[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 12 02:31:00 2023 +0000
+
+    public側の記事詳細ページ製作中
+
+[33mcommit d5b75be44bebed50c241c84b8f1b9a1e6cf1eb38[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 10 08:34:23 2023 +0000
+
+    [FINISH]記事編集機能（下書き含む）
+
+[33mcommit f2121d1bc311964ac11416573db8d69391dc930f[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 10 07:48:05 2023 +0000
+
+    [FINISH]カテゴリ編集機能
+
+[33mcommit 20ea71a5fb8b547b71597b33dc72ee693dcabdcb[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Fri Mar 10 02:29:53 2023 +0000
+
+    [FINISH]管理者新規投稿機能、カテゴリ削除機能
+
+[33mcommit 909fc7a3aad2e6e3098be238888143c1156d9735[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 9 09:06:29 2023 +0000
+
+    [FINISH]カテゴリ新規登録機能
+
+[33mcommit 8af37d28fa136dd1d9ab9a1c5827befea739e056[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 9 06:38:24 2023 +0000
+
+    [FINISH]検索、記事新規投稿部分テンプレート作成
+
+[33mcommit 89d177f874ac19c517ff1af7d826219190715f03[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 9 02:32:06 2023 +0000
+
+    [FINISH]管理者記事新規登録画面
+
+[33mcommit 354b20c72ad50c8e89720ec0bb3fdb033d2657df[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Thu Mar 9 01:16:07 2023 +0000
+
+    管理者記事新規投稿機能スペック関係の入力フォーム完了
+
+[33mcommit b7e98e15646bcf56afb4564d3e328d76d7f7a7dc[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 7 08:40:17 2023 +0000
+
+    [FEATURE]管理者新規記事投稿機能
+
+[33mcommit 8756ca38a0827ea412c41d04ef76ee1f4c5650e9[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 7 07:31:10 2023 +0000
+
+    [FINISH]会員退会機能（エンドユーザ側）
+
+[33mcommit 81ead63b0957a29d1d13615b9e029c0cc4b368ab[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 7 05:35:31 2023 +0000
+
+    [FINISH]会員情報編集機能（エンドユーザ側）
+
+[33mcommit 78f521c3ef0f70b2e5c1e59305e4386a371ed354[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 7 04:48:38 2023 +0000
+
+    [FINISH]会員情報編集画面
+
+[33mcommit 55e6d4205b02b14540c25f6fea2e8a328da3ae1c[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Mar 7 02:31:42 2023 +0000
+
+    [FINISH]ログイン・ログアウト・会員新規登録機能の追加（管理者、会員両方とも
+
+[33mcommit 1c315488db0ddff2cbd8982aa4204180dcc10d7b[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 6 09:30:53 2023 +0000
+
+    [HINIS]ヘッダーとフッターの機能完成（装飾は後程）
+
+[33mcommit ff174c37799ba222341e444da5bd07c01a40c063[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 6 06:49:38 2023 +0000
+
+    [Add]authenticationsテーブル追加
+
+[33mcommit c571abdd5ed9724b7d4911335455f00140a5e620[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 6 04:56:25 2023 +0000
+
+    [FINISH]Font Aewsomeの導入
+
+[33mcommit e290335b24b0d8a3568923bdacd6c5ca9cf4be52[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 6 04:50:23 2023 +0000
+
+    bootstrap導入
+
+[33mcommit 3f399e01b605a7a696be0017133dda0f74c7b85f[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 6 04:47:59 2023 +0000
+
+    [FINISH]ルーティング、コントローラ作成　deviseの日本語化
+
+[33mcommit d2e97411f3c414a07a852e9975f662fb6b02e66a[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 6 02:31:00 2023 +0000
+
+    public側ルーティング製作中
+
+[33mcommit 6a15e7a5b630ebac3caedaf279d5ccc0c0093d3b[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 6 01:00:32 2023 +0000
+
+    [FINISH]rails db:migrate
+
+[33mcommit 2718db75b70c7ff7a10139c7ccf5f147cf6a9eab[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Mon Mar 6 00:45:25 2023 +0000
+
+    [FINISH]カテゴリー系テーブル作成
+
+[33mcommit fd6cddd361d6e52d0fe70d62b3624aa779872bb8[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Sun Mar 5 09:40:14 2023 +0000
+
+    [FINISH]モデル作成、itemsテーブルのカラム記述（db:migrateは未実行）
+
+[33mcommit 8297951fa27eca6fe469dc205bd5ebc7f37a84e7[m
+Merge: e43272e 3fda0ea
+Author: Yato <119737958+RyryaAstrey@users.noreply.github.com>
+Date:   Wed Mar 1 13:15:14 2023 +0900
+
+    Merge pull request #2 from RyryaAstrey/feature
+    
+    README　修正
+
+[33mcommit 3fda0ea15d7b020e162af5757fe774bacfc2d87a[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Wed Mar 1 04:08:39 2023 +0000
+
+    [FINISH]README修正
+
+[33mcommit 5014d51284f66fb8d9bb7b57b258d5bb2b374606[m
+Merge: c5d5064 9c34944
+Author: Yato <119737958+RyryaAstrey@users.noreply.github.com>
+Date:   Tue Feb 28 15:23:52 2023 +0900
+
+    Merge pull request #1 from RyryaAstrey/feature-README.md
+    
+    Feature readme.md
+
+[33mcommit 9c34944dadeaa3a1c7b6ff71f776dd977e85712f[m[33m ([m[1;31morigin/feature-README.md[m[33m, [m[1;32mfeature-README.md[m[33m)[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Feb 28 06:22:46 2023 +0000
+
+    [FINISH]README.md
+
+[33mcommit f9ee49f5f298b11e9a656a3e02a6c400c712ad94[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Feb 28 06:17:19 2023 +0000
+
+    README記述開始
+
+[33mcommit c5d5064e9c73970a5dc1305c4f264affeef8e57e[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Feb 28 06:15:00 2023 +0000
+
+    first commit
+
+[33mcommit e43272e2509f3dd56f235c34d8481f618bb13cb6[m
+Author: EC2 Default User <ec2-user@ip-172-31-14-254.ap-northeast-1.compute.internal>
+Date:   Tue Feb 28 06:07:54 2023 +0000
+
+    [START]PF制作

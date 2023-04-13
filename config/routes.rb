@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # 一般ユーザーで使用するルーティング
   scope module: :public do
     root to: 'homes#top'
+    get 'about' => 'homes#about', as: :about
     
     # 投稿記事関連
     resources :items, only: [:index, :show] do
