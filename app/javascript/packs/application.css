@@ -18,21 +18,39 @@ body{
   background-color: #fcfcfc !important
 }
 
-/*リンクの装飾を失くす*/
-.link-style-none {
-  text-decoration: none!important;
-  color: inherit;
-}
-
-.link-hover >a:hover {
-  color: #000!important;
-}
+  /*リンクの装飾を失くす*/
+  .link-style-none {
+    text-decoration: none!important;
+    color: inherit;
+  }
+  
+  .link-hover >a:hover {
+    color: #000!important;
+  }
+  /*ここまでリンク装飾関連*/
 
 .text-hidden {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+  /*線つきリストの装飾*/
+  .border-list li {
+    margin-right: 10px;
+  }
+
+  .border-list li:after {
+    content: "|";
+    margin-left: 10px;
+    font-size: 20px;
+  }
+  
+  .border-list li:last-child:after {
+    content: "";
+    margin-left: 0;
+  }
+  /*ここまで線つきリストの装飾*/
 /*ここまで基本装飾*/
 
 /*フッターを画面下に固定する*/

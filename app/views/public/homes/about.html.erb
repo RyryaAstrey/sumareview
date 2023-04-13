@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row bg-white p-4">
+    <div class="border-bottom w-100">
+      <h1>スマレビュの使い方</h1>
+    </div>
+    
+    <div class="p-3">
+      <h4 class="font-weight-bold">はじめに</h4>
+      <p>
+        携帯端末レビューサイトの「スマレビュ」では、サイト内に登録されているスマホやタブレットなどの携帯端末情報を閲覧することができます。<br>
+        また、携帯端末を使ってみた感想、あるいはスペックを見て思った感想を点数と共にコメントとして投稿することも可能です。<br>
+        あなたが今、使用している携帯端末の使用感や「こんなことができた！」などの情報を共有しましょう！
+      </p>
+      
+      <div class="bg-secondary text-white p-2 mb-2">
+        <h4 class="font-weight-bold">会員登録が必要な機能</h4>
+      </div>
+      <strong>以下の機能を利用するには、アカウント登録（無料）が必要です。</strong>
+      <ul class="mt-2">
+        <li>コメント機能</li>
+        <li>お気に入り機能（気になるボタン）</li>
+        <li>機種比較機能</li>
+      </ul>
+      <%= link_to "新規登録/ログイン", new_user_registration_path, class: "btn btn-primary rounded-0" %>
+      
+      <div class="bg-secondary text-white p-2 mt-3 mb-2">
+        <h4 class="font-weight-bold">コメントの仕方</h4>
+      </div>
+      <strong>機種に対するコメントを行うには、機種ページの最下部にある「コメントする」ボタンをクリックします。</strong>
+    </div>
+  </div>
+</div>
