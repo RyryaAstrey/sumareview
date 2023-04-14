@@ -18,7 +18,7 @@
       <strong>以下の機能を利用するには、アカウント登録（無料）が必要です。</strong>
       <ul class="mt-2">
         <li>コメント機能</li>
-        <li>お気に入り機能（気になるボタン）</li>
+        <li>気になるボタン（お気に入り機能）</li>
         <li>機種比較機能</li>
       </ul>
       <%= link_to "新規登録/ログイン", new_user_registration_path, class: "btn btn-primary rounded-0" %>
@@ -26,7 +26,32 @@
       <div class="bg-secondary text-white p-2 mt-3 mb-2">
         <h4 class="font-weight-bold">コメントの仕方</h4>
       </div>
-      <strong>機種に対するコメントを行うには、機種ページの最下部にある「コメントする」ボタンをクリックします。</strong>
+      <strong>機種に対するコメントを行うには、機種ページの最下部にある「コメントする」ボタンをクリックします。</strong><br>
+      <p class="mt-2">
+        コメント投稿ページでは、その機種に対する点数とコメントを記入することができます。<br>
+        点数は1～100点での入力が必要になります。<br>
+        コメントはその機種を使ってみた感想、または他の機種と比べてどんなイメージがあるかなどを記入します。<br>
+        なお、<strong class="text-danger">1ユーザーが同じ機種ページに二回以上コメントをすることはできません</strong>。
+      </p>
+      
+      <div class="bg-secondary text-white p-2 mt-3 mb-2">
+        <h4 class="font-weight-bold">気になるボタン（お気に入り機能）について</h4>
+      </div>
+      <strong>機種ページにある「気になる」ボタンをクリックすると、その機種をお気に入り登録することができます。</strong><br>
+      <p class="mt-2">
+        お気に入り登録された機種は、ご自身のマイページからいつでも確認することが可能です。<br>
+        また、お気に入り登録を解除したい場合は、もう一度「気になるボタン」をクリックするか、<br>
+        マイページの気になるリストからゴミ箱アイコンをクリックすることで削除が可能です。
+      </p>
+      
+      <div class="bg-secondary text-white p-2 mt-3 mb-2">
+        <h4 class="font-weight-bold">機種比較機能について</h4>
+      </div>
+      <strong>機種同士の比較は、機種ページにある「比較するボタン」から行うことが可能です。</strong>
+      <p class="mt-2">
+        機種の比較ページでは、お気に入り登録されている機種と対象の機種を比較することが可能です。<br>
+        <strong class="text-danger">お気に入りリストがない場合、機種の比較を行うことができません</strong>。
+      </p>
     </div>
   </div>
 </div>
